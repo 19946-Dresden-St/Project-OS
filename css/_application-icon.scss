@@ -6,7 +6,7 @@
   position: absolute;
   bottom: 20%;
 
-  .app-container {
+  .container {
     width: 24%;
     margin-left: auto;
     margin-right: auto;
@@ -25,7 +25,7 @@
       /*box-shadow: 0 0 15px #ffee10;*/
       text-shadow: 0 0 5px $dt-cyan;
       background-color: $dt-dark-purple;
-      box-shadow: $dt-cyan 0px 2px 4px 0px, $dt-medium-purple 0px 2px 16px 0px;
+      box-shadow: $dt-box-shadow;
     }
 
     img {

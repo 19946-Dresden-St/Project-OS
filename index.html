@@ -22,7 +22,7 @@
 
         <div id="apps-row">
             <div>
-                <div class="app-container">
+                <div class="container">
                     <a href="#app-settings">
                         <div>
                             <img src="/assets/icons/setting.png" alt="settings">
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div>
-                <div class="app-container">
+                <div class="container">
                     <a href="">
                         <div>
                             <img src="/assets/icons/calculator.png" alt="calculator">
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div>
-                <div class="app-container">
+                <div class="container">
                     <a href="">
                         <div>
                             <img src="/assets/icons/tic-tac-toe.png" alt="toc tac toe">
@@ -67,10 +67,41 @@
                     <div class="category-setting">
                         <h3>Date</h3>
                         <div>
-                            <label class="switch" for="toto">
-                                <input name="toto" id="toto"  type="checkbox">
-                                <span class="slider"></span>
-                            </label> Switch 3
+                            <div>
+                                <label class="switch" for="displayDate">
+                                    <input name="displayDate" id="displayDate" type="checkbox">
+                                    <span class="slider"></span>
+                                </label> Afficher la date
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-setting">
+                        <h3>Heure</h3>
+                        <div>
+                            <div>
+                                <label class="switch" for="displayTime">
+                                    <input name="displayTime" id="displayTime" type="checkbox">
+                                    <span class="slider"></span>
+                                </label> Display current time
+                            </div>
+                            <div>
+                                <label class="switch" for="displayHours">
+                                    <input name="displayHours" id="displayHours" type="checkbox" checked="checked">
+                                    <span class="slider"></span>
+                                </label> Hide hours
+                            </div>
+                            <div>
+                                <label class="switch" for="displayMins">
+                                    <input name="displayMins" id="displayMins" type="checkbox">
+                                    <span class="slider"></span>
+                                </label> Hide minutes
+                            </div>
+                            <div>
+                                <label class="switch" for="displaySecs">
+                                    <input name="displaySecs" id="displaySecs" type="checkbox">
+                                    <span class="slider"></span>
+                                </label> Hide seconds
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -87,6 +118,17 @@
     let timeContainer = document.getElementById('clock');
 
 
+    function load() {
+        let calendarDisplay = localStorage.getItem('calendarDisplay');
+        let switchDate = document.getElementById('displayDate');
+        if (calendarDisplay === 'true') {
+            switchDate.checked = true;
+        }
+    }
+
+    load();
+
+
     // creates and initializes the date
     let calendar = new Calendar();
     calendar.initDate(dateContainer)
@@ -95,6 +137,14 @@
     let clock = new Clock();
     clock.initTime(timeContainer);
 
+
+    // listens to clicks on the switches to update the display
+    document.getElementById('displayDate').addEventListener('click', function () {
+        hide('calendarDisplay', dateContainer);
+    });
+    document.getElementById('displayTime').addEventListener('click', function () {
+        hide('clockDisplay', timeContainer);
+    });
 
     /*
     * Hides an element / a feature depending on the settings saved in the local storage
