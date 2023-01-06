@@ -1,0 +1,23 @@
+{
+  "name": "project-os",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/19946-Dresden-St/Project-OS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/19946-Dresden-St/Project-OS/issues"
+  },
+  "homepage": "https://github.com/19946-Dresden-St/Project-OS#readme",
+  "dependencies": {
+    "node-sass": "^8.0.0",
+    "sass": "^1.57.1"
+  }
+}

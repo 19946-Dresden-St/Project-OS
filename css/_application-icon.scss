@@ -1,0 +1,44 @@
+@import "./variables";
+
+#apps-row {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 20%;
+
+  .app-container {
+    width: 24%;
+    margin-left: auto;
+    margin-right: auto;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      padding: 1rem 0;
+      transition: .5s;
+      border-radius: 8px;
+    }
+
+    a:hover {
+      /*box-shadow: 0 0 15px #ffee10;*/
+      text-shadow: 0 0 5px $dt-cyan;
+      background-color: $dt-dark-purple;
+      box-shadow: $dt-cyan 0px 2px 4px 0px, $dt-medium-purple 0px 2px 16px 0px;
+    }
+
+    img {
+      max-width: 72%;
+      max-height: 72%;
+      margin-left: 14%;
+    }
+
+    p {
+      font-size: 1rem;
+      color: whitesmoke;
+    }
+
+  }
+
+}

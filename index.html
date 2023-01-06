@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/application-window.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Title</title>
 </head>
 <body>
@@ -18,13 +17,14 @@
         <div>
             <button onclick="hide('calendarDisplay', dateContainer)">Hide calendar</button>
             <button onclick="hide('clockDisplay', timeContainer)">Hide clock</button>
+
         </div>
 
-        <div id="apps-container">
+        <div id="apps-row">
             <div>
-                <div class="app-icon-container">
+                <div class="app-container">
                     <a href="#app-settings">
-                        <div class="app-icon">
+                        <div>
                             <img src="/assets/icons/setting.png" alt="settings">
                         </div>
                         <div>
@@ -34,9 +34,9 @@
                 </div>
             </div>
             <div>
-                <div class="app-icon-container">
+                <div class="app-container">
                     <a href="">
-                        <div class="app-icon">
+                        <div>
                             <img src="/assets/icons/calculator.png" alt="calculator">
                         </div>
                         <div>
@@ -46,9 +46,9 @@
                 </div>
             </div>
             <div>
-                <div class="app-icon-container">
+                <div class="app-container">
                     <a href="">
-                        <div class="app-icon">
+                        <div>
                             <img src="/assets/icons/tic-tac-toe.png" alt="toc tac toe">
                         </div>
                         <div>
@@ -116,62 +116,5 @@
 
 <style>
 
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        font-family: "Geneva", sans-serif;
-    }
-
-    main {
-        height: 100vh;
-        background-image: url("assets/img/background.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    #apps-container {
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        bottom: 20%;
-    }
-
-    .app-icon-container {
-        width: 24%;
-        margin-left: auto;
-        margin-right: auto;
-        /*transition: transform .8s;*/
-    }
-
-    .app-icon-container a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        padding: 1rem 0;
-        transition: .5s;
-        border-radius: 8px;
-    }
-
-    .app-icon-container a:hover {
-        /*box-shadow: 0 0 15px #ffee10;*/
-        text-shadow: 0 0 5px #10EBFFFF;
-        background-color: #190a2fe0;
-        box-shadow: #00CEEF 0px 2px 4px 0px, #9D15D5FF 0px 2px 16px 0px;
-    }
-
-    .app-icon-container p {
-        font-size: 1rem;
-        color: whitesmoke;
-    }
-
-   .app-icon img {
-       max-width: 72%;
-       max-height: 72%;
-       margin-left: 14%;
-    }
 
 </style>
