@@ -3,33 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/application-window.css">
     <title>Title</title>
 </head>
 <body>
 
     <main>
         <header>
-                <div>
-                    &nbsp;
-                </div>
+                <div></div>
                 <div id="calendar"></div>
+                <div>&nbsp;</div>
                 <div id="clock"></div>
         </header>
+        <div>
+            <button onclick="hide('calendarDisplay', dateContainer)">Hide calendar</button>
+            <button onclick="hide('clockDisplay', timeContainer)">Hide clock</button>
+        </div>
+
+        <div id="apps-container">
+            <div>
+                <div class="app-icon-container">
+                    <a href="#app-settings">
+                        <div class="app-icon">
+                            <img src="/assets/icons/setting.png" alt="settings">
+                        </div>
+                        <div>
+                            <p>Settings</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <div class="app-icon-container">
+                    <a href="">
+                        <div class="app-icon">
+                            <img src="/assets/icons/calculator.png" alt="calculator">
+                        </div>
+                        <div>
+                            <p>Calculator</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <div class="app-icon-container">
+                    <a href="">
+                        <div class="app-icon">
+                            <img src="/assets/icons/tic-tac-toe.png" alt="toc tac toe">
+                        </div>
+                        <div>
+                            <p>Settings</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="app-settings" class="overlay">
+            <div class="popup">
+                <h2>Settings</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    <div class="category-setting">
+                        <h3>Date</h3>
+                        <div>
+                            <label class="switch" for="toto">
+                                <input name="toto" id="toto"  type="checkbox">
+                                <span class="slider"></span>
+                            </label> Switch 3
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
 </body>
-<script type="module" src="main.js"></script>
+<script src="js/calendar.js"></script>
+<script src="js/clock.js"></script>
 <script>
+    // containers
+    let dateContainer = document.getElementById('calendar');
+    let timeContainer = document.getElementById('clock');
 
+
+    // creates and initializes the date
+    let calendar = new Calendar();
+    calendar.initDate(dateContainer)
+
+    // creates and initializes the clock
+    let clock = new Clock();
+    clock.initTime(timeContainer);
+
+
+    /*
+    * Hides an element / a feature depending on the settings saved in the local storage
+    * @param storage - setting key's name
+    * @param container - container #id of the element to hide
+    */
+    function hide(storage, container) {
+        if (localStorage.getItem(storage) === "false") {
+            container.style.display = "block";
+            localStorage.setItem(storage, "true");
+        } else {
+            container.style.display = "none";
+            localStorage.setItem(storage, "false");
+        }
+    }
 
 </script>
 </html>
 
 <style>
-
-    root {
-
-    }
 
     * {
         margin: 0;
@@ -37,7 +122,7 @@
     }
 
     body {
-        font-family: 'Fantasque Sans Mono', monospace;
+        font-family: "Geneva", sans-serif;
     }
 
     main {
@@ -46,4 +131,47 @@
         background-size: cover;
         background-repeat: no-repeat;
     }
+
+    #apps-container {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 20%;
+    }
+
+    .app-icon-container {
+        width: 24%;
+        margin-left: auto;
+        margin-right: auto;
+        /*transition: transform .8s;*/
+    }
+
+    .app-icon-container a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        padding: 1rem 0;
+        transition: .5s;
+        border-radius: 8px;
+    }
+
+    .app-icon-container a:hover {
+        /*box-shadow: 0 0 15px #ffee10;*/
+        text-shadow: 0 0 5px #10EBFFFF;
+        background-color: #190a2fe0;
+        box-shadow: #00CEEF 0px 2px 4px 0px, #9D15D5FF 0px 2px 16px 0px;
+    }
+
+    .app-icon-container p {
+        font-size: 1rem;
+        color: whitesmoke;
+    }
+
+   .app-icon img {
+       max-width: 72%;
+       max-height: 72%;
+       margin-left: 14%;
+    }
+
 </style>
