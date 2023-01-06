@@ -1,0 +1,80 @@
+/* Calculator Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+  
+
+  
+  /* Calculator */
+  #calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #calculator .output {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    font-size: 36px;
+    color: #333;
+  }
+  
+  #calculator .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  #calculator button {
+    width: 25%;
+    height: 60px;
+    font-size: 18px;
+    border: none;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  #calculator button:hover {
+    background-color: #eee;
+  }
+  
+  #calculator button.operation {
+    background-color: #fa8231;
+    color: #fff;
+  }
+  
+  #calculator button.operation:hover {
+    background-color: #fb9437;
+  }
+  
+  #calculator button.equal {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  #calculator button.equal:hover {
+    background-color: #5cb85c;
+  }
+  
