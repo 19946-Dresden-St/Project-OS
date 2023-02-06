@@ -1,6 +1,7 @@
 @import "./_header";
 @import "./_application-icon";
 @import "./_application-window";
+@import "./_themes";
 @import "./_variables";
 
 * {
@@ -17,4 +18,20 @@ main {
   background-image: url("../assets/img/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.dt {
+
+  main {
+    background-image: url("../assets/img/background.jpg");
+  }
+
+}
+
+.lt {
+
+  main {
+    background-image: url("../assets/img/bg-lt.png");
+  }
+
 }

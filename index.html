@@ -1,170 +1,115 @@
+<!--RUN : node-sass css/style.scss css/style.css -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Title</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Title</title>
+    </head>
+    <body class="dt">
 
-    <main>
-        <header>
-                <div></div>
-                <div id="calendar"></div>
-                <div>&nbsp;</div>
-                <div id="clock"></div>
-        </header>
-        <div>
-            <button onclick="hide('calendarDisplay', dateContainer)">Hide calendar</button>
-            <button onclick="hide('clockDisplay', timeContainer)">Hide clock</button>
+        <main>
+            <header>
+                    <div></div>
+                    <div id="calendar"></div>
+                    <div>&nbsp;</div>
+                    <div id="clock"></div>
+            </header>
 
-        </div>
-
-        <div id="apps-row">
             <div>
-                <div class="container">
-                    <a href="#app-settings">
-                        <div>
-                            <img src="/assets/icons/setting.png" alt="settings">
-                        </div>
-                        <div>
-                            <p>Settings</p>
-                        </div>
-                    </a>
-                </div>
+                <button id="theme-btn">Toggle Dark Mode</button>
             </div>
-            <div>
-                <div class="container">
-                    <a href="">
-                        <div>
-                            <img src="/assets/icons/calculator.png" alt="calculator">
-                        </div>
-                        <div>
-                            <p>Calculator</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div>
-                <div class="container">
-                    <a href="">
-                        <div>
-                            <img src="/assets/icons/tic-tac-toe.png" alt="toc tac toe">
-                        </div>
-                        <div>
-                            <p>Settings</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
 
-        <div id="app-settings" class="overlay">
-            <div class="popup">
-                <h2>Settings</h2>
-                <a class="close" href="#">&times;</a>
-                <div class="content">
-                    <div class="category-setting">
-                        <h3>Date</h3>
-                        <div>
+            <div id="apps-row">
+                <div>
+                    <div class="container">
+                        <a href="#app-settings">
                             <div>
-                                <label class="switch" for="displayDate">
-                                    <input name="displayDate" id="displayDate" type="checkbox">
-                                    <span class="slider"></span>
-                                </label> Afficher la date
+                                <img src="./assets/icons/setting.png" alt="settings">
                             </div>
-                        </div>
+                            <div>
+                                <p>Settings</p>
+                            </div>
+                        </a>
                     </div>
-                    <div class="category-setting">
-                        <h3>Heure</h3>
-                        <div>
+                </div>
+                <div>
+                    <div class="container">
+                        <a href="">
                             <div>
-                                <label class="switch" for="displayTime">
-                                    <input name="displayTime" id="displayTime" type="checkbox">
-                                    <span class="slider"></span>
-                                </label> Display current time
+                                <img src="./assets/icons/calculator.png" alt="calculator">
                             </div>
                             <div>
-                                <label class="switch" for="displayHours">
-                                    <input name="displayHours" id="displayHours" type="checkbox" checked="checked">
-                                    <span class="slider"></span>
-                                </label> Hide hours
+                                <p>Calculator</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <div class="container">
+                        <a href="">
+                            <div>
+                                <img src="./assets/icons/tic-tac-toe.png" alt="toc tac toe">
                             </div>
                             <div>
-                                <label class="switch" for="displayMins">
-                                    <input name="displayMins" id="displayMins" type="checkbox">
-                                    <span class="slider"></span>
-                                </label> Hide minutes
+                                <p>Settings</p>
                             </div>
-                            <div>
-                                <label class="switch" for="displaySecs">
-                                    <input name="displaySecs" id="displaySecs" type="checkbox">
-                                    <span class="slider"></span>
-                                </label> Hide seconds
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
 
-</body>
-<script src="js/calendar.js"></script>
-<script src="js/clock.js"></script>
-<script>
-    // containers
-    let dateContainer = document.getElementById('calendar');
-    let timeContainer = document.getElementById('clock');
+            <div id="app-settings" class="overlay">
+                <div class="popup">
+                    <h2>Settings</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        <div class="category-setting">
+                            <h3>Date</h3>
+                            <div>
+                                <div>
+                                    <label class="switch" for="displayDate">
+                                        <input name="displayDate" id="displayDate" type="checkbox">
+                                        <span class="slider"></span>
+                                    </label> Afficher la date
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-setting">
+                            <h3>Heure</h3>
+                            <div>
+                                <div>
+                                    <label class="switch" for="displayTime">
+                                        <input name="displayTime" id="displayTime" type="checkbox">
+                                        <span class="slider"></span>
+                                    </label> Display current time
+                                </div>
+                                <div>
+                                    <label class="switch" for="displayHours">
+                                        <input name="displayHours" id="displayHours" type="checkbox" checked="checked">
+                                        <span class="slider"></span>
+                                    </label> Hide hours
+                                </div>
+                                <div>
+                                    <label class="switch" for="displayMins">
+                                        <input name="displayMins" id="displayMins" type="checkbox">
+                                        <span class="slider"></span>
+                                    </label> Hide minutes
+                                </div>
+                                <div>
+                                    <label class="switch" for="displaySecs">
+                                        <input name="displaySecs" id="displaySecs" type="checkbox">
+                                        <span class="slider"></span>
+                                    </label> Hide seconds
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
 
-
-    function load() {
-        let calendarDisplay = localStorage.getItem('calendarDisplay');
-        let switchDate = document.getElementById('displayDate');
-        if (calendarDisplay === 'true') {
-            switchDate.checked = true;
-        }
-    }
-
-    load();
-
-
-    // creates and initializes the date
-    let calendar = new Calendar();
-    calendar.initDate(dateContainer)
-
-    // creates and initializes the clock
-    let clock = new Clock();
-    clock.initTime(timeContainer);
-
-
-    // listens to clicks on the switches to update the display
-    document.getElementById('displayDate').addEventListener('click', function () {
-        hide('calendarDisplay', dateContainer);
-    });
-    document.getElementById('displayTime').addEventListener('click', function () {
-        hide('clockDisplay', timeContainer);
-    });
-
-    /*
-    * Hides an element / a feature depending on the settings saved in the local storage
-    * @param storage - setting key's name
-    * @param container - container #id of the element to hide
-    */
-    function hide(storage, container) {
-        if (localStorage.getItem(storage) === "false") {
-            container.style.display = "block";
-            localStorage.setItem(storage, "true");
-        } else {
-            container.style.display = "none";
-            localStorage.setItem(storage, "false");
-        }
-    }
-
-</script>
+    </body>
+    <script type="module" src="main.js"></script>
 </html>
-
-<style>
-
-
-</style>
