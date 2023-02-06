@@ -33,7 +33,7 @@ document.getElementById('displayTime').addEventListener('click', function () {
 });
 
 // Listen to the click event on the theme button to switch between dark and light mode
-document.getElementById('theme-btn').addEventListener('click', function () {
+document.getElementById('theme-btn').addEventListener('change', function () {
     settings.switchTheme();
 });
 

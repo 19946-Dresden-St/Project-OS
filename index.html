@@ -5,20 +5,28 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>Title</title>
     </head>
     <body class="dt">
 
         <main>
             <header>
-                    <div></div>
-                    <div id="calendar"></div>
-                    <div>&nbsp;</div>
-                    <div id="clock"></div>
+                <div id="div-theme">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                    <label class="switch">
+                        <input id="theme-btn" type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div></div>
+                <div id="calendar"></div>
+                <div>&nbsp;</div>
+                <div id="clock"></div>
             </header>
 
             <div>
-                <button id="theme-btn">Toggle Dark Mode</button>
+<!--                <button id="theme-btn">Toggle Dark Mode</button>-->
             </div>
 
             <div id="apps-row">
@@ -112,4 +120,18 @@
 
     </body>
     <script type="module" src="main.js"></script>
+<!--    <script>
+        const themeButton = document.getElementById("theme-btn");
+        const body = document.querySelector("body");
+
+        themeButton.addEventListener("change", function() {
+            if (this.checked) {
+                body.classList.add("dark-theme");
+                console.log("dark");
+            } else {
+                body.classList.remove("dark-theme");
+                console.log("light");
+            }
+        });
+    </script>-->
 </html>

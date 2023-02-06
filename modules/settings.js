@@ -21,12 +21,15 @@ class Settings {
     */
     switchTheme() {
         let body = document.body;
+        let icon = document.getElementById('theme-icon');
         if (body.classList.contains('dt')) {
             body.classList.remove('dt');
             body.classList.add('lt');
+            icon.className = "fa-solid fa-sun";
         } else {
             body.classList.remove('lt');
             body.classList.add('dt');
+            icon.className = "fa-solid fa-moon";
         }
     }
 

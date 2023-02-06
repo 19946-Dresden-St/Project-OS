@@ -1,8 +1,10 @@
 header {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-end;
   padding: 0.75rem; }
+  header #div-theme {
+    margin-right: auto; }
 
 #apps-row {
   display: flex;
