@@ -5,31 +5,20 @@ class Settings {
     * Get the setting switches and set them to the saved settings
     */
     load() {
-        // Get the settings saved in the local storage
-        let calendarDisplay = localStorage.getItem('calendarDisplay');
-        let dayDisplay = localStorage.getItem('dayDisplay');
-        let monthDisplay = localStorage.getItem('monthDisplay');
-        let yearDisplay = localStorage.getItem('yearDisplay');
+        let settings = [
+            {settingName: 'calendarDisplay', switchId: 'displayDate'},
+            {settingName: 'dayDisplay', switchId: 'displayDay'},
+            {settingName: 'monthDisplay', switchId: 'displayMonth'},
+            {settingName: 'yearDisplay', switchId: 'displayYear'}
+        ];
 
-        // Get the switches
-        let switchDate = document.getElementById('displayDate');
-        let switchDay = document.getElementById('displayDay');
-        let switchMonth = document.getElementById('displayMonth');
-        let switchYear = document.getElementById('displayYear');
-
-        // Set the switches to the saved settings
-        if (calendarDisplay === 'true') {
-            switchDate.checked = true;
-        }
-        if (dayDisplay === 'true') {
-            switchDay.checked = true;
-        }
-        if (monthDisplay === 'true') {
-            switchMonth.checked = true;
-        }
-        if (yearDisplay === 'true') {
-            switchYear.checked = true;
-        }
+        settings.forEach(setting => {
+            let savedSetting = localStorage.getItem(setting.settingName);
+            let switchBtn = document.getElementById(setting.switchId);
+            if (savedSetting === 'true') {
+                switchBtn.checked = true;
+            }
+        });
     }
 
     /*

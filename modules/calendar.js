@@ -2,52 +2,32 @@ class Calendar {
 
     /*
     * Initialize the calendar and display it depending on the settings.
-    * @param containerDate - #id of the element in which to insert the calendar in.
-    * @param containerDay - #id of the element in which to insert the day in.
-    * @param containerMonth - #id of the element in which to insert the month in.
-    * @param containerYear - #id of the element in which to insert the year in.
+    * @param containerDate - #id of the DOM element in which to insert the calendar in.
+    * @param containerDay - #id of the DOM element in which to insert the day in.
+    * @param containerMonth - #id of the DOM element in which to insert the month in.
+    * @param containerYear - #id of the DOM element in which to insert the year in.
     */
     initDate(containerDate, containerDay, containerMonth, containerYear) {
-        if (localStorage.getItem("calendarDisplay") !== null && localStorage.getItem("calendarDisplay") === "false") {
-            containerDate.style.display = "none";
-        } else if (localStorage.getItem("calendarDisplay") === null) {
-            localStorage.setItem("calendarDisplay", "true");
-        }
-        /*containerDate.innerHTML = this.getDate();*/
+        let featuresList = [
+            {feature: containerDate, key: "calendarDisplay"},
+            {feature: containerDay, key: "dayDisplay", content: this.getDay()},
+            {feature: containerMonth, key: "monthDisplay", content: this.getMonth()},
+            {feature: containerYear, key: "yearDisplay", content: this.getYear()}
+        ];
 
-        if (localStorage.getItem("dayDisplay") !== null && localStorage.getItem("dayDisplay") === "false") {
-            containerDay.style.display = "none";
-        } else if (localStorage.getItem("calendarDisplay") === null) {
-            localStorage.setItem("calendarDisplay", "true");
-        }
-        containerDay.innerHTML = this.getDay();
-
-        if (localStorage.getItem("monthDisplay") !== null && localStorage.getItem("monthDisplay") === "false") {
-            containerMonth.style.display = "none";
-        } else if (localStorage.getItem("calendarDisplay") === null) {
-            localStorage.setItem("calendarDisplay", "true");
-        }
-        containerMonth.innerHTML = this.getMonth();
-
-        if (localStorage.getItem("yearDisplay") !== null && localStorage.getItem("yearDisplay") === "false") {
-            containerYear.style.display = "none";
-        } else if (localStorage.getItem("calendarDisplay") === null) {
-            localStorage.setItem("calendarDisplay", "true");
-        }
-        containerYear.innerHTML = this.getYear();
+        featuresList.forEach(({feature, key, content}) => {
+            let display = localStorage.getItem(key);
+            if (display !== null && display === "false") {
+                feature.style.display = "none";
+            } else if (display === null) {
+                localStorage.setItem(key, "true");
+            }
+            if (content) {
+                feature.innerHTML = content;
+            }
+        });
     }
 
-    /*
-    * Get the current date
-    */
-/*    getDate() {
-        return new Date().toLocaleDateString("fr-FR", {
-            weekday: "short",
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-        });
-    }*/
 
     /*
     * Get the current day

@@ -8,7 +8,7 @@ settings.load();
 
 
 
-// ========== INITIALIZATION ==========
+// ========== CALENDAR & CLOCK INITIALIZATION ==========
 
 // Initialize the calendar with current date
 let containerDate = document.getElementById('calendar');
@@ -23,37 +23,28 @@ let timeContainer = document.getElementById('clock');
 let clock = new Clock();
 clock.initTime(timeContainer);
 
-// /========== INITIALIZATION ==========
+// /========== CALENDAR & CLOCK INITIALIZATION ==========
 
 
 
 
 // ========== LISTENERS ==========
 
-// Listen to the click event on the date button to hide / display the calendar
-document.getElementById('displayDate').addEventListener('click', function () {
-    settings.hide('calendarDisplay', containerDate);
+// Listen to the click event on the settings buttons to hide / display features
+let settingsButtons = [
+    {id: 'displayDate', setting: 'calendarDisplay', container: containerDate},
+    {id: 'displayDay', setting: 'dayDisplay', container: containerDay},
+    {id: 'displayMonth', setting: 'monthDisplay', container: containerMonth},
+    {id: 'displayYear', setting: 'yearDisplay', container: containerYear},
+    {id: 'displayTime', setting: 'clockDisplay', container: timeContainer}
+];
+
+settingsButtons.forEach(function (button) {
+    document.getElementById(button.id).addEventListener('click', function () {
+        settings.hide(button.setting, button.container);
+    });
 });
 
-// Listen to the click event on the day button to hide / display the day
-document.getElementById('displayDay').addEventListener('click', function () {
-    settings.hide('dayDisplay', containerDay);
-});
-
-// Listen to the click event on the month button to hide / display the month
-document.getElementById('displayMonth').addEventListener('click', function () {
-    settings.hide('monthDisplay', containerMonth);
-});
-
-// Listen to the click event on the year button to hide / display the year
-document.getElementById('displayYear').addEventListener('click', function () {
-    settings.hide('yearDisplay', containerYear);
-});
-
-// Listen to the click event on the time button to hide / display the clock
-document.getElementById('displayTime').addEventListener('click', function () {
-    settings.hide('clockDisplay', timeContainer);
-});
 
 // Listen to the click event on the theme button to switch between dark and light mode
 document.getElementById('theme-btn').addEventListener('change', function () {
