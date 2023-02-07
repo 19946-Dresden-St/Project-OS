@@ -7,10 +7,28 @@ class Settings {
     load() {
         // Get the settings saved in the local storage
         let calendarDisplay = localStorage.getItem('calendarDisplay');
+        let dayDisplay = localStorage.getItem('dayDisplay');
+        let monthDisplay = localStorage.getItem('monthDisplay');
+        let yearDisplay = localStorage.getItem('yearDisplay');
+
         // Get the switches
         let switchDate = document.getElementById('displayDate');
+        let switchDay = document.getElementById('displayDay');
+        let switchMonth = document.getElementById('displayMonth');
+        let switchYear = document.getElementById('displayYear');
+
+        // Set the switches to the saved settings
         if (calendarDisplay === 'true') {
             switchDate.checked = true;
+        }
+        if (dayDisplay === 'true') {
+            switchDay.checked = true;
+        }
+        if (monthDisplay === 'true') {
+            switchMonth.checked = true;
+        }
+        if (yearDisplay === 'true') {
+            switchYear.checked = true;
         }
     }
 
@@ -41,7 +59,7 @@ class Settings {
     */
     hide(storage, container) {
         if (localStorage.getItem(storage) === "false") {
-            container.style.display = "block";
+            container.style.display = "flex";
             localStorage.setItem(storage, "true");
         } else {
             container.style.display = "none";

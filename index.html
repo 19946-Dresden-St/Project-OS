@@ -1,4 +1,4 @@
-<!--RUN : node-sass css/style.scss css/style.css -->
+<!--RUN :  npx node-sass --watch css/style.scss css/style.css -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,11 @@
                     </label>
                 </div>
                 <div></div>
-                <div id="calendar"></div>
+                <div id="calendar">
+                    <div id="calendar-day"></div>
+                    <div id="calendar-month"></div>
+                    <div id="calendar-year"></div>
+                </div>
                 <div>&nbsp;</div>
                 <div id="clock"></div>
             </header>
@@ -78,14 +82,32 @@
                             <div>
                                 <div>
                                     <label class="switch" for="displayDate">
-                                        <input name="displayDate" id="displayDate" type="checkbox">
+                                        <input name="displayDate" id="displayDate" type="checkbox"/>
                                         <span class="slider"></span>
-                                    </label> Afficher la date
+                                    </label> Display date
+                                </div>
+                                <div>
+                                    <label class="switch" for="displayDay">
+                                        <input name="displayDay" id="displayDay" type="checkbox"/>
+                                        <span class="slider"></span>
+                                    </label> Display day
+                                </div>
+                                <div>
+                                    <label class="switch" for="displayMonth">
+                                        <input name="displayMonth" id="displayMonth" type="checkbox"/>
+                                        <span class="slider"></span>
+                                    </label> Display month
+                                </div>
+                                <div>
+                                    <label class="switch" for="displayYear">
+                                        <input name="displayYear" id="displayYear" type="checkbox"/>
+                                        <span class="slider"></span>
+                                    </label> Display year
                                 </div>
                             </div>
                         </div>
                         <div class="category-setting">
-                            <h3>Heure</h3>
+                            <h3>Time</h3>
                             <div>
                                 <div>
                                     <label class="switch" for="displayTime">
