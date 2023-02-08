@@ -1,3 +1,4 @@
+import Battery from "./modules/battery.js";
 import Calendar from "./modules/calendar.js";
 import Clock from "./modules/clock.js";
 import Settings from "./modules/settings.js";
@@ -5,7 +6,6 @@ import Settings from "./modules/settings.js";
 // Load the current settings
 const settings = new Settings();
 settings.load();
-
 
 
 // ========== CALENDAR & CLOCK INITIALIZATION ==========

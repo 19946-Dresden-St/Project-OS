@@ -17,11 +17,12 @@
                 <div id="div-theme">
                     <i id="theme-icon" class="fa-solid fa-moon"></i>
                     <label class="switch">
-                        <input id="theme-btn" type="checkbox">
+                        <input id="theme-btn" type="checkbox"/>
                         <span class="slider"></span>
                     </label>
                 </div>
                 <div></div>
+                <div id="battery-level"></div>
                 <div id="calendar">
                     <div id="calendar-day"></div>
                     <div id="calendar-month"></div>
@@ -30,7 +31,6 @@
                 <div>&nbsp;</div>
                 <div id="clock"></div>
             </header>
-
             <div>
 <!--                <button id="theme-btn">Toggle Dark Mode</button>-->
             </div>
@@ -144,18 +144,5 @@
 
     </body>
     <script type="module" src="main.js"></script>
-<!--    <script>
-        const themeButton = document.getElementById("theme-btn");
-        const body = document.querySelector("body");
 
-        themeButton.addEventListener("change", function() {
-            if (this.checked) {
-                body.classList.add("dark-theme");
-                console.log("dark");
-            } else {
-                body.classList.remove("dark-theme");
-                console.log("light");
-            }
-        });
-    </script>-->
 </html>
