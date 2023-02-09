@@ -9,7 +9,8 @@ class Settings {
             {settingName: 'calendarDisplay', switchId: 'displayDate'},
             {settingName: 'dayDisplay', switchId: 'displayDay'},
             {settingName: 'monthDisplay', switchId: 'displayMonth'},
-            {settingName: 'yearDisplay', switchId: 'displayYear'}
+            {settingName: 'yearDisplay', switchId: 'displayYear'},
+            {settingName: 'batteryDisplay', switchId: 'displayBattery'},
         ];
 
         settings.forEach(setting => {
@@ -19,6 +20,23 @@ class Settings {
                 switchBtn.checked = true;
             }
         });
+    }
+
+
+    /*
+    * Check if the display of an element is saved in the local storage
+    * Display / hide the element depending on the saved setting
+    * Set the default setting to true if no setting is saved in the local storage
+    * @param container - container #id of the element to hide
+    * @param key - setting key's name
+    */
+    checkDisplay(container, key) {
+        let display = localStorage.getItem(key);
+        if (display !== null && display === "false") {
+            container.style.display = "none";
+        } else if (display === null) {
+            localStorage.setItem(key, "true");
+        }
     }
 
     /*

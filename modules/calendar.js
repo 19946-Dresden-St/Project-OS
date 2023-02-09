@@ -1,4 +1,6 @@
-class Calendar {
+import Settings from "./settings.js";
+
+class Calendar extends Settings{
 
     /*
     * Initialize the calendar and display it depending on the settings.
@@ -16,12 +18,7 @@ class Calendar {
         ];
 
         featuresList.forEach(({feature, key, content}) => {
-            let display = localStorage.getItem(key);
-            if (display !== null && display === "false") {
-                feature.style.display = "none";
-            } else if (display === null) {
-                localStorage.setItem(key, "true");
-            }
+            this.checkDisplay(feature, key);
             if (content) {
                 feature.innerHTML = content;
             }

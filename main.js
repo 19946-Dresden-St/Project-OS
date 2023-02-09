@@ -23,6 +23,11 @@ let timeContainer = document.getElementById('clock');
 let clock = new Clock();
 clock.initTime(timeContainer);
 
+// Initialize the battery power
+let batteryContainer = document.getElementById('battery-container');
+let battery = new Battery()
+battery.initBattery(batteryContainer);
+
 // /========== CALENDAR & CLOCK INITIALIZATION ==========
 
 
@@ -36,7 +41,8 @@ let settingsButtons = [
     {id: 'displayDay', setting: 'dayDisplay', container: containerDay},
     {id: 'displayMonth', setting: 'monthDisplay', container: containerMonth},
     {id: 'displayYear', setting: 'yearDisplay', container: containerYear},
-    {id: 'displayTime', setting: 'clockDisplay', container: timeContainer}
+    {id: 'displayTime', setting: 'clockDisplay', container: timeContainer},
+    {id: 'displayBattery', setting: 'batteryDisplay', container: batteryContainer}
 ];
 
 settingsButtons.forEach(function (button) {
