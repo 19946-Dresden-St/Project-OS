@@ -3,8 +3,8 @@
 header {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
-  padding: 0.75rem;
+  align-items: center;
+  padding: 0.25rem 0.75rem 0.55rem 0.75rem;
 
   #div-theme {
     margin-right: auto;
@@ -17,4 +17,37 @@ header {
       margin-right: 0.25rem;
     }
   }
+
+  #battery-container {
+    display: flex;
+    align-items: center;
+
+    #battery {
+      width: 2rem;
+      height: 0.75rem;
+      border-radius: 5px;
+      position: relative;
+      border-style: double;
+      border-width: 2px;
+
+      #power {
+        /*width: 26%;*/
+        height: 100%;
+        background-color: green;
+        position: absolute;
+        border-radius: 2px;
+      }
+
+      #pole {
+        width: 0.25rem;
+        height: 0.5rem;
+        background-color: black;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+      }
+
+    }
+
+  }
+
 }
