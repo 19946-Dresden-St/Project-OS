@@ -21,6 +21,8 @@ header {
   #battery-container {
     display: flex;
     align-items: center;
+    margin-top: 0.15rem;
+    margin-right: 0.5rem;
 
     #battery {
       width: 2rem;
@@ -33,19 +35,18 @@ header {
       #power {
         /*width: 26%;*/
         height: 100%;
-        background-color: green;
         position: absolute;
         border-radius: 2px;
       }
 
-      #pole {
-        width: 0.25rem;
-        height: 0.5rem;
-        background-color: black;
-        border-top-right-radius: 2px;
-        border-bottom-right-radius: 2px;
-      }
+    }
 
+    #pole {
+      width: 0.25rem;
+      height: 0.5rem;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+      margin-right: 0.25rem;
     }
 
   }

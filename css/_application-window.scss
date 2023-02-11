@@ -4,7 +4,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(17, 22, 52, 0.7);
     transition: opacity 200ms;
     visibility: hidden;
     opacity: 0;
@@ -23,23 +22,13 @@
     width: 40%;
     position: relative;
     transition: all 5s ease-in-out;
-    background-color: $dt-dark-purple;
-    box-shadow: $dt-box-shadow;
     padding-bottom: 2rem;
 
     .popup-header {
-        background-color: #190a2f;
         padding: 1rem 2rem;
-        box-shadow: inset 0px -5px 5px -5px #10EBFFFF,
-                    inset 0px -10px 10px -10px #990fe0;
-        box-shadow-bottom: 0;
-        box-shadow-left: 0;
-        box-shadow-right: 0;
 
         h2 {
             margin-top: 0;
-            color: $dt-cyan-pastel;
-            text-shadow: 0 0 5px $dt-cyan;
         }
 
         .close {
@@ -47,7 +36,7 @@
             top: 20px;
             right: 30px;
             transition: all 200ms;
-            font-size: 1rem;
+            font-size: 1.25rem;
             font-weight: bold;
             text-decoration: none;
             color: #9D15D5FF;
@@ -60,23 +49,26 @@
 
     .content {
         overflow: auto;
-        padding: 1rem 2rem;
+        padding: 0 2rem 1rem 2rem;
         height: 350px;
         overflow-y: scroll;
 
+        .switch {
+            margin-right: 1.75rem;
+        }
+
         .category-setting {
-            padding: 0.75rem 0;
+            padding: 1.25rem 0;
 
             h3 {
-                color: $dt-cyan-pastel;
+                margin-bottom: 0.75rem;
             }
 
             > div {
                 width: 80%;
                 margin-left: 4%;
-                color: $dt-cyan-pastel;
-                text-shadow: 0 0 5px #10ebff;
             }
         }
+
     }
 }

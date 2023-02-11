@@ -7,7 +7,7 @@
   bottom: 20%;
 
   .container {
-    width: 24%;
+    width: 30%;
     margin-left: auto;
     margin-right: auto;
 
@@ -16,27 +16,20 @@
       flex-direction: column;
       align-items: center;
       text-decoration: none;
-      padding: 1rem 0;
+      padding: 1rem;
       transition: .5s;
       border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+/*      background-color: rgba(46, 20, 86, 0.71);
+      box-shadow: $middle-purple 0px 2px 16px 0px, $cyan 0px 2px 4px 0px;*/
     }
 
-    a:hover {
-      /*box-shadow: 0 0 15px #ffee10;*/
-      text-shadow: 0 0 5px $dt-cyan;
-      background-color: $dt-dark-purple;
-      box-shadow: $dt-box-shadow;
-    }
 
     img {
       max-width: 72%;
       max-height: 72%;
       margin-left: 14%;
-    }
-
-    p {
-      font-size: 1rem;
-      color: whitesmoke;
     }
 
   }
