@@ -8,9 +8,8 @@ const settings = new Settings();
 settings.load();
 
 
-// ========== CALENDAR & CLOCK INITIALIZATION ==========
+// ========== CALENDAR INITIALIZATION ==========
 
-// Initialize the calendar with current date
 let containerDate = document.getElementById('calendar');
 let containerDay = document.getElementById('calendar-day');
 let containerMonth = document.getElementById('calendar-month');
@@ -18,17 +17,36 @@ let containerYear = document.getElementById('calendar-year');
 let calendar = new Calendar();
 calendar.initDate(containerDate, containerDay, containerMonth, containerYear);
 
-// Initialize the clock with current time
+// /========== CALENDAR INITIALIZATION ==========
+
+
+// ========== CLOCK INITIALIZATION ==========
+
 let timeContainer = document.getElementById('clock');
 let clock = new Clock();
 clock.initTime(timeContainer);
 
-// Initialize the battery power
+// /========== CLOCK INITIALIZATION ==========
+
+
+// ========== BATTERY INITIALIZATION ==========
+
 let batteryContainer = document.getElementById('battery-container');
 let battery = new Battery()
 battery.initBattery(batteryContainer);
 
-// /========== CALENDAR & CLOCK INITIALIZATION ==========
+// /========== BATTERY INITIALIZATION ==========
+
+
+// ========== LOCKING SCREEN INITIALIZATION ==========
+
+let unlockBtn = document.getElementById('unlock-btn');
+let screen = document.getElementById('lock-screen');
+unlockBtn.addEventListener('click', function () {
+    settings.unlock(screen);
+});
+
+// /========== LOCKING SCREEN INITIALIZATION ==========
 
 
 

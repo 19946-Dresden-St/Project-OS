@@ -5,6 +5,9 @@ class Settings {
     * Get the setting switches and set them to the saved settings
     */
     load() {
+
+        this.displayUnlockMethod();
+
         let settings = [
             {settingName: 'calendarDisplay', switchId: 'displayDate'},
             {settingName: 'dayDisplay', switchId: 'displayDay'},
@@ -71,6 +74,33 @@ class Settings {
         } else {
             container.style.display = "none";
             localStorage.setItem(storage, "false");
+        }
+    }
+
+
+    /*
+    * Unlock the screen
+    * @param screen - locking screen #id
+    */
+    unlock(screen) {
+        screen.style.transition = "opacity 0.5s ease-in-out";
+        screen.style.opacity = 0;
+        setTimeout(function() {
+            screen.style.display = "none";
+        }, 500);
+
+/*        screen.style.transition = "all 0.5s";
+        screen.style.transform = "translateY(-100%)";*/
+    }
+
+
+    /*
+    * Display the password input on locking screen depending on the saved setting
+    */
+    displayUnlockMethod() {
+        let unlockPassword = localStorage.getItem('unlockPassword');
+        if (unlockPassword === null || unlockPassword === "false") {
+            document.getElementById('unlock-input').style.display = "none";
         }
     }
 
