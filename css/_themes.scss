@@ -1,5 +1,9 @@
 .dt {
 
+  main {
+    background-image: url("../assets/img/background.jpg");
+  }
+
   header {
     color: $white;
 
@@ -83,6 +87,10 @@
 }
 
 .lt {
+
+  main {
+    background-image: url("../assets/img/bg-lt.png");
+  }
 
   header {
     color: $black;
