@@ -1,0 +1,24 @@
+#input-group-pwd {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    background-color: transparent;
+    margin-top: 1rem;
+    padding-bottom: 0.25rem;
+    border: none;
+    border-bottom: 1px solid;
+    border-image-source: linear-gradient(to right, $light-purple, $cyan);
+    border-image-slice: 1;
+
+    &:focus, &:hover {
+      outline: none;
+      border-image-source: linear-gradient(to right, $cyan, $light-purple);
+      transition: border-image-source 0.5s ease-in-out;
+    }
+
+    &::placeholder {
+      font-family: Montserrat Alternates, sans-serif;
+    }
+  }
+}

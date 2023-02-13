@@ -6,15 +6,20 @@ class Settings {
     */
     load() {
 
-        this.displayUnlockMethod();
-
         let settings = [
             {settingName: 'calendarDisplay', switchId: 'displayDate'},
             {settingName: 'dayDisplay', switchId: 'displayDay'},
             {settingName: 'monthDisplay', switchId: 'displayMonth'},
             {settingName: 'yearDisplay', switchId: 'displayYear'},
             {settingName: 'batteryDisplay', switchId: 'displayBattery'},
+            {settingName: 'isPasswordSet', switchId: 'setPassword'},
         ];
+
+        for (let i = 0; i < settings.length - 1; i++) {
+            if (localStorage.getItem(settings[i].settingName) === null) {
+                localStorage.setItem(settings[i].settingName, 'true');
+            }
+        }
 
         settings.forEach(setting => {
             let savedSetting = localStorage.getItem(setting.settingName);
@@ -37,8 +42,6 @@ class Settings {
         let display = localStorage.getItem(key);
         if (display !== null && display === "false") {
             container.style.display = "none";
-        } else if (display === null) {
-            localStorage.setItem(key, "true");
         }
     }
 
@@ -77,32 +80,6 @@ class Settings {
         }
     }
 
-
-    /*
-    * Unlock the screen
-    * @param screen - locking screen #id
-    */
-    unlock(screen) {
-        screen.style.transition = "opacity 0.5s ease-in-out";
-        screen.style.opacity = 0;
-        setTimeout(function() {
-            screen.style.display = "none";
-        }, 500);
-
-/*        screen.style.transition = "all 0.5s";
-        screen.style.transform = "translateY(-100%)";*/
-    }
-
-
-    /*
-    * Display the password input on locking screen depending on the saved setting
-    */
-    displayUnlockMethod() {
-        let unlockPassword = localStorage.getItem('unlockPassword');
-        if (unlockPassword === null || unlockPassword === "false") {
-            document.getElementById('unlock-input').style.display = "none";
-        }
-    }
 
 }
 

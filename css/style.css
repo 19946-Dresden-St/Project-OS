@@ -49,7 +49,7 @@
     padding: 1rem 2rem; }
     .popup .popup-header h2 {
       margin-top: 0; }
-    .popup .popup-header .close {
+    .popup .popup-header #close {
       position: absolute;
       top: 20px;
       right: 30px;
@@ -58,7 +58,7 @@
       font-weight: bold;
       text-decoration: none;
       color: #9D15D5FF; }
-      .popup .popup-header .close:hover {
+      .popup .popup-header #close:hover {
         color: #6B00D1; }
   .popup .content {
     overflow: auto;
@@ -109,6 +109,24 @@ header {
       border-top-right-radius: 2px;
       border-bottom-right-radius: 2px;
       margin-right: 0.25rem; }
+
+#input-group-pwd {
+  display: flex;
+  flex-direction: column; }
+  #input-group-pwd input {
+    background-color: transparent;
+    margin-top: 1rem;
+    padding-bottom: 0.25rem;
+    border: none;
+    border-bottom: 1px solid;
+    border-image-source: linear-gradient(to right, #B23BFF, #10EBFFFF);
+    border-image-slice: 1; }
+    #input-group-pwd input:focus, #input-group-pwd input:hover {
+      outline: none;
+      border-image-source: linear-gradient(to right, #10EBFFFF, #B23BFF);
+      transition: border-image-source 0.5s ease-in-out; }
+    #input-group-pwd input::placeholder {
+      font-family: Montserrat Alternates, sans-serif; }
 
 #lock-screen {
   position: absolute;
@@ -249,6 +267,10 @@ header {
   .dt .popup .category-setting h3, .dt .popup .category-setting > div {
     color: #ADFFFCE0;
     text-shadow: 0 0 5px #10EBFFFF; }
+  .dt .popup .category-setting input {
+    color: #10EBFFFF; }
+    .dt .popup .category-setting input::placeholder {
+      color: #DAEEF5E0; }
   .dt .popup .category-setting:not(:last-child) {
     box-shadow: inset 0px -5px 5px -5px #10EBFFFF, inset 0px -10px 10px -10px #B23BFF;
     box-shadow-bottom: 0;
@@ -302,6 +324,10 @@ header {
   .lt .popup .category-setting h3, .lt .popup .category-setting > div {
     color: #190A2FE0;
     text-shadow: 0 0 3px #681998a1; }
+  .lt .popup .category-setting input {
+    color: #681998; }
+    .lt .popup .category-setting input::placeholder {
+      color: #681998a1; }
   .lt .popup .category-setting:not(:last-child) {
     box-shadow: inset 0px -5px 5px -5px #B23BFF, inset 0px -10px 10px -10px #10EBFFFF;
     box-shadow-bottom: 0;

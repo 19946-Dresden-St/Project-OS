@@ -1,11 +1,23 @@
 import Battery from "./modules/battery.js";
 import Calendar from "./modules/calendar.js";
 import Clock from "./modules/clock.js";
+import Locking from "./modules/locking.js";
 import Settings from "./modules/settings.js";
 
 // Load the current settings
 const settings = new Settings();
 settings.load();
+
+// ========== LOCKING SCREEN INITIALIZATION ==========
+
+let screen = document.getElementById('lock-screen');
+let unlockBtn = document.getElementById('unlock-btn');
+let unlockInput = document.getElementById('unlock-input');
+let passwordInputs = document.getElementById('input-group-pwd');
+let locking = new Locking();
+locking.initLocking(unlockInput, passwordInputs);
+
+// /========== LOCKING SCREEN INITIALIZATION ==========
 
 
 // ========== CALENDAR INITIALIZATION ==========
@@ -38,17 +50,6 @@ battery.initBattery(batteryContainer);
 // /========== BATTERY INITIALIZATION ==========
 
 
-// ========== LOCKING SCREEN INITIALIZATION ==========
-
-let unlockBtn = document.getElementById('unlock-btn');
-let screen = document.getElementById('lock-screen');
-unlockBtn.addEventListener('click', function () {
-    settings.unlock(screen);
-});
-
-// /========== LOCKING SCREEN INITIALIZATION ==========
-
-
 
 
 // ========== LISTENERS ==========
@@ -60,7 +61,7 @@ let settingsButtons = [
     {id: 'displayMonth', setting: 'monthDisplay', container: containerMonth},
     {id: 'displayYear', setting: 'yearDisplay', container: containerYear},
     {id: 'displayTime', setting: 'clockDisplay', container: timeContainer},
-    {id: 'displayBattery', setting: 'batteryDisplay', container: batteryContainer}
+    {id: 'displayBattery', setting: 'batteryDisplay', container: batteryContainer},
 ];
 
 settingsButtons.forEach(function (button) {
@@ -73,6 +74,26 @@ settingsButtons.forEach(function (button) {
 // Listen to the click event on the theme button to switch between dark and light mode
 document.getElementById('theme-btn').addEventListener('change', function () {
     settings.switchTheme();
+});
+
+
+// Listen to the click event on the lock button to unlock the screen
+unlockBtn.addEventListener('click', function () {
+    locking.unlock(screen);
+});
+
+
+document.getElementById('setPassword').addEventListener('click', function () {
+   locking.setLocking(unlockInput, passwordInputs);
+});
+
+
+document.getElementById('close').addEventListener('click', function () {
+    if(localStorage.getItem('password') === '' && localStorage.getItem('isPasswordSet') === 'true') {
+        localStorage.setItem('isPasswordSet', 'false');
+        document.getElementById('setPassword').checked = false;
+        passwordInputs.style.display = 'none';
+    }
 });
 
 // /========== LISTENERS ==========
