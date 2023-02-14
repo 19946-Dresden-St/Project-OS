@@ -49,8 +49,12 @@
                     <div id="calendar-month"></div>
                     <div id="calendar-year"></div>
                 </div>
-                <div>&nbsp;</div>
-                <div id="clock"></div>
+                <div></div>
+                <div id="clock">
+                    <div id="clock-hour"></div>
+                    <div id="clock-minute"></div>
+                    <div id="clock-second"></div>
+                </div>
             </header>
 
             <div id="apps-row">
@@ -90,7 +94,37 @@
                         </a>
                     </div>
                 </div>
+                <div>
+                    <div class="container">
+                        <a href="#app-clock">
+                            <div>
+                                <img src="./assets/icons/horlogadiscord.png" alt="clock">
+                            </div>
+                            <div>
+                                <p>Clock</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+            <div id="app-clock" class="overlay">
+                <div class="popup">
+                    <div class="popup-header">
+                        <button id="clock-btn">Clock</button>
+                        <button id="chrono-btn">Chrono</button>
+                        <a class="close" href="#">&times;</a>
+                    </div>
+                    <div class="content">
+                        <div class="category-setting">
+                        <h3>Clock</h3>
+                            <div id="clock2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
             <div id="app-settings" class="overlay">
                 <div class="popup">
@@ -138,20 +172,20 @@
                                     </label> Display current time
                                 </div>
                                 <div>
-                                    <label class="switch" for="displayHours">
-                                        <input class="switch-input" name="displayHours" id="displayHours" type="checkbox" checked="checked"/>
+                                    <label class="switch" for="displayHour">
+                                        <input name="displayHour" id="displayHour" type="checkbox" checked="checked"/>
                                         <span class="slider"></span>
                                     </label> Hide hours
                                 </div>
                                 <div>
-                                    <label class="switch" for="displayMins">
-                                        <input class="switch-input" name="displayMins" id="displayMins" type="checkbox"/>
+                                    <label class="switch" for="displayMin">
+                                        <input name="displayMin" id="displayMin" type="checkbox"/>
                                         <span class="slider"></span>
                                     </label> Hide minutes
                                 </div>
                                 <div>
-                                    <label class="switch" for="displaySecs">
-                                        <input class="switch-input" name="displaySecs" id="displaySecs" type="checkbox"/>
+                                    <label class="switch" for="displaySec">
+                                        <input name="displaySec" id="displaySec" type="checkbox"/>
                                         <span class="slider"></span>
                                     </label> Hide seconds
                                 </div>

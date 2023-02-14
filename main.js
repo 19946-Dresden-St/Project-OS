@@ -29,27 +29,44 @@ let containerYear = document.getElementById('calendar-year');
 let calendar = new Calendar();
 calendar.initDate(containerDate, containerDay, containerMonth, containerYear);
 
-// /========== CALENDAR INITIALIZATION ==========
+//Update the calendar every second
+function updateCalendar() {
+    calendar.initDate(containerDate, containerDay, containerMonth, containerYear);
+}
 
+updateCalendar();
+setInterval(updateCalendar, 1000);
 
-// ========== CLOCK INITIALIZATION ==========
-
+// Initialize clocks with current time
 let timeContainer = document.getElementById('clock');
+let timeContainerapp = document.getElementById('clock2');
+let timeHContainer = document.getElementById('clock-hour');
+let timeMContainer = document.getElementById('clock-minute');
+let timeSContainer = document.getElementById('clock-second');
 let clock = new Clock();
-clock.initTime(timeContainer);
+clock.initTime(timeContainer,  timeHContainer, timeMContainer, timeSContainer);
+clock.initTimeapp(timeContainerapp);
 
-// /========== CLOCK INITIALIZATION ==========
+//Update clocks every second
+function updateClock() {
+    clock.initTime(timeContainer, timeHContainer, timeMContainer, timeSContainer);
+    clock.initTimeapp(timeContainerapp);
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+// /========== CALENDAR & CLOCK INITIALIZATION ==========
 
 
-// ========== BATTERY INITIALIZATION ==========
 
+// ========== BATTERY INITIALIZATION =========
+
+// Initialize the battery power
 let batteryContainer = document.getElementById('battery-container');
 let battery = new Battery()
 battery.initBattery(batteryContainer);
 
-// /========== BATTERY INITIALIZATION ==========
-
-
+// /========= BATTERY INITIALIZATION ==========
 
 
 // ========== LISTENERS ==========
@@ -60,8 +77,13 @@ let settingsButtons = [
     {id: 'displayDay', setting: 'dayDisplay', container: containerDay},
     {id: 'displayMonth', setting: 'monthDisplay', container: containerMonth},
     {id: 'displayYear', setting: 'yearDisplay', container: containerYear},
+
     {id: 'displayTime', setting: 'clockDisplay', container: timeContainer},
-    {id: 'displayBattery', setting: 'batteryDisplay', container: batteryContainer},
+    {id: 'displayHour', setting: 'hoursDisplay', container: timeHContainer},
+    {id: 'displayMin', setting: 'minuteDisplay', container: timeMContainer},
+    {id: 'displaySec', setting: 'secondDisplay', container: timeSContainer},
+
+    {id: 'displayBattery', setting: 'batteryDisplay', container: batteryContainer}
 ];
 
 settingsButtons.forEach(function (button) {

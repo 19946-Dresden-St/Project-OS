@@ -11,6 +11,12 @@ class Settings {
             {settingName: 'dayDisplay', switchId: 'displayDay'},
             {settingName: 'monthDisplay', switchId: 'displayMonth'},
             {settingName: 'yearDisplay', switchId: 'displayYear'},
+
+            {settingName: 'clockDisplay', switchId: 'displayTime'},
+            {settingName: 'hourDisplay', switchId: 'displayHour'},
+            {settingName: 'minuteDisplay', switchId: 'displayMin'},
+            {settingName: 'secondDisplay', switchId: 'displaySec'},
+
             {settingName: 'batteryDisplay', switchId: 'displayBattery'},
             {settingName: 'isPasswordSet', switchId: 'setPassword'},
         ];
@@ -38,7 +44,7 @@ class Settings {
     * @param container - container #id of the element to hide
     * @param key - setting key's name
     */
-    checkDisplay(container, key) {
+        checkDisplay(container, key) {
         let display = localStorage.getItem(key);
         if (display !== null && display === "false") {
             container.style.display = "none";
