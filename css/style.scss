@@ -24,3 +24,28 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+#lock-logo {
+  display: inline-block;
+  text-decoration: none;
+  width: 2rem;
+  height: 2rem;
+  line-height: 32px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  background-color: $dark-purple-transparent;
+  color: whitesmoke;
+  box-shadow: $light-box-shadow;
+  text-shadow: $cyan-text-shadow;
+  transition: .4s;
+
+  &:hover{
+    -ms-transform: rotate(10deg);
+    transform: rotate(10deg);
+    box-shadow: $dark-box-shadow-reverse;
+    cursor: pointer;
+  }
+
+}

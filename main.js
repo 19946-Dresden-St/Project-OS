@@ -118,4 +118,8 @@ document.getElementById('close').addEventListener('click', function () {
     }
 });
 
+document.getElementById('lock-container').addEventListener('click', function () {
+    locking.lock(screen);
+});
+
 // /========== LISTENERS ==========

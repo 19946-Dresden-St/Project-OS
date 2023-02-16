@@ -57,6 +57,13 @@ class Locking {
         }, 500);
     }
 
+    lock(screen) {
+        screen.style.display = "flex";
+        setTimeout(function() {
+            screen.style.opacity = 1;
+        }, 100);
+    }
+
 }
 
 export default Locking;
