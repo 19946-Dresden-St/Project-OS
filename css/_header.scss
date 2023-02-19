@@ -1,11 +1,12 @@
 header {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
   padding: 0.25rem 0.75rem 0.55rem 0.75rem;
 
   #div-theme {
     margin-right: auto;
+    margin-left: 16px;
   }
 
   #calendar {
@@ -17,13 +18,6 @@ header {
   }
 
   #clock {
-    display: flex;
-
-    div {
-      margin-right: 0.25rem;
-    }
-  }
-  #clock2 {
     display: flex;
 
     div {

@@ -72,6 +72,14 @@
             #error {
                 margin-top: 1rem;
             }
+
+            #clock2 {
+                display: flex;
+
+                div {
+                    margin-right: 0.25rem;
+                }
+            }
         }
 
     }

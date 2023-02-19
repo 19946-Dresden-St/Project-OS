@@ -76,27 +76,30 @@
         margin-left: 4%; }
       .popup .content .category-setting #error {
         margin-top: 1rem; }
+      .popup .content .category-setting #clock2 {
+        display: flex; }
+        .popup .content .category-setting #clock2 div {
+          margin-right: 0.25rem; }
 
-#lock-logo {
-  display: inline-block;
-  text-decoration: none;
-  width: 2rem;
-  height: 2rem;
-  line-height: 32px;
-  border-radius: 50%;
-  text-align: center;
-  vertical-align: middle;
-  overflow: hidden;
-  background-color: #2E1456B5;
-  color: whitesmoke;
-  box-shadow: #681998 -1px 1px 4px 0px, #10EBFFFF 0px 0px 10px 0px;
-  text-shadow: 0 0 5px #10EBFFFF;
-  transition: .4s; }
-  #lock-logo:hover {
-    -ms-transform: rotate(10deg);
-    transform: rotate(10deg);
-    box-shadow: #681998 0px 2px 16px 0px, #10EBFFFF 0px 2px 4px 0px;
-    cursor: pointer; }
+#lock-container {
+  margin-top: 6px; }
+  #lock-container #lock-logo {
+    font-size: 12px;
+    width: 26px;
+    height: 26px;
+    line-height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #2E1456B5;
+    color: whitesmoke;
+    box-shadow: #681998 -1px 1px 4px 0px, #10EBFFFF 0px 0px 10px 0px;
+    text-shadow: 0 0 5px #10EBFFFF;
+    transition: .4s; }
+    #lock-container #lock-logo:hover {
+      -ms-transform: rotate(10deg);
+      transform: rotate(10deg);
+      box-shadow: #681998 0px 2px 16px 0px, #10EBFFFF 0px 2px 4px 0px;
+      cursor: pointer; }
 
 #set-pwd {
   margin-top: 1rem;
@@ -113,10 +116,11 @@
 header {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
   padding: 0.25rem 0.75rem 0.55rem 0.75rem; }
   header #div-theme {
-    margin-right: auto; }
+    margin-right: auto;
+    margin-left: 16px; }
   header #calendar {
     display: flex; }
     header #calendar div {
@@ -124,10 +128,6 @@ header {
   header #clock {
     display: flex; }
     header #clock div {
-      margin-right: 0.25rem; }
-  header #clock2 {
-    display: flex; }
-    header #clock2 div {
       margin-right: 0.25rem; }
   header #battery-container {
     display: flex;
