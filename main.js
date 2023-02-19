@@ -101,7 +101,7 @@ document.getElementById('theme-btn').addEventListener('change', function () {
 
 // Listen to the click event on the lock button to unlock the screen
 unlockBtn.addEventListener('click', function () {
-    locking.unlock(screen);
+    locking.unlock(screen, unlockInput);
 });
 
 
@@ -116,6 +116,14 @@ document.getElementById('close').addEventListener('click', function () {
         document.getElementById('setPassword').checked = false;
         passwordInputs.style.display = 'none';
     }
+});
+
+document.getElementById('lock-container').addEventListener('click', function () {
+    locking.lock(screen);
+});
+
+document.getElementById('set-pwd').addEventListener('click', function () {
+   locking.setPassword();
 });
 
 // /========== LISTENERS ==========
