@@ -44,7 +44,7 @@ class Settings {
     * @param container - container #id of the element to hide
     * @param key - setting key's name
     */
-        checkDisplay(container, key) {
+    checkDisplay(container, key) {
         let display = localStorage.getItem(key);
         if (display !== null && display === "false") {
             container.style.display = "none";

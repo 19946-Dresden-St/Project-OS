@@ -74,6 +74,41 @@
       .popup .content .category-setting > div {
         width: 80%;
         margin-left: 4%; }
+      .popup .content .category-setting #error {
+        margin-top: 1rem; }
+
+#lock-logo {
+  display: inline-block;
+  text-decoration: none;
+  width: 2rem;
+  height: 2rem;
+  line-height: 32px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  background-color: #2E1456B5;
+  color: whitesmoke;
+  box-shadow: #681998 -1px 1px 4px 0px, #10EBFFFF 0px 0px 10px 0px;
+  text-shadow: 0 0 5px #10EBFFFF;
+  transition: .4s; }
+  #lock-logo:hover {
+    -ms-transform: rotate(10deg);
+    transform: rotate(10deg);
+    box-shadow: #681998 0px 2px 16px 0px, #10EBFFFF 0px 2px 4px 0px;
+    cursor: pointer; }
+
+#set-pwd {
+  margin-top: 1rem;
+  width: fit-content;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  cursor: pointer;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 600; }
 
 header {
   display: flex;
@@ -279,6 +314,12 @@ header {
     color: #10EBFFFF; }
     .dt .popup .category-setting input::placeholder {
       color: #DAEEF5E0; }
+  .dt .popup .category-setting #set-pwd {
+    background-color: #10EBFFFF;
+    color: #190A2FE0; }
+    .dt .popup .category-setting #set-pwd:hover {
+      text-shadow: 0 0 3px #681998a1;
+      transition: all .4s; }
   .dt .popup .category-setting:not(:last-child) {
     box-shadow: inset 0px -5px 5px -5px #10EBFFFF, inset 0px -10px 10px -10px #B23BFF;
     box-shadow-bottom: 0;
@@ -336,6 +377,12 @@ header {
     color: #681998; }
     .lt .popup .category-setting input::placeholder {
       color: #681998a1; }
+  .lt .popup .category-setting #set-pwd {
+    background-color: #190A2FE0;
+    color: #10EBFFFF; }
+    .lt .popup .category-setting #set-pwd:hover {
+      text-shadow: 0 0 5px #10EBFFFF;
+      transition: all .4s; }
   .lt .popup .category-setting:not(:last-child) {
     box-shadow: inset 0px -5px 5px -5px #B23BFF, inset 0px -10px 10px -10px #10EBFFFF;
     box-shadow-bottom: 0;
@@ -362,27 +409,5 @@ body {
 
 main {
   height: 100vh;
-  /*background-image: url("../assets/img/background.jpg");*/
   background-size: cover;
   background-repeat: no-repeat; }
-
-#lock-logo {
-  display: inline-block;
-  text-decoration: none;
-  width: 2rem;
-  height: 2rem;
-  line-height: 32px;
-  border-radius: 50%;
-  text-align: center;
-  vertical-align: middle;
-  overflow: hidden;
-  background-color: #2E1456B5;
-  color: whitesmoke;
-  box-shadow: #681998 -1px 1px 4px 0px, #10EBFFFF 0px 0px 10px 0px;
-  text-shadow: 0 0 5px #10EBFFFF;
-  transition: .4s; }
-  #lock-logo:hover {
-    -ms-transform: rotate(10deg);
-    transform: rotate(10deg);
-    box-shadow: #681998 0px 2px 16px 0px, #10EBFFFF 0px 2px 4px 0px;
-    cursor: pointer; }
