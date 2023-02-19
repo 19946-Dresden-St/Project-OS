@@ -122,7 +122,8 @@ header {
     margin-right: auto;
     margin-left: 16px; }
   header #calendar {
-    display: flex; }
+    display: flex;
+    margin-right: 0.50rem; }
     header #calendar div {
       margin-right: 0.25rem; }
   header #clock {
