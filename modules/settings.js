@@ -5,13 +5,27 @@ class Settings {
     * Get the setting switches and set them to the saved settings
     */
     load() {
+
         let settings = [
             {settingName: 'calendarDisplay', switchId: 'displayDate'},
             {settingName: 'dayDisplay', switchId: 'displayDay'},
             {settingName: 'monthDisplay', switchId: 'displayMonth'},
             {settingName: 'yearDisplay', switchId: 'displayYear'},
+
+            {settingName: 'clockDisplay', switchId: 'displayTime'},
+            {settingName: 'hourDisplay', switchId: 'displayHour'},
+            {settingName: 'minuteDisplay', switchId: 'displayMin'},
+            {settingName: 'secondDisplay', switchId: 'displaySec'},
+
             {settingName: 'batteryDisplay', switchId: 'displayBattery'},
+            {settingName: 'isPasswordSet', switchId: 'setPassword'},
         ];
+
+        for (let i = 0; i < settings.length - 1; i++) {
+            if (localStorage.getItem(settings[i].settingName) === null) {
+                localStorage.setItem(settings[i].settingName, 'true');
+            }
+        }
 
         settings.forEach(setting => {
             let savedSetting = localStorage.getItem(setting.settingName);
@@ -30,12 +44,10 @@ class Settings {
     * @param container - container #id of the element to hide
     * @param key - setting key's name
     */
-    checkDisplay(container, key) {
+        checkDisplay(container, key) {
         let display = localStorage.getItem(key);
         if (display !== null && display === "false") {
             container.style.display = "none";
-        } else if (display === null) {
-            localStorage.setItem(key, "true");
         }
     }
 
@@ -73,6 +85,7 @@ class Settings {
             localStorage.setItem(storage, "false");
         }
     }
+
 
 }
 

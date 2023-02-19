@@ -1,5 +1,9 @@
 .dt {
 
+  main {
+    background-image: url("../assets/img/background.jpg");
+  }
+
   header {
     color: $white;
 
@@ -53,6 +57,14 @@
           text-shadow: $cyan-text-shadow;
       }
 
+      input {
+        color: $cyan;
+
+        &::placeholder {
+          color: $lighter-cyan;
+        }
+      }
+
     }
 
     .category-setting:not(:last-child) {
@@ -83,6 +95,10 @@
 }
 
 .lt {
+
+  main {
+    background-image: url("../assets/img/bg-lt.png");
+  }
 
   header {
     color: $black;
@@ -135,6 +151,14 @@
       h3, > div {
         color: $dark-purple;
         text-shadow: $purple-text-shadow;
+      }
+
+      input {
+        color: $purple;
+
+        &::placeholder {
+          color: $purple-transparent;
+        }
       }
 
     }

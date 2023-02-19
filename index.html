@@ -13,6 +13,22 @@
     <body class="dt">
 
         <main>
+
+            <div id="lock-screen">
+                <div id="lock-screen-content">
+                    <div id="img-bg">
+                        <img src="./assets/img/planet.png" alt="Synth.OS logo for locked screen"/>
+                    </div>
+                    <h1>Hello !</h1>
+                    <div id="lock-screen-password">
+                        <input id="unlock-input" type="password" placeholder="Password" style="display: none"/>
+                        <button id="unlock-btn">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <header>
                 <div id="div-theme">
                     <i id="theme-icon" class="fa-solid fa-moon"></i>
@@ -33,9 +49,14 @@
                     <div id="calendar-month"></div>
                     <div id="calendar-year"></div>
                 </div>
-                <div>&nbsp;</div>
-                <div id="clock"></div>
+                <div></div>
+                <div id="clock">
+                    <div id="clock-hour"></div>
+                    <div id="clock-minute"></div>
+                    <div id="clock-second"></div>
+                </div>
             </header>
+
             <div id="apps-row">
                 <div>
                     <div class="container">
@@ -73,17 +94,47 @@
                         </a>
                     </div>
                 </div>
+                <div>
+                    <div class="container">
+                        <a href="#app-clock">
+                            <div>
+                                <img src="./assets/icons/horlogadiscord.png" alt="clock">
+                            </div>
+                            <div>
+                                <p>Clock</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+            <div id="app-clock" class="overlay">
+                <div class="popup">
+                    <div class="popup-header">
+                        <button id="clock-btn">Clock</button>
+                        <button id="chrono-btn">Chrono</button>
+                        <a class="close" href="#">&times;</a>
+                    </div>
+                    <div class="content">
+                        <div class="category-setting">
+                        <h3>Clock</h3>
+                            <div id="clock2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
             <div id="app-settings" class="overlay">
                 <div class="popup">
                     <div class="popup-header">
                         <h2>Settings</h2>
-                        <a class="close" href="#">&times;</a>
+                        <a id="close" href="#">&times;</a>
                     </div>
                     <div class="content">
                         <div class="category-setting">
-                            <h3>Date</h3>
+                            <h3><i class="fa-regular fa-calendar"></i>&nbsp;&nbsp;Date</h3>
                             <div>
                                 <div>
                                     <label class="switch" for="displayDate">
@@ -112,7 +163,7 @@
                             </div>
                         </div>
                         <div class="category-setting">
-                            <h3>Time</h3>
+                            <h3><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;Time</h3>
                             <div>
                                 <div>
                                     <label class="switch" for="displayTime">
@@ -121,27 +172,27 @@
                                     </label> Display current time
                                 </div>
                                 <div>
-                                    <label class="switch" for="displayHours">
-                                        <input class="switch-input" name="displayHours" id="displayHours" type="checkbox" checked="checked"/>
+                                    <label class="switch" for="displayHour">
+                                        <input name="displayHour" id="displayHour" type="checkbox" checked="checked"/>
                                         <span class="slider"></span>
                                     </label> Hide hours
                                 </div>
                                 <div>
-                                    <label class="switch" for="displayMins">
-                                        <input class="switch-input" name="displayMins" id="displayMins" type="checkbox"/>
+                                    <label class="switch" for="displayMin">
+                                        <input name="displayMin" id="displayMin" type="checkbox"/>
                                         <span class="slider"></span>
                                     </label> Hide minutes
                                 </div>
                                 <div>
-                                    <label class="switch" for="displaySecs">
-                                        <input class="switch-input" name="displaySecs" id="displaySecs" type="checkbox"/>
+                                    <label class="switch" for="displaySec">
+                                        <input name="displaySec" id="displaySec" type="checkbox"/>
                                         <span class="slider"></span>
                                     </label> Hide seconds
                                 </div>
                             </div>
                         </div>
                         <div class="category-setting">
-                            <h3>Battery</h3>
+                            <h3><i class="fa-solid fa-battery-three-quarters"></i>&nbsp;&nbsp;Battery</h3>
                             <div>
                                 <div>
                                     <label class="switch" for="displayBattery">
@@ -151,9 +202,25 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="category-setting">
+                            <h3><i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Locking screen</h3>
+                            <div>
+                                <div>
+                                    <label class="switch" for="setPassword">
+                                        <input class="switch-input" name="setPassword" id="setPassword" type="checkbox"/>
+                                        <span class="slider"></span>
+                                    </label> Lock screen with password
+                                </div>
+                                <div id="input-group-pwd">
+                                    <input type="password" id="password" placeholder="Password"/>
+                                    <input type="password" id="password-confirm" placeholder="Confirm password"/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </main>
 
     </body>

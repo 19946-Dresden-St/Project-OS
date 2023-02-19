@@ -1,4 +1,6 @@
-// DARK THEME VARIABLES
+// COLOURS
+$black: #000;
+$white: #fff;
 $opaque-purple: #190a2f;
 $dark-purple: #190A2FE0;
 $dark-purple-transparent: #2E1456B5;
@@ -9,26 +11,49 @@ $cyan: #10EBFFFF;
 $light-cyan: #ADFFFCE0;
 $lighter-cyan: #DAEEF5E0;
 $lighter-cyan-transparent: #CEF1F3F4;
+$transparent: #FFFFFF19;
+$slightly-transparent: #FFFFFFA5;
+// /COLOURS
 
+
+// BOX-SHADOWS
+$black-box-shadow: 0 0 5px $black;
+$white-box-shadow: 0 0 5px $white;
 $dark-box-shadow: $cyan 0px 2px 4px 0px, $purple 0px 2px 16px 0px;
 $dark-box-shadow-reverse: $purple 0px 2px 16px 0px, $cyan 0px 2px 4px 0px;
 $light-box-shadow: $purple -1px 1px 4px 0px, $cyan 0px 0px 10px 0px;
+// /BOX-SHADOWS
 
+
+// TEXT-SHADOWS
+$black-text-shadow: 0 0 5px $black;
 $cyan-text-shadow: 0 0 5px $cyan;
 $purple-text-shadow: 0 0 3px $purple-transparent;
 $thick-purple-text-shadow: 0 0 2px $purple;
+// /TEXT-SHADOWS
 
-$dark-overlay: #111634B2;
-$light-overlay: rgba(229, 227, 255, 0.6);
 
+// SHADOWS INSETS
 $dark-inset-shadow: inset 0px -5px 5px -5px $cyan,
                     inset 0px -10px 10px -10px $light-purple;
 
 $light-inset-shadow: inset 0px -5px 5px -5px $light-purple,
                      inset 0px -10px 10px -10px $cyan;
+// /SHADOWS INSETS
 
+
+// GRADIENTS
+$dark-gradient: radial-gradient(circle, rgba(104,25,152,1) 0%, rgba(20,5,43,1) 90%);
+$dark-radial-gradient: radial-gradient(circle, #ae00f5 0%, #23103f 100%);
+// /GRADIENTS
+
+// CHECKBOXES
 $dark-checked-input: 0 0 4px 3px $cyan, 0 0 4px $cyan;
 $light-checked-input: 0 0 4px 3px #c120ff, 0 0 4px #b23bff;
+// /CHECKBOXES
 
-$black: #000;
-$white: #fff;
+
+// OVERLAYS
+$dark-overlay: #111634B2;
+$light-overlay: rgba(229, 227, 255, 0.6);
+// /OVERLAYS
