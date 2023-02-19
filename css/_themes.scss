@@ -65,6 +65,16 @@
         }
       }
 
+      #set-pwd {
+        background-color: $cyan;
+        color: $dark-purple;
+
+        &:hover {
+          text-shadow: $purple-text-shadow;
+          transition: all .4s;
+        }
+      }
+
     }
 
     .category-setting:not(:last-child) {
@@ -158,6 +168,16 @@
 
         &::placeholder {
           color: $purple-transparent;
+        }
+      }
+
+      #set-pwd {
+        background-color: $dark-purple;
+        color: $cyan;
+
+        &:hover {
+          text-shadow: $cyan-text-shadow;
+          transition: all .4s;
         }
       }
 

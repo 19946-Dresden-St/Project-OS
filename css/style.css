@@ -1,50 +1,4 @@
-header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0.25rem 0.75rem 0.55rem 0.75rem; }
-  header #div-theme {
-    margin-right: auto; }
-  header #calendar {
-    display: flex; }
-    header #calendar div {
-      margin-right: 0.25rem; }
-  header #clock {
-    display: flex; }
-    header #clock div {
-      margin-right: 0.25rem; }
-  header #clock2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-  }
-header #clock2 div {
-      margin-right: 0.25rem; }
-  header #battery-container {
-    display: flex;
-    align-items: center; }
-    header #battery-container #battery {
-      width: 2rem;
-      height: 0.75rem;
-      border-radius: 5px;
-      position: relative;
-      border-style: double;
-      border-width: 2px; }
-      header #battery-container #battery #power {
-        /*width: 26%;*/
-        height: 100%;
-        background-color: green;
-        position: absolute;
-        border-radius: 2px; }
-      header #battery-container #battery #pole {
-        width: 0.25rem;
-        height: 0.5rem;
-        background-color: black;
-        border-top-right-radius: 2px;
-        border-bottom-right-radius: 2px; }
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 #apps-row {
   display: flex;
   justify-content: center;
@@ -120,17 +74,60 @@ header #clock2 div {
       .popup .content .category-setting > div {
         width: 80%;
         margin-left: 4%; }
+      .popup .content .category-setting #error {
+        margin-top: 1rem; }
+
+#lock-logo {
+  display: inline-block;
+  text-decoration: none;
+  width: 2rem;
+  height: 2rem;
+  line-height: 32px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  background-color: #2E1456B5;
+  color: whitesmoke;
+  box-shadow: #681998 -1px 1px 4px 0px, #10EBFFFF 0px 0px 10px 0px;
+  text-shadow: 0 0 5px #10EBFFFF;
+  transition: .4s; }
+  #lock-logo:hover {
+    -ms-transform: rotate(10deg);
+    transform: rotate(10deg);
+    box-shadow: #681998 0px 2px 16px 0px, #10EBFFFF 0px 2px 4px 0px;
+    cursor: pointer; }
+
+#set-pwd {
+  margin-top: 1rem;
+  width: fit-content;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  cursor: pointer;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 600; }
 
 header {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-end;
   padding: 0.25rem 0.75rem 0.55rem 0.75rem; }
   header #div-theme {
     margin-right: auto; }
   header #calendar {
     display: flex; }
     header #calendar div {
+      margin-right: 0.25rem; }
+  header #clock {
+    display: flex; }
+    header #clock div {
+      margin-right: 0.25rem; }
+  header #clock2 {
+    display: flex; }
+    header #clock2 div {
       margin-right: 0.25rem; }
   header #battery-container {
     display: flex;
@@ -317,6 +314,12 @@ header {
     color: #10EBFFFF; }
     .dt .popup .category-setting input::placeholder {
       color: #DAEEF5E0; }
+  .dt .popup .category-setting #set-pwd {
+    background-color: #10EBFFFF;
+    color: #190A2FE0; }
+    .dt .popup .category-setting #set-pwd:hover {
+      text-shadow: 0 0 3px #681998a1;
+      transition: all .4s; }
   .dt .popup .category-setting:not(:last-child) {
     box-shadow: inset 0px -5px 5px -5px #10EBFFFF, inset 0px -10px 10px -10px #B23BFF;
     box-shadow-bottom: 0;
@@ -374,6 +377,12 @@ header {
     color: #681998; }
     .lt .popup .category-setting input::placeholder {
       color: #681998a1; }
+  .lt .popup .category-setting #set-pwd {
+    background-color: #190A2FE0;
+    color: #10EBFFFF; }
+    .lt .popup .category-setting #set-pwd:hover {
+      text-shadow: 0 0 5px #10EBFFFF;
+      transition: all .4s; }
   .lt .popup .category-setting:not(:last-child) {
     box-shadow: inset 0px -5px 5px -5px #B23BFF, inset 0px -10px 10px -10px #10EBFFFF;
     box-shadow-bottom: 0;
@@ -400,6 +409,5 @@ body {
 
 main {
   height: 100vh;
-  /*background-image: url("../assets/img/background.jpg");*/
   background-size: cover;
   background-repeat: no-repeat; }
