@@ -8,6 +8,9 @@
     width: 30%;
     margin-left: auto;
     margin-right: auto; }
+    @media screen and (max-width: 550px) {
+      #apps-row .container {
+        width: 56%; } }
     #apps-row .container a {
       display: flex;
       flex-direction: column;
@@ -17,9 +20,10 @@
       transition: .5s;
       border-radius: 8px;
       font-size: 1rem;
-      font-weight: 600;
-      /*      background-color: rgba(46, 20, 86, 0.71);
-      box-shadow: $middle-purple 0px 2px 16px 0px, $cyan 0px 2px 4px 0px;*/ }
+      font-weight: 600; }
+      @media screen and (max-width: 550px) {
+        #apps-row .container a {
+          font-size: 12px; } }
     #apps-row .container img {
       max-width: 72%;
       max-height: 72%;
@@ -40,11 +44,14 @@
 
 .popup {
   margin: 10% auto;
-  border-radius: 5px;
   width: 40%;
+  border-radius: 5px;
   position: relative;
-  transition: all 5s ease-in-out;
   padding-bottom: 2rem; }
+  @media screen and (max-width: 550px) {
+    .popup {
+      margin: 16% auto;
+      width: 90%; } }
   .popup .popup-header {
     padding: 1rem 2rem; }
     .popup .popup-header h2 {
@@ -81,26 +88,6 @@
         .popup .content .category-setting #clock2 div {
           margin-right: 0.25rem; }
 
-#lock-container {
-  margin-top: 6px; }
-  #lock-container #lock-logo {
-    font-size: 12px;
-    width: 26px;
-    height: 26px;
-    line-height: 25px;
-    border-radius: 50%;
-    text-align: center;
-    background-color: #2E1456B5;
-    color: whitesmoke;
-    box-shadow: #681998 -1px 1px 4px 0px, #10EBFFFF 0px 0px 10px 0px;
-    text-shadow: 0 0 5px #10EBFFFF;
-    transition: .4s; }
-    #lock-container #lock-logo:hover {
-      -ms-transform: rotate(10deg);
-      transform: rotate(10deg);
-      box-shadow: #681998 0px 2px 16px 0px, #10EBFFFF 0px 2px 4px 0px;
-      cursor: pointer; }
-
 #set-pwd {
   margin-top: 1rem;
   width: fit-content;
@@ -118,9 +105,31 @@ header {
   justify-content: flex-end;
   align-items: center;
   padding: 0.25rem 0.75rem 0.55rem 0.75rem; }
+  header #lock-container {
+    margin-top: 6px; }
+    header #lock-container #lock-logo {
+      font-size: 12px;
+      width: 26px;
+      height: 26px;
+      line-height: 25px;
+      border-radius: 50%;
+      text-align: center;
+      background-color: #2E1456B5;
+      color: whitesmoke;
+      box-shadow: #681998 -1px 1px 4px 0px, #10EBFFFF 0px 0px 10px 0px;
+      text-shadow: 0 0 5px #10EBFFFF;
+      transition: .4s; }
+      header #lock-container #lock-logo:hover {
+        -ms-transform: rotate(10deg);
+        transform: rotate(10deg);
+        box-shadow: #681998 0px 2px 16px 0px, #10EBFFFF 0px 2px 4px 0px;
+        cursor: pointer; }
   header #div-theme {
     margin-right: auto;
-    margin-left: 16px; }
+    margin-left: 16px;
+    line-height: 27px; }
+    header #div-theme:hover {
+      cursor: pointer; }
   header #calendar {
     display: flex;
     margin-right: 0.50rem; }
@@ -143,7 +152,6 @@ header {
       border-style: double;
       border-width: 2px; }
       header #battery-container #battery #power {
-        /*width: 26%;*/
         height: 100%;
         position: absolute;
         border-radius: 2px; }
@@ -201,14 +209,20 @@ header {
     #lock-screen #lock-screen-content img {
       width: 150px;
       padding: 2rem; }
+      @media screen and (max-width: 550px) {
+        #lock-screen #lock-screen-content img {
+          width: 100px; } }
     #lock-screen #lock-screen-content h1 {
       font-weight: 400;
       text-shadow: 0 0 5px #000; }
     #lock-screen #lock-screen-content #lock-screen-password {
-      width: 60%;
+      width: 250px;
       text-align: center;
       display: flex;
       flex-direction: column; }
+      @media screen and (max-width: 550px) {
+        #lock-screen #lock-screen-content #lock-screen-password {
+          width: 200px; } }
       #lock-screen #lock-screen-content #lock-screen-password input {
         padding: 0.5rem;
         border: none;
@@ -220,7 +234,7 @@ header {
         background: #FFFFFF19;
         transition: all 0.3s ease-in-out;
         box-shadow: 0 0 5px #000;
-        margin-bottom: 1rem; }
+        margin-bottom: 32px; }
         #lock-screen #lock-screen-content #lock-screen-password input::placeholder {
           color: #FFFFFFA5; }
         #lock-screen #lock-screen-content #lock-screen-password input:focus {
@@ -281,6 +295,11 @@ header {
 
 .dt header {
   color: #fff; }
+  .dt header #div-theme {
+    color: #B23BFF; }
+    .dt header #div-theme:hover {
+      color: #10EBFFFF;
+      transition: color 0.5s ease-in-out; }
   .dt header #pole {
     background-color: #fff; }
 
@@ -342,7 +361,12 @@ header {
   background-image: url("../assets/img/bg-lt.png"); }
 
 .lt header {
-  color: #000; }
+  color: #B23BFF; }
+  .lt header #div-theme {
+    color: #B23BFF; }
+    .lt header #div-theme:hover {
+      color: #2E1456B5;
+      transition: color 0.5s ease-in-out; }
   .lt header #pole {
     background-color: #000; }
 
@@ -412,3 +436,6 @@ main {
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat; }
+  @media screen and (max-width: 550px) {
+    main {
+      background-position: center center; } }

@@ -7,6 +7,14 @@
   header {
     color: $white;
 
+    #div-theme {
+      color: $light-purple;
+      &:hover {
+        color: $cyan;
+        transition: color 0.5s ease-in-out;
+      }
+    }
+
     #pole {
       background-color: $white;
     }
@@ -111,7 +119,15 @@
   }
 
   header {
-    color: $black;
+    color: $light-purple;
+
+    #div-theme {
+      color: $light-purple;
+      &:hover {
+        color: $dark-purple-transparent;
+        transition: color 0.5s ease-in-out;
+      }
+    }
 
     #pole {
       background-color: $black;

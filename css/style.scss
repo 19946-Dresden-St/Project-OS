@@ -23,4 +23,8 @@ main {
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
+
+  @media screen and (max-width: 550px) {
+    background-position: center center;
+  }
 }

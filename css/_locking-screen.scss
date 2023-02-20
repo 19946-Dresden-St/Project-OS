@@ -32,6 +32,10 @@
     img {
       width: 150px;
       padding: 2rem;
+
+      @media screen and (max-width: 550px) {
+          width: 100px;
+      }
     }
 
     h1 {
@@ -40,10 +44,14 @@
     }
 
     #lock-screen-password {
-      width: 60%;
+      width: 250px;
       text-align: center;
       display: flex;
       flex-direction: column;
+
+      @media screen and (max-width: 550px) {
+        width: 200px;
+      }
 
       input {
         padding: 0.5rem;
@@ -56,7 +64,7 @@
         background: $transparent;
         transition: all 0.3s ease-in-out;
         box-shadow: $black-box-shadow;
-        margin-bottom: 1rem;
+        margin-bottom: 32px;
 
         &::placeholder {
           color: $slightly-transparent;
