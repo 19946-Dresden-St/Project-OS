@@ -11,6 +11,10 @@
     margin-left: auto;
     margin-right: auto;
 
+    @media screen and (max-width: 550px) {
+      width: 56%;
+    }
+
     a {
       display: flex;
       flex-direction: column;
@@ -21,8 +25,11 @@
       border-radius: 8px;
       font-size: 1rem;
       font-weight: 600;
-/*      background-color: rgba(46, 20, 86, 0.71);
-      box-shadow: $middle-purple 0px 2px 16px 0px, $cyan 0px 2px 4px 0px;*/
+
+      @media screen and (max-width: 550px) {
+        font-size: 12px;
+      }
+
     }
 
 

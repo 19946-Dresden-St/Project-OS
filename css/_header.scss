@@ -1,67 +1,92 @@
 header {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
   padding: 0.25rem 0.75rem 0.55rem 0.75rem;
 
-  #div-theme {
-    margin-right: auto;
-  }
+    #lock-container {
+      margin-top: 6px;
 
-  #calendar {
-    display: flex;
+      #lock-logo {
+        font-size: 12px;
+        width: 26px;
+        height: 26px;
+        line-height: 25px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: $dark-purple-transparent;
+        color: whitesmoke;
+        box-shadow: $light-box-shadow;
+        text-shadow: $cyan-text-shadow;
+        transition: .4s;
 
-    div {
-      margin-right: 0.25rem;
+        &:hover{
+          -ms-transform: rotate(10deg);
+          transform: rotate(10deg);
+          box-shadow: $dark-box-shadow-reverse;
+          cursor: pointer;
+        }
+
+      }
     }
-  }
 
-  #clock {
-    display: flex;
+    #div-theme {
+      margin-right: auto;
+      margin-left: 16px;
+      line-height: 27px;
 
-    div {
-      margin-right: 0.25rem;
+      &:hover {
+        cursor: pointer;
+      }
     }
-  }
-  #clock2 {
-    display: flex;
 
-    div {
-      margin-right: 0.25rem;
+    #calendar {
+      display: flex;
+      margin-right: 0.50rem;
+
+      div {
+        margin-right: 0.25rem;
+      }
     }
-  }
 
-  #battery-container {
-    display: flex;
-    align-items: center;
-    margin-top: 0.15rem;
-    margin-right: 0.5rem;
+    #clock {
+      display: flex;
 
-    #battery {
-      width: 2rem;
-      height: 0.75rem;
-      border-radius: 5px;
-      position: relative;
-      border-style: double;
-      border-width: 2px;
+      div {
+        margin-right: 0.25rem;
+      }
+    }
 
-      #power {
-        /*width: 26%;*/
-        height: 100%;
-        position: absolute;
-        border-radius: 2px;
+    #battery-container {
+      display: flex;
+      align-items: center;
+      margin-top: 0.15rem;
+      margin-right: 0.5rem;
+
+      #battery {
+        width: 2rem;
+        height: 0.75rem;
+        border-radius: 5px;
+        position: relative;
+        border-style: double;
+        border-width: 2px;
+
+        #power {
+          height: 100%;
+          position: absolute;
+          border-radius: 2px;
+        }
+
+      }
+
+      #pole {
+        width: 0.25rem;
+        height: 0.5rem;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        margin-right: 0.25rem;
       }
 
     }
-
-    #pole {
-      width: 0.25rem;
-      height: 0.5rem;
-      border-top-right-radius: 2px;
-      border-bottom-right-radius: 2px;
-      margin-right: 0.25rem;
-    }
-
-  }
 
 }

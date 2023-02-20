@@ -18,11 +18,15 @@
 
 .popup {
     margin: 10% auto;
-    border-radius: 5px;
     width: 40%;
+    border-radius: 5px;
     position: relative;
-    transition: all 5s ease-in-out;
     padding-bottom: 2rem;
+
+    @media screen and (max-width: 550px) {
+        margin: 16% auto;
+        width: 90%;
+    }
 
     .popup-header {
         padding: 1rem 2rem;
@@ -71,6 +75,14 @@
 
             #error {
                 margin-top: 1rem;
+            }
+
+            #clock2 {
+                display: flex;
+
+                div {
+                    margin-right: 0.25rem;
+                }
             }
         }
 
