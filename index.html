@@ -111,14 +111,31 @@
             <div id="app-clock" class="overlay">
                 <div class="popup">
                     <div class="popup-header">
-                        <button id="clock-btn">Clock</button>
-                        <button id="chrono-btn">Chrono</button>
+                        <button class="button" id="clock-btn">Clock</button>
+                        <button class="button" id="chrono-btn">Chrono</button>
+                        <button class="button" id="timer-btn">Timer</button>
                         <a class="close" href="#">&times;</a>
                     </div>
                     <div class="content">
                         <div class="category-setting">
-                        <h3>Clock</h3>
-                            <div id="clock2"></div>
+                            <div id="clock-container">
+                                <div id="clock2"></div>
+                            </div>
+                            <div id="chrono-container" style="display:none;">
+                                <div id="chrono">00:00:00</div>
+                                <button id="start">Start</button>
+                                <button id="stop">Stop</button>
+                                <button id="reset">Reset</button>
+                            </div>
+                            <div id="timer-container" style="display:none;">
+                                <div id="timer">00:00:00</div>
+                                <input type="number" id="hours" min="0" max="23" placeholder="00" />:
+                                <input type="number" id="minutes" min="0" max="59" placeholder="00" />:
+                                <input type="number" id="seconds" min="0" max="59" placeholder="00" />
+                                <button id="start-timer">Start</button>
+                                <button id="stop-timer">Stop</button>
+                                <button id="reset-timer">Reset</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -173,19 +190,19 @@
                                 </div>
                                 <div>
                                     <label class="switch" for="displayHour">
-                                        <input name="displayHour" id="displayHour" type="checkbox" checked="checked"/>
+                                        <input class="switch-input" name="displayHour" id="displayHour" type="checkbox" />
                                         <span class="slider"></span>
                                     </label> Hide hours
                                 </div>
                                 <div>
                                     <label class="switch" for="displayMin">
-                                        <input name="displayMin" id="displayMin" type="checkbox"/>
+                                        <input class="switch-input" name="displayMin" id="displayMin" type="checkbox"/>
                                         <span class="slider"></span>
                                     </label> Hide minutes
                                 </div>
                                 <div>
                                     <label class="switch" for="displaySec">
-                                        <input name="displaySec" id="displaySec" type="checkbox"/>
+                                        <input class="switch-input" name="displaySec" id="displaySec" type="checkbox"/>
                                         <span class="slider"></span>
                                     </label> Hide seconds
                                 </div>

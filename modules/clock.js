@@ -17,12 +17,12 @@ class Clock extends Settings {
             {
                 feature: timeMContainer,
                 key: "minuteDisplay",
-                content: (this.getMinutes()) < 10 ? "0" + this.getMinutes() : this.getMinutes() + " m"
+                content: (this.getMinutes()) < 10 ? "0" + this.getMinutes() + " m" : this.getMinutes() + " m"
             },
             {
                 feature: timeSContainer,
                 key: "secondDisplay",
-                content: (this.getSeconds()) < 10 ? "0" + this.getSeconds() : this.getSeconds() + " s"
+                content: (this.getSeconds()) < 10 ? "0" + this.getSeconds() + " s" : this.getSeconds() + " s"
             }
         ];
 
@@ -68,11 +68,101 @@ class Clock extends Settings {
             second: "numeric",
         });
     }
-
-    ClockAppSelector() {
-
+    constructor() {
+        super();
+        this.startTime = new Date().getTime();
+        this.currentTime = 0;
+        this.timer = null;
+        this.timerapp = null;
+        this.timerappRunning = false;
+        this.timerDuration = 0;
+        this.timerRunning = false;
     }
 
+    startChrono() {
+        if (!this.startTime) {
+            this.startTime = new Date().getTime() - this.currentTime;
+        }
+        this.timer = setInterval(() => {
+            this.currentTime = new Date().getTime() - this.startTime;
+            let minutes = Math.floor((this.currentTime % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((this.currentTime % (1000 * 60)) / 1000);
+            let milliseconds = Math.floor((this.currentTime % 1000) / 10);
+
+            document.getElementById("chrono").innerHTML =
+                (minutes < 10 ? "0" + minutes : minutes) + ":" +
+                (seconds < 10 ? "0" + seconds : seconds) + ":" +
+                (milliseconds < 10 ? "0" + milliseconds : milliseconds);
+        }, 10);
+        this.timerRunning = true;
+    }
+
+    stopChrono() {
+        if (this.timerRunning) {
+            clearInterval(this.timer);
+            this.timerRunning = false;
+            this.startTime = null;
+        }
+    }
+
+    resetChrono() {
+        this.stopChrono();
+        this.currentTime = 0;
+        document.getElementById("chrono").innerHTML = "00:00:00";
+    }
+
+
+    // Initialise la minuterie
+    initTimer() {
+        let hours = document.getElementById("hours").value || 0;
+        let minutes = document.getElementById("minutes").value || 0;
+        let seconds = document.getElementById("seconds").value || 0;
+
+        this.timerDuration = hours * 60 * 60 + minutes * 60 + seconds;
+
+        this.updateTimerDisplay();
+    }
+    //timer specificity
+    timersong = new Audio("timer_song.mp3");
+
+    // Mise à jour de l'affichage de la minuterie
+    updateTimerDisplay() {
+        let hours = Math.floor(this.timerDuration / 3600);
+        let minutes = Math.floor((this.timerDuration % 3600) / 60);
+        let seconds = this.timerDuration % 60;
+
+        let timerDisplay = document.getElementById("timer");
+        timerDisplay.innerHTML =
+            (hours < 10 ? "0" + hours : hours) + ":" +
+            (minutes < 10 ? "0" + minutes : minutes) + ":" +
+            (seconds < 10 ? "0" + seconds : seconds);
+    }
+    startTimer() {
+        if (!this.timerappRunning) {
+            this.timerapp = setInterval(() => {
+                this.timerDuration--;
+                this.updateTimerDisplay();
+
+                if (this.timerDuration <= 0) {
+                    this.stopTimer();
+                    this.timersong.play();
+
+                }
+            }, 1000);
+            this.timerappRunning = true;
+        }
+    }
+    stopTimer() {
+        if (this.timerappRunning) {
+            clearInterval(this.timer);
+            this.timerappRunning = false;
+        }
+    }
+    resetTimer() {
+        this.stopTimer();
+        this.timerDuration = 0;
+        this.updateTimerDisplay();
+    }
 }
 
 export default Clock;
