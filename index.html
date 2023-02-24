@@ -1,219 +1,270 @@
+<!--RUN :  npx node-sass --watch css/style.scss css/style.css -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/application-window.css">
-    <link rel="stylesheet" href="css/calculator.css">
-    <script src="js/calculator.js"></script>
-    <script src="js/calculator_behavior.js"></script>
-    <script src="js/calendar.js"></script>
-    <script src="js/clock.js"></script>
-    <script src="js/dragndrop.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Add favicon -->
+        <link rel="icon" href="assets/icons/icons8-planet-48.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Synth.OS</title>
+    </head>
+    <body class="dt">
 
+        <main>
 
+            <div id="lock-screen">
+                <div id="lock-screen-content">
+                    <div id="img-bg">
+                        <img src="./assets/img/planet.png" alt="Synth.OS logo for locked screen"/>
+                    </div>
+                    <h1>Hello !</h1>
+                    <div id="lock-screen-password">
+                        <input id="unlock-input" type="password" placeholder="Password" style="display: none"/>
+                        <button id="unlock-btn">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-    <title>Title</title>
-</head>
-<body>
-
-    <main>
-        <header>
+            <header>
+                <div id="lock-container">
+                    <div id="lock-logo">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                </div>
+                <div id="div-theme">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                    <label class="switch">
+                        <input class="switch-input" id="theme-btn" type="checkbox"/>
+                        <span class="slider"></span>
+                    </label>
+                </div>
                 <div></div>
-                <div id="calendar"></div>
-                <div>&nbsp;</div>
-                <div id="clock"></div>
-        </header>
-        <div>
-            <button onclick="hide('calendarDisplay', dateContainer)">Hide calendar</button>
-            <button onclick="hide('clockDisplay', timeContainer)">Hide clock</button>
-        </div>
+                <div id="battery-container">
+                    <div id="battery">
+                        <div id="power"></div>
+                    </div>
+                    <div id="pole"></div>
+                </div>
+                <div id="calendar">
+                    <div id="calendar-day"></div>
+                    <div id="calendar-month"></div>
+                    <div id="calendar-year"></div>
+                </div>
+                <div></div>
+                <div id="clock">
+                    <div id="clock-hour"></div>
+                    <div id="clock-minute"></div>
+                    <div id="clock-second"></div>
+                </div>
+            </header>
 
-        <div id="apps-container">
-            <div>
-                <div class="app-icon-container">
-                    <a href="#app-settings">
-                        <div class="app-icon">
-                            <img src="./assets/icons/setting.png" alt="settings">
-                        </div>
-                        <div>
-                            <p>Settings</p>
-                        </div>
-                    </a>
+            <div id="apps-row">
+                <div>
+                    <div class="container">
+                        <a href="#app-settings">
+                            <div>
+                                <img src="./assets/icons/setting.png" alt="settings">
+                            </div>
+                            <div>
+                                <p>Settings</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div class="app-icon-container">
-                    <a href="#calculator-modal" id="calculator-modal-button">
-                        <div class="app-icon">
-                            <img src="./assets/icons/calculator.png" alt="calculator">
-                        </div>
-                        <div>
-                            <p>Calculator</p>
-                        </div>
-                    </a>
+                <div>
+                    <div id="calculator-modal"class="container">
+                        <a href="#calculator-modal" id="calculator-modal-button">
+                            <div class="app-icon">
+                                <img src="./assets/icons/calculator.png" alt="calculator">
+                            </div>
+                            <div>
+                                <p>Calculator</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div class="app-icon-container">
-                    <a href="">
-                        <div class="app-icon">
-                            <img src="./assets/icons/tic-tac-toe.png" alt="toc tac toe">
-                        </div>
-                        <div>
-                            <p>Settings</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+                <div>
+                    <div class="container">
+                        <a href="">
+                            <div>
+                                <img src="./assets/icons/tic-tac-toe.png" alt="toc tac toe">
+                            </div>
+                            <div>
+                                <p>Settings</p>
+                            </div>
+                        </a>
+                    </div>
 
-        <div id="app-settings" class="overlay">
-            <div class="popup">
-                <h2>Settings</h2>
-                <a class="close" href="#">&times;</a>
-                <div class="content">
-                    <div class="category-setting">
-                        <h3>Date</h3>
-                        <div>
-                            <label class="switch" for="toto">
-                                <input name="toto" id="toto"  type="checkbox">
-                                <span class="slider"></span>
-                            </label> Switch 3
+                <div>
+                    <div class="container">
+                        <a href="#app-clock">
+                            <div>
+                                <img src="./assets/icons/horlogadiscord.png" alt="clock">
+                            </div>
+                            <div>
+                                <p>Clock</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="app-clock" class="overlay">
+                <div class="popup">
+                    <div class="popup-header">
+                        <button id="clock-btn">Clock</button>
+                        <button id="chrono-btn">Chrono</button>
+                        <a class="close" href="#">&times;</a>
+                    </div>
+                    <div class="content">
+                        <div class="category-setting">
+                        <h3>Clock</h3>
+                            <div id="clock2"></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="calculator">
-            <div id="calculator-modal" class="modal">
-                <div class="modal-content">
-                  <div id="calculator">
-                    <div class="output">
-                      <span id="previous-operand"></span>
-                      <span id="current-operand"></span>
+
+
+
+            <div id="app-settings" class="overlay">
+                <div class="popup">
+                    <div class="popup-header">
+                        <h2>Settings</h2>
+                        <a id="close" href="#">&times;</a>
                     </div>
-                    <div class="buttons">
-                      <button id="clear">AC</button>
-                      <button id="delete">DEL</button>
-                      <button id="clint">CL INT</button>
-                      <button id="divide" data-operation>÷</button>
-                      <button id="seven" data-number>7</button>
-                      <button id="eight" data-number>8</button>
-                      <button id="nine" data-number>9</button>
-                      <button id="multiply" data-operation>*</button>
-                      <button id="four" data-number>4</button>
-                      <button id="five" data-number>5</button>
-                      <button id="six" data-number>6</button>
-                      <button id="subtract" data-operation>-</button>
-                      <button id="one" data-number>1</button>
-                      <button id="two" data-number>2</button>
-                      <button id="three" data-number>3</button>
-                      <button id="add" data-operation>+</button>
-                      <button id="zero" data-number>0</button>
-                      <button id="decimal" data-number>.</button>
-                      <button id="equals">=</button>
+                    <div class="content">
+                        <div class="category-setting">
+                            <h3><i class="fa-regular fa-calendar"></i>&nbsp;&nbsp;Date</h3>
+                            <div>
+                                <div>
+                                    <label class="switch" for="displayDate">
+                                        <input class="switch-input" name="displayDate" id="displayDate" type="checkbox"/>
+                                        <span class="slider"></span>
+                                    </label> Display date
+                                </div>
+                                <div>
+                                    <label class="switch" for="displayDay">
+                                        <input class="switch-input" name="displayDay" id="displayDay" type="checkbox"/>
+                                        <span class="slider"></span>
+                                    </label> Display day
+                                </div>
+                                <div>
+                                    <label class="switch" for="displayMonth">
+                                        <input class="switch-input" name="displayMonth" id="displayMonth" type="checkbox"/>
+                                        <span class="slider"></span>
+                                    </label> Display month
+                                </div>
+                                <div>
+                                    <label class="switch" for="displayYear">
+                                        <input class="switch-input" name="displayYear" id="displayYear" type="checkbox"/>
+                                        <span class="slider"></span>
+                                    </label> Display year
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-setting">
+                            <h3><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;Time</h3>
+                            <div>
+                                <div>
+                                    <label class="switch" for="displayTime">
+                                        <input class="switch-input" name="displayTime" id="displayTime" type="checkbox"/>
+                                        <span class="slider"></span>
+                                    </label> Display current time
+                                </div>
+                                <div>
+                                    <label class="switch" for="displayHour">
+                                        <input name="displayHour" id="displayHour" type="checkbox" checked="checked"/>
+                                        <span class="slider"></span>
+                                    </label> Hide hours
+                                </div>
+                                <div>
+                                    <label class="switch" for="displayMin">
+                                        <input name="displayMin" id="displayMin" type="checkbox"/>
+                                        <span class="slider"></span>
+                                    </label> Hide minutes
+                                </div>
+                                <div>
+                                    <label class="switch" for="displaySec">
+                                        <input name="displaySec" id="displaySec" type="checkbox"/>
+                                        <span class="slider"></span>
+                                    </label> Hide seconds
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-setting">
+                            <h3><i class="fa-solid fa-battery-three-quarters"></i>&nbsp;&nbsp;Battery</h3>
+                            <div>
+                                <div>
+                                    <label class="switch" for="displayBattery">
+                                        <input class="switch-input" name="displayBattery" id="displayBattery" type="checkbox"/>
+                                        <span class="slider"></span>
+                                    </label> Display battery
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-setting">
+                            <h3><i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Locking screen</h3>
+                            <div>
+                                <div>
+                                    <label class="switch" for="setPassword">
+                                        <input class="switch-input" name="setPassword" id="setPassword" type="checkbox"/>
+                                        <span class="slider"></span>
+                                    </label> Lock screen with password
+                                </div>
+                                <div id="input-group-pwd">
+                                    <input type="password" id="password" placeholder="Password"/>
+                                    <input type="password" id="password-confirm" placeholder="Confirm password"/>
+                                    <p id="error"></p>
+                                    <button id="set-pwd">Set password</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="calculator">
+                            <div id="calculator-modal" class="modal">
+                                <div class="modal-content">
+                                  <div id="calculator">
+                                    <div class="output">
+                                      <span id="previous-operand"></span>
+                                      <span id="current-operand"></span>
+                                    </div>
+                                    <div class="buttons">
+                                      <button id="clear">AC</button>
+                                      <button id="delete">DEL</button>
+                                      <button id="clint">CL INT</button>
+                                      <button id="divide" data-operation>÷</button>
+                                      <button id="seven" data-number>7</button>
+                                      <button id="eight" data-number>8</button>
+                                      <button id="nine" data-number>9</button>
+                                      <button id="multiply" data-operation>*</button>
+                                      <button id="four" data-number>4</button>
+                                      <button id="five" data-number>5</button>
+                                      <button id="six" data-number>6</button>
+                                      <button id="subtract" data-operation>-</button>
+                                      <button id="one" data-number>1</button>
+                                      <button id="two" data-number>2</button>
+                                      <button id="three" data-number>3</button>
+                                      <button id="add" data-operation>+</button>
+                                      <button id="zero" data-number>0</button>
+                                      <button id="decimal" data-number>.</button>
+                                      <button id="equals">=</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-        </div>
+            </div>
 
-    </main>
+        </main>
 
-</body>
-<script>
-    // containers
-    let dateContainer = document.getElementById('calendar');
-    let timeContainer = document.getElementById('clock');
-
-
-    // creates and initializes the date
-    let calendar = new Calendar();
-    calendar.initDate(dateContainer)
-
-    // creates and initializes the clock
-    let clock = new Clock();
-    clock.initTime(timeContainer);
-
-
-    /*
-    * Hides an element / a feature depending on the settings saved in the local storage
-    * @param storage - setting key's name
-    * @param container - container #id of the element to hide
-    */
-    function hide(storage, container) {
-        if (localStorage.getItem(storage) === "false") {
-            container.style.display = "block";
-            localStorage.setItem(storage, "true");
-        } else {
-            container.style.display = "none";
-            localStorage.setItem(storage, "false");
-        }
-    }
-
-</script>
+    </body>
+    <script type="module" src="main.js"></script>
 
 </html>
-
-<style>
-
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        font-family: "Geneva", sans-serif;
-    }
-
-    main {
-        height: 100vh;
-        background-image: url("assets/img/background.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    #apps-container {
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        bottom: 20%;
-    }
-
-    .app-icon-container {
-        width: 24%;
-        margin-left: auto;
-        margin-right: auto;
-        /*transition: transform .8s;*/
-    }
-
-    .app-icon-container a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        padding: 1rem 0;
-        transition: .5s;
-        border-radius: 8px;
-    }
-
-    .app-icon-container a:hover {
-        /*box-shadow: 0 0 15px #ffee10;*/
-        text-shadow: 0 0 5px #10EBFFFF;
-        background-color: #190a2fe0;
-        box-shadow: #00CEEF 0px 2px 4px 0px, #9D15D5FF 0px 2px 16px 0px;
-    }
-
-    .app-icon-container p {
-        font-size: 1rem;
-        color: whitesmoke;
-    }
-
-   .app-icon img {
-       max-width: 72%;
-       max-height: 72%;
-       margin-left: 14%;
-    }
-
-</style>

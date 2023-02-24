@@ -1,0 +1,227 @@
+.dt {
+
+  main {
+    background-image: url("../assets/img/background.jpg");
+  }
+
+  header {
+    color: $white;
+
+    #div-theme {
+      color: $light-purple;
+      &:hover {
+        color: $cyan;
+        transition: color 0.5s ease-in-out;
+      }
+    }
+
+    #pole {
+      background-color: $white;
+    }
+  }
+
+  #apps-row {
+    a {
+      color: whitesmoke;
+      text-shadow: $cyan-text-shadow;
+      background-color: $dark-purple-transparent;
+      box-shadow: $dark-box-shadow-reverse;
+
+      &:hover {
+        background-color: $dark-purple;
+        box-shadow: $dark-box-shadow;
+      }
+
+    }
+
+  }
+
+  .overlay {
+    background: $dark-overlay;
+  }
+
+  .popup {
+    background-color: $dark-purple;
+    box-shadow: $dark-box-shadow;
+
+    .popup-header {
+      background-color: $opaque-purple;
+      box-shadow: $dark-inset-shadow;
+      box-shadow-bottom: 0;
+      box-shadow-left: 0;
+      box-shadow-right: 0;
+
+      h2 {
+        color: $light-cyan;
+        text-shadow: $cyan-text-shadow;
+      }
+
+    }
+
+    .category-setting {
+
+      h3, > div {
+          color: $light-cyan;
+          text-shadow: $cyan-text-shadow;
+      }
+
+      input {
+        color: $cyan;
+
+        &::placeholder {
+          color: $lighter-cyan;
+        }
+      }
+
+      #set-pwd {
+        background-color: $cyan;
+        color: $dark-purple;
+
+        &:hover {
+          text-shadow: $purple-text-shadow;
+          transition: all .4s;
+        }
+      }
+
+    }
+
+    .category-setting:not(:last-child) {
+      box-shadow: $dark-inset-shadow;
+      box-shadow-bottom: 0;
+      box-shadow-left: 0;
+      box-shadow-right: 0;
+    }
+
+  }
+
+  .slider {
+    box-shadow: 0 0 3px 3px $purple;
+
+    &:before {
+      background-color: $purple;
+    }
+  }
+
+  .switch-input:checked + .slider:before {
+    background-color: $cyan;
+  }
+
+  .switch-input:checked + .slider {
+    box-shadow: $dark-checked-input;
+  }
+
+}
+
+.lt {
+
+  main {
+    background-image: url("../assets/img/bg-lt.png");
+  }
+
+  header {
+    color: $light-purple;
+
+    #div-theme {
+      color: $light-purple;
+      &:hover {
+        color: $dark-purple-transparent;
+        transition: color 0.5s ease-in-out;
+      }
+    }
+
+    #pole {
+      background-color: $black;
+    }
+
+  }
+
+  #apps-row {
+      a {
+        color: $dark-purple;
+        background-color: $lighter-cyan;
+        box-shadow: $light-box-shadow;
+        text-shadow: $purple-text-shadow;
+
+        &:hover {
+          background-color: $lighter-cyan-transparent;
+          box-shadow: $dark-box-shadow-reverse;
+          text-shadow: $thick-purple-text-shadow;
+        }
+      }
+  }
+
+  .overlay {
+      background: $light-overlay;
+  }
+
+  .popup {
+    background-color: $lighter-cyan;
+    box-shadow: $light-box-shadow;
+
+    .popup-header {
+      background-color: $lighter-cyan-transparent;
+      box-shadow: $light-inset-shadow;
+      box-shadow-bottom: 0;
+      box-shadow-left: 0;
+      box-shadow-right: 0;
+
+      h2 {
+        color: $dark-purple;
+        text-shadow: $purple-text-shadow;
+      }
+
+    }
+
+    .category-setting {
+
+      h3, > div {
+        color: $dark-purple;
+        text-shadow: $purple-text-shadow;
+      }
+
+      input {
+        color: $purple;
+
+        &::placeholder {
+          color: $purple-transparent;
+        }
+      }
+
+      #set-pwd {
+        background-color: $dark-purple;
+        color: $cyan;
+
+        &:hover {
+          text-shadow: $cyan-text-shadow;
+          transition: all .4s;
+        }
+      }
+
+    }
+
+    .category-setting:not(:last-child) {
+      box-shadow: $light-inset-shadow;
+      box-shadow-bottom: 0;
+      box-shadow-left: 0;
+      box-shadow-right: 0;
+    }
+
+  }
+
+  .slider {
+      box-shadow: 0 0 3px 3px $dark-purple-transparent;
+
+      &:before {
+      background-color: $dark-purple-transparent;
+      }
+  }
+
+  .switch-input:checked + .slider:before {
+      background-color: #c120ff;
+  }
+
+  .switch-input:checked + .slider {
+      box-shadow: $light-checked-input;
+  }
+
+}

@@ -1,0 +1,44 @@
+@import "./variables";
+
+#apps-row {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 20%;
+
+  .container {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (max-width: 550px) {
+      width: 56%;
+    }
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      padding: 1rem;
+      transition: .5s;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+
+      @media screen and (max-width: 550px) {
+        font-size: 12px;
+      }
+
+    }
+
+
+    img {
+      max-width: 72%;
+      max-height: 72%;
+      margin-left: 14%;
+    }
+
+  }
+
+}
