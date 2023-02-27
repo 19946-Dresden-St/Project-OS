@@ -30,41 +30,7 @@
             </div>
 
 
-            <script>
 
-            function drag(event) {
-                // Set the data to be transferred during drag
-                event.dataTransfer.setData("text", event.target.id);
-            }
-            
-            // Add event listeners for the drop targets
-            var overlayDivs = document.querySelectorAll("#apps-row > div:nth-child(1)");
-            console.log(overlayDivs);
-            overlayDivs.forEach(function(div) {
-                // log the html element inside the div
-                console.log(1);
-
-                div.addEventListener("dragover", allowDrop);
-                div.addEventListener("drop", drop);
-            });
-            
-            function allowDrop(event) {
-                console.log("allowDrop");
-                // Prevent default behavior to allow drop
-                event.preventDefault();
-            }
-            
-            function drop(event) {
-                console.log("Drop");
-
-                // Prevent default behavior and get the dragged data
-                event.preventDefault();
-                var data = event.dataTransfer.getData("text");
-            
-                // Move the dragged element to the drop target
-                event.target.appendChild(document.getElementById(data));
-            }
-            </script>
 
             <header>
                 <div id="lock-container">
@@ -98,11 +64,27 @@
                     <div id="clock-second"></div>
                 </div>
             </header>
-            <!-- // ICONS -->
-                <div id="apps-row">
-            
-                    <div class="app-row-item">
-                        <div class="container" id="settings"  draggable="true" ondragstart="drag(event)">
+            <script>
+                function start(e) {
+                    e.dataTransfer.effectAllowed = 'move';
+                    e.dataTransfer.setData("text", e.target.getAttribute('id'));
+                }
+                function over(e) {
+                    return false;
+                    e.dataTransfer.dropEffect = 'move';
+                    return false;
+                }
+                function drop(e) {
+                    var id = e.dataTransfer.getData("text");
+                    e.currentTarget.appendChild(document.getElementById(id));
+                    return false;
+                }
+
+            </script>
+            <!-- ICONS -->
+                <div id="apps-row"  ongDragOver = "return over()" onDrop="return drop()" ondDragStart = "start(event)" >   
+                    <div class="app-row-item" id="settings" draggable="true">
+                        <div class="container">
                             <a href="#app-settings">
                                 <div>
                                     <img src="./assets/icons/setting.png" alt="settings">
@@ -113,8 +95,8 @@
                             </a>
                         </div>
                     </div>
-                    <div class="app-row-item">
-                        <div class="container"  draggable="true" ondragstart="drag(event)">
+                    <div class="app-row-item" id="calculator"  draggable="true">
+                        <div class="container">
                             <a href="#app-calculator">
                                 <div>
                                     <img src="./assets/icons/calculator.png" alt="calculator">
@@ -125,20 +107,20 @@
                             </a>
                         </div>
                     </div>
-                    <div class="app-row-item">
-                        <div class="container" draggable="true" ondragstart="drag(event)">
-                            <a href="">
+                    <div class="app-row-item" id="settings2" draggable="true">
+                        <div class="container">
+                            <!-- <a href="">
                                 <div>
                                     <img src="./assets/icons/tic-tac-toe.png" alt="toc tac toe">
                                 </div>
                                 <div>
                                     <p>Settings</p>
                                 </div>
-                            </a>
-                        </div>
+                            </a> -->
+                        </div> 
                     </div>
-                    <div class="app-row-item">
-                        <div class="container" draggable="true" ondragstart="drag(event)">
+                    <div class="app-row-item" id="clock" draggable="true">
+                        <div class="container">
                             <a href="#app-clock" >
                                 <div>
                                     <img src="./assets/icons/horlogadiscord.png" alt="clock">
@@ -150,6 +132,7 @@
                         </div>
                     </div>
                 </div>
+                
             <!-- // ICONS -->
            <!-- OVERLAYS  -->
 
