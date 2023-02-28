@@ -352,18 +352,26 @@
                     <p>Score Joueur 1 : <span id="score1"></span></p>
                     <p>Score Joueur 2 : <span id="score2"></span></p>
                     <p>Matchs nuls : <span id="scoreNul"></span></p>
+                    Retour haptique <label class="switch" for="addVibration">
+                        <input class="switch-input" name="addVibration" id="addVibration" type="checkbox"/>
+                        <span class="slider"></span>
+                    </label> 
+                    <br><br>
                 </div>
-                <div id="grid" class="tictac">
-                    <div id="c1" class="case"></div>
-                    <div id="c2" class="case"></div>
-                    <div id="c3" class="case"></div>
-                    <div id="c4" class="case"></div>
-                    <div id="c5" class="case"></div>
-                    <div id="c6" class="case"></div>
-                    <div id="c7" class="case"></div>
-                    <div id="c8" class="case"></div>
-                    <div id="c9" class="case"></div>
-                  </div>
+                <div class="tictac--board">
+                    <div><button id="resetTTT">Recommencer la partie</button><br></div>
+                    <div id="grid" class="tictac">
+                        <div id="c1" class="case"></div>
+                        <div id="c2" class="case"></div>
+                        <div id="c3" class="case"></div>
+                        <div id="c4" class="case"></div>
+                        <div id="c5" class="case"></div>
+                        <div id="c6" class="case"></div>
+                        <div id="c7" class="case"></div>
+                        <div id="c8" class="case"></div>
+                        <div id="c9" class="case"></div>
+                    </div>
+                </div>
             </div>
         </div>
 

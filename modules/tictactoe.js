@@ -4,6 +4,7 @@ class TicTacToe{
         this.score2 = document.getElementById("score2");
         this.scoreNul = document.getElementById("scoreNul");
         this.cases = [...document.getElementsByClassName("case")]; // nodelist -> array
+        
     
         // initialize state
         this.state = {
@@ -35,6 +36,7 @@ class TicTacToe{
         this.cases.forEach((el) => {
             el.addEventListener("click", this.jouerCase);
         });
+        
     }
     
     load() {
@@ -138,7 +140,14 @@ class TicTacToe{
             this.state[caseId] = joueurEnCours;
             event.target.textContent = joueurEnCours === 1 ? "X" : "O";
             event.target.classList.add(`joueur${joueurEnCours}`);
-    
+            
+
+            localStorage.getItem("vibration") == true && console.log("vibrate");
+            if ("vibrate" in navigator && localStorage.getItem("vibration") == true) {
+                navigator.vibrate(10);
+                console.log("vibrate");
+            }
+
             const gameWon = this.verifierVictoire();
     
             if (!gameWon) {
@@ -147,7 +156,29 @@ class TicTacToe{
             } 
         }
     }
-    
+
+    resetGame() {
+        // Reset game state
+        this.resetState();
+        console.log(this.state);
+        // Remove all CSS classes from case elements
+        this.cases.forEach((el) => {
+          el.classList.remove("joueur1");
+          el.classList.remove("joueur2");
+          el.textContent = "";
+
+        });
+        console.log(this.cases);
+      
+        // Update the UI to reflect the reset state
+        this.score1.innerHTML = this.state.scoreJ1;
+        this.score2.innerHTML = this.state.scoreJ2;
+        this.scoreNul.innerHTML = this.state.matchNul;
+
+        console.log(this.score1);
+        console.log(this.score2);
+        console.log(this.scoreNul);
+    }
 }
 
 export default TicTacToe;
