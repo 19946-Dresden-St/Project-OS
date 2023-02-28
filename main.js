@@ -159,7 +159,6 @@ operationButtons.forEach(button => {
 })
 
 equalsButton.addEventListener('click', button => {
-    console.log('test')
     calculator.compute()
     calculator.updateDisplay()
 })
@@ -179,7 +178,6 @@ deleteButton.addEventListener('click', button => {
 })
 
 decimalButton.addEventListener('click', button => {
-    console.log(button.innerText)
     calculator.appendNumber(button.innerText)
     calculator.updateDisplay()
 })
