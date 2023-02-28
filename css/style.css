@@ -374,6 +374,63 @@ header {
     box-shadow-bottom: 0;
     box-shadow-left: 0;
     box-shadow-right: 0; }
+    
+
+
+    /* TICTACTOE CSS */
+
+    .tictac:not(:last-child) {
+      box-shadow: inset 0px -5px 5px -5px #10EBFFFF, inset 0px -10px 10px -10px #B23BFF;
+      box-shadow-bottom: 0;
+      box-shadow-left: 0;
+      box-shadow-right: 0; 
+      margin-bottom: 1rem;
+    }
+    
+    .tictac{
+        color: #ADFFFCE0;
+        text-shadow: 0 0 5px #10EBFFFF;         
+    }
+    div.score > p {
+       font-size: 0.3rem;
+    }
+    tictac-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      margin: 2rem;
+    }
+    #grid {
+      display: grid;
+      grid-template-columns: 5rem 5rem 5rem;
+      grid-template-rows: 5rem 5rem 5rem;
+      margin: 3rem auto;
+    }
+
+    .case {
+      border: 1px solid lightgrey;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+    }
+
+    /* p {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    } */
+
+    /* p:first-of-type {
+      color: lightseagreen;
+  } */
+
+
+    /* /TICTACTOE CSS */
+
 
 .dt #calculator .output {
   background-color: #681998a1;

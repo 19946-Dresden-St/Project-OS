@@ -130,12 +130,12 @@
         </div>
         <div>
             <div class="container">
-                <a href="">
+                <a href="#app-tictactoe">
                     <div>
-                        <img src="./assets/icons/tic-tac-toe.png" alt="toc tac toe">
+                        <img src="./assets/icons/tic-tac-toe.png" alt="tic tac toe">
                     </div>
                     <div>
-                        <p>Settings</p>
+                        <p>TicTacToe</p>
                     </div>
                 </a>
             </div>
@@ -340,6 +340,34 @@
         </div>
     </div>
 
+    <div id="app-tictactoe" class = "overlay"> 
+        <div class="popup">
+            <div class="popup-header">
+                <h2>Tic Tac Toe</h2>
+                <a id="close" href="#">&times;</a>
+            </div>
+            <div class="content tictac-content">
+                <div id="score" class="tictac">
+                    <p>C'est au tour de Joueur <span id="joueur">1</span></p>
+                    <p>Score Joueur 1 : <span id="score1"></span></p>
+                    <p>Score Joueur 2 : <span id="score2"></span></p>
+                    <p>Matchs nuls : <span id="scoreNul"></span></p>
+                </div>
+                <div id="grid" class="tictac">
+                    <div id="c1" class="case"></div>
+                    <div id="c2" class="case"></div>
+                    <div id="c3" class="case"></div>
+                    <div id="c4" class="case"></div>
+                    <div id="c5" class="case"></div>
+                    <div id="c6" class="case"></div>
+                    <div id="c7" class="case"></div>
+                    <div id="c8" class="case"></div>
+                    <div id="c9" class="case"></div>
+                  </div>
+            </div>
+        </div>
+
+    </div>
     <!-- // OVERLAYS  -->
 </main>
 

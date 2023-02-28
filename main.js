@@ -4,6 +4,7 @@ import Clock from "./modules/clock.js";
 import Locking from "./modules/locking.js";
 import Settings from "./modules/settings.js";
 import Calculator from "./modules/calculator.js";
+import TicTacToe from "./modules/tictactoe.js";
 
 // Load the current settings
 const settings = new Settings();
@@ -147,6 +148,14 @@ let battery = new Battery()
 battery.initBattery(batteryContainer);
 
 // /========= BATTERY INITIALIZATION ==========
+
+// ========= TIC TAC TOE ==========
+
+let tictactoe = new TicTacToe()
+
+// /=========  TIC TAC TOE ==========
+
+
 
 
 // ========== LISTENERS ==========
