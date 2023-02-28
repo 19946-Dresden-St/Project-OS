@@ -216,6 +216,10 @@ class Clock extends Settings {
         this.timerDuration = 0;
         this.isResume = true;
         this.updateTimerDisplay();
+
+        document.getElementById("hours").value = "";
+        document.getElementById("minutes").value = "";
+        document.getElementById("seconds").value = "";
     }
 }
 
