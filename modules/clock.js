@@ -28,12 +28,12 @@ class Clock extends Settings {
             {
                 feature: timeMContainer,
                 key: "minuteDisplay",
-                content: (this.getMinutes()) < 10 ? "0" + this.getMinutes() + " m" : this.getMinutes() + " m"
+                content: (this.getMinutes()) < 10 ? "0" + this.getMinutes() : this.getMinutes() + " m"
             },
             {
                 feature: timeSContainer,
                 key: "secondDisplay",
-                content: (this.getSeconds()) < 10 ? "0" + this.getSeconds() + " s" : this.getSeconds() + " s"
+                content: (this.getSeconds()) < 10 ? "0" + this.getSeconds() : this.getSeconds() + " s"
             }
         ];
 
@@ -79,7 +79,6 @@ class Clock extends Settings {
             second: "numeric",
         });
     }
-
      updateClock(timeContainer, timeHContainer, timeMContainer, timeSContainer, timeContainerapp) {
          this.initTime(timeContainer, timeHContainer, timeMContainer, timeSContainer);
          this.initTimeapp(timeContainerapp);
@@ -166,7 +165,7 @@ class Clock extends Settings {
             }
         }
     }
-    startTimer(Vibration) {
+    startTimer(Vibration){
         if (!this.timerappRunning && this.timerDuration > 0) {
             this.timerapp = setInterval(() => {
                 this.timerDuration--;
@@ -183,8 +182,6 @@ class Clock extends Settings {
                 window.navigator.vibrate(100);
                 console.log("vibration");
             }
-
-            this.timerappRunning = true;
         }
     }
     stopTimer(Vibration) {

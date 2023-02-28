@@ -9,10 +9,6 @@ import Calculator from "./modules/calculator.js";
 const settings = new Settings();
 settings.load();
 
-if (Notification.permission !== "granted") {
-    Notification.requestPermission();
-}
-
 // ========== LOCKING SCREEN INITIALIZATION ==========
 
 let screen = document.getElementById('lock-screen');
@@ -38,25 +34,20 @@ calendar.initDate(containerDate, containerDay, containerMonth, containerYear);
 calendar.updateCalendar(containerDate, containerDay, containerMonth, containerYear);
 setInterval(() => calendar.updateCalendar, 1000);
 
-// /========== CALENDAR INITIALIZATION ==========
-
-
-// ========== CLOCK & CHRONO INITIALIZATION ==========
-
 // Initialize clocks with current time
 let timeContainer = document.getElementById('clock');
+let timeContainerapp = document.getElementById('clock2');
 let timeHContainer = document.getElementById('clock-hour');
 let timeMContainer = document.getElementById('clock-minute');
 let timeSContainer = document.getElementById('clock-second');
 let clock = new Clock();
 
 clock.initTime(timeContainer,  timeHContainer, timeMContainer, timeSContainer);
-
+clock.initTimeapp(timeContainerapp);
 
 //Initialize the clock app
 let chronoContainer = document.getElementById("chrono-container");
 let clockContainer = document.getElementById("clock-container");
-let timeContainerapp = document.getElementById('clock2');
 let timerContainer = document.getElementById("timer-container");
 clock.initTimeapp(timeContainerapp);
 
@@ -124,7 +115,6 @@ resetTimerButton.addEventListener("click", () => {
     clock.resetTimer(Vibration);
 });
 
-// /========== CLOCK & CHRONO INITIALIZATION ==========
 
 //Click event listeners to the clock and chrono buttons
 startButton.addEventListener("click", clock.startChrono);
