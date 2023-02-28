@@ -3,7 +3,9 @@ class TicTacToe{
         this.score1 = document.getElementById("score1");
         this.score2 = document.getElementById("score2");
         this.scoreNul = document.getElementById("scoreNul");
+        this.actualPlayer = document.getElementById("actualPlayer");
         this.cases = [...document.getElementsByClassName("case")]; // nodelist -> array
+        
         
     
         // initialize state
@@ -43,6 +45,7 @@ class TicTacToe{
         let winP1 = localStorage.getItem("winP1");
         let winP2 = localStorage.getItem("winP2");
         let tie = localStorage.getItem("tie");
+
     
         this.score1.innerHTML = winP1 || 0;
         this.score2.innerHTML = winP2 || 0;
@@ -139,6 +142,9 @@ class TicTacToe{
             const joueurEnCours = this.state.joueurEnCours;
             this.state[caseId] = joueurEnCours;
             event.target.textContent = joueurEnCours === 1 ? "X" : "O";
+
+            this.actualPlayer.innerHTML = joueurEnCours === 1 ? 2 : 1;            
+            
             event.target.classList.add(`joueur${joueurEnCours}`);
             
             localStorage.getItem("vibration") == true && console.log("vibrate");
@@ -172,7 +178,9 @@ class TicTacToe{
         // Update the UI to reflect the reset state
         this.score1.innerHTML = this.state.scoreJ1;
         this.score2.innerHTML = this.state.scoreJ2;
-        this.scoreNul.innerHTML = this.state.matchNul;
+        this.scoreNul.innerHTML = this.state.matchNul
+        this.actualPlayer.innerHTML = this.state.joueurEnCours;
+        
     }
 }
 
