@@ -52,8 +52,9 @@ clock.initTimeapp(timeContainerapp);
 //Initialize the clock app
 let chronoContainer = document.getElementById("chrono-container");
 let clockContainer = document.getElementById("clock-container");
-let timeContainerapp = document.getElementById('clock2');
 let timerContainer = document.getElementById("timer-container");
+let clockButton = document.getElementById("clock-btn");
+let chronoButton = document.getElementById("chrono-btn");
 clock.initTimeapp(timeContainerapp,clockContainer, chronoContainer, timerContainer);
 
 
@@ -72,6 +73,11 @@ setInterval(updateClock, 1000);
 let timerButton = document.getElementById("timer-btn");
 let startTimerButton = document.getElementById("start-timer");
 let stopTimerButton = document.getElementById("stop-timer");
+let startButton = document.getElementById("start-btn");
+let stopButton = document.getElementById("stop-btn");
+let resetButton = document.getElementById("reset-btn");
+
+
 
 //Specifique timer
 let resetTimerButton = document.getElementById("reset-timer");
