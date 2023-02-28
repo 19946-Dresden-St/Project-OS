@@ -2,6 +2,17 @@ import Settings from "./settings.js";
 
 class Clock extends Settings {
 
+    constructor() {
+        super();
+        this.startTime = new Date().getTime();
+        this.currentTime = 0;
+        this.timer = null;
+        this.timerapp = null;
+        this.timerappRunning = false;
+        this.timerDuration = 0;
+        this.timerRunning = false;
+    }
+
     /*
     * Initialize the clock and display it depending on the settings.
     * @param container - #id of the element in which to insert the clock in.
