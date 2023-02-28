@@ -1,18 +1,7 @@
 import Settings from "./settings.js";
 
 class Clock extends Settings {
-    constructor() {
-        super();
-        this.startTime = null;
-        this.currentTime = 0;
-        this.timer = null;
-        this.timerapp = null;
-        this.timerappRunning = false;
-        this.timerDuration = 0;
-        this.timerRunning = false;
-        this.timersong = new Audio("timer_song.mp3");
 
-    }
     /*
     * Initialize the clock and display it depending on the settings.
     * @param container - #id of the element in which to insert the clock in.
@@ -28,12 +17,12 @@ class Clock extends Settings {
             {
                 feature: timeMContainer,
                 key: "minuteDisplay",
-                content: (this.getMinutes()) < 10 ? "0" + this.getMinutes() : this.getMinutes() + " m"
+                content: (this.getMinutes()) < 10 ? "0" + this.getMinutes() + " m" : this.getMinutes() + " m"
             },
             {
                 feature: timeSContainer,
                 key: "secondDisplay",
-                content: (this.getSeconds()) < 10 ? "0" + this.getSeconds() : this.getSeconds() + " s"
+                content: (this.getSeconds()) < 10 ? "0" + this.getSeconds() + " s" : this.getSeconds() + " s"
             }
         ];
 
@@ -79,10 +68,23 @@ class Clock extends Settings {
             second: "numeric",
         });
     }
-     updateClock(timeContainer, timeHContainer, timeMContainer, timeSContainer, timeContainerapp) {
-         this.initTime(timeContainer, timeHContainer, timeMContainer, timeSContainer);
-         this.initTimeapp(timeContainerapp);
-     }
+
+    updateClock(timeContainer, timeHContainer, timeMContainer, timeSContainer, timeContainerapp) {
+        this.initTime(timeContainer, timeHContainer, timeMContainer, timeSContainer);
+        this.initTimeapp(timeContainerapp);
+    }
+    constructor() {
+        super();
+        this.startTime = null;
+        this.currentTime = 0;
+        this.timer = null;
+        this.timerapp = null;
+        this.timerappRunning = false;
+        this.timerDuration = 0;
+        this.timerRunning = false;
+        this.timersong = new Audio("../assets/song/timer_song.mp3");
+
+    }
 
     startChrono(Vibration) {
         if (!this.timerRunning) {
@@ -165,7 +167,7 @@ class Clock extends Settings {
             }
         }
     }
-    startTimer(Vibration){
+    startTimer(Vibration) {
         if (!this.timerappRunning && this.timerDuration > 0) {
             this.timerapp = setInterval(() => {
                 this.timerDuration--;
@@ -182,6 +184,8 @@ class Clock extends Settings {
                 window.navigator.vibrate(100);
                 console.log("vibration");
             }
+
+            this.timerappRunning = true;
         }
     }
     stopTimer(Vibration) {
@@ -212,6 +216,10 @@ class Clock extends Settings {
         this.timerDuration = 0;
         this.isResume = true;
         this.updateTimerDisplay();
+
+        document.getElementById("hours").value = "";
+        document.getElementById("minutes").value = "";
+        document.getElementById("seconds").value = "";
     }
 }
 
