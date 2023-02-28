@@ -3,6 +3,7 @@ import Calendar from "./modules/calendar.js";
 import Clock from "./modules/clock.js";
 import Locking from "./modules/locking.js";
 import Settings from "./modules/settings.js";
+import Calculator from "./modules/calculator.js";
 
 // Load the current settings
 const settings = new Settings();
@@ -191,5 +192,67 @@ document.getElementById('lock-container').addEventListener('click', function () 
 document.getElementById('set-pwd').addEventListener('click', function () {
    locking.setPassword();
 });
+
+
+
+// CALCULATOR LISTENERS
+
+const previousOperandTextElement = document.querySelector('#previous-operand')
+const currentOperandTextElement = document.querySelector('#current-operand')
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+
+const numberButtons = document.querySelectorAll('[data-number]')
+const operationButtons = document.querySelectorAll('[data-operation]')
+const equalsButton = document.querySelector('#equals')
+const deleteButton = document.querySelector('#delete')
+const clearButton = document.querySelector('#clear')
+const decimalButton = document.querySelector('#decimal')
+const clearinter = document.querySelector('#clint')
+
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText)
+        calculator.updateDisplay()
+    })
+})
+
+operationButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.chooseOperation(button.innerText)
+        calculator.updateDisplay()
+    })
+})
+
+equalsButton.addEventListener('click', button => {
+    calculator.compute()
+    calculator.updateDisplay()
+})
+
+clearButton.addEventListener('click', button => {
+    calculator.clear()
+    calculator.updateDisplay()
+})
+clearinter.addEventListener('click', button => {
+    calculator.resetIntermediateResult()
+    calculator.updateDisplay()
+})
+
+deleteButton.addEventListener('click', button => {
+    calculator.delete()
+    calculator.updateDisplay()
+})
+
+decimalButton.addEventListener('click', button => {
+    calculator.appendNumber(button.innerText)
+    calculator.updateDisplay()
+})
+
+
+
+// /========== LISTENERS ========== 
+
+
+// TEST DRAGGABLE
 
 // /========== LISTENERS ==========

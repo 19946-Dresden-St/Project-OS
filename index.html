@@ -31,6 +31,43 @@
                 </div>
             </div>
 
+
+            <script>
+
+            function drag(event) {
+                // Set the data to be transferred during drag
+                event.dataTransfer.setData("text", event.target.id);
+            }
+            
+            // Add event listeners for the drop targets
+            var overlayDivs = document.querySelectorAll("#apps-row > div:nth-child(1)");
+            console.log(overlayDivs);
+            overlayDivs.forEach(function(div) {
+                // log the html element inside the div
+                console.log(1);
+
+                div.addEventListener("dragover", allowDrop);
+                div.addEventListener("drop", drop);
+            });
+            
+            function allowDrop(event) {
+                console.log("allowDrop");
+                // Prevent default behavior to allow drop
+                event.preventDefault();
+            }
+            
+            function drop(event) {
+                console.log("Drop");
+
+                // Prevent default behavior and get the dragged data
+                event.preventDefault();
+                var data = event.dataTransfer.getData("text");
+            
+                // Move the dragged element to the drop target
+                event.target.appendChild(document.getElementById(data));
+            }
+            </script>
+
             <header>
                 <div id="lock-container">
                     <div id="lock-logo">
@@ -63,69 +100,19 @@
                     <div id="clock-second"></div>
                 </div>
             </header>
-
-            <div class="apps-row">
-                <div>
-                    <div class="container">
-                        <a href="#app-settings">
-                            <div>
-                                <img src="./assets/icons/setting.png" alt="settings">
-                            </div>
-                            <div>
-                                <p>Settings</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <div class="container">
-                        <a href="">
-                            <div>
-                                <img src="./assets/icons/calculator.png" alt="calculator">
-                            </div>
-                            <div>
-                                <p>Calculator</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <div class="container">
-                        <a href="">
-                            <div>
-                                <img src="./assets/icons/tic-tac-toe.png" alt="toc tac toe">
-                            </div>
-                            <div>
-                                <p>Settings</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <div class="container">
-                        <a href="#app-clock">
-                            <div>
-                                <img src="./assets/icons/horlogadiscord.png" alt="clock">
-                            </div>
-                            <div>
-                                <p>Clock</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="app-clock" class="overlay">
-                <div class="popup">
-                    <div class="popup-header">
-                        <button id="clock-btn">Clock</button>
-                        <button id="chrono-btn">Chrono</button>
-                        <a class="close" href="#">&times;</a>
-                    </div>
-                    <div class="content">
-                        <div class="category-setting">
-                        <h3>Clock</h3>
-                            <div id="clock2"></div>
+            <!-- // ICONS -->
+                <div id="apps-row">
+            
+                    <div class="app-row-item">
+                        <div class="container" id="settings"  draggable="true" ondragstart="drag(event)">
+                            <a href="#app-settings">
+                                <div>
+                                    <img src="./assets/icons/setting.png" alt="settings">
+                                </div>
+                                <div>
+                                    <p>Settings</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div id="timer-btn"></div>
@@ -150,91 +137,210 @@
                             <h3><i class="fa-regular fa-calendar"></i>&nbsp;&nbsp;Date</h3>
                             <div>
                                 <div>
-                                    <label class="switch" for="displayDate">
-                                        <input class="switch-input" name="displayDate" id="displayDate" type="checkbox"/>
-                                        <span class="slider"></span>
-                                    </label> Display date
+                                    <img src="./assets/icons/calculator.png" alt="calculator">
                                 </div>
                                 <div>
-                                    <label class="switch" for="displayDay">
-                                        <input class="switch-input" name="displayDay" id="displayDay" type="checkbox"/>
-                                        <span class="slider"></span>
-                                    </label> Display day
+                                    <p>Calculator</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="app-row-item">
+                        <div class="container" draggable="true" ondragstart="drag(event)">
+                            <a href="">
+                                <div>
+                                    <img src="./assets/icons/tic-tac-toe.png" alt="toc tac toe">
                                 </div>
                                 <div>
-                                    <label class="switch" for="displayMonth">
-                                        <input class="switch-input" name="displayMonth" id="displayMonth" type="checkbox"/>
-                                        <span class="slider"></span>
-                                    </label> Display month
+                                    <p>Settings</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="app-row-item">
+                        <div class="container" draggable="true" ondragstart="drag(event)">
+                            <a href="#app-clock" >
+                                <div>
+                                    <img src="./assets/icons/horlogadiscord.png" alt="clock">
                                 </div>
                                 <div>
-                                    <label class="switch" for="displayYear">
-                                        <input class="switch-input" name="displayYear" id="displayYear" type="checkbox"/>
-                                        <span class="slider"></span>
-                                    </label> Display year
+                                    <p>Clock</p>
                                 </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <!-- // ICONS -->
+           <!-- OVERLAYS  -->
+
+                <div id="app-clock" class="overlay" >
+                    <div class="popup">
+                        <div class="popup-header">
+                            <button id="clock-btn">Clock</button>
+                            <button id="chrono-btn">Chrono</button>
+                            <a class="close" href="#">&times;</a>
+                        </div>
+                        <div class="content">
+                            <div class="category-setting">
+                            <h3>Clock</h3>
+                                <div id="clock2"></div>
                             </div>
                         </div>
-                        <div class="category-setting">
-                            <h3><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;Time</h3>
-                            <div>
+                    </div>
+                </div>
+
+
+
+                <div id="app-settings" class="overlay">
+                    <div class="popup">
+                        <div class="popup-header">
+                            <h2>Settings</h2>
+                            <a id="close" href="#">&times;</a>
+                        </div>
+                        <div class="content">
+                            <div class="category-setting">
+                                <h3><i class="fa-regular fa-calendar"></i>&nbsp;&nbsp;Date</h3>
                                 <div>
-                                    <label class="switch" for="displayTime">
-                                        <input class="switch-input" name="displayTime" id="displayTime" type="checkbox"/>
-                                        <span class="slider"></span>
-                                    </label> Display current time
-                                </div>
-                                <div>
-                                    <label class="switch" for="displayHour">
-                                        <input name="displayHour" id="displayHour" type="checkbox" checked="checked"/>
-                                        <span class="slider"></span>
-                                    </label> Display hours
-                                </div>
-                                <div>
-                                    <label class="switch" for="displayMin">
-                                        <input name="displayMin" id="displayMin" type="checkbox"/>
-                                        <span class="slider"></span>
-                                    </label> Display minutes
-                                </div>
-                                <div>
-                                    <label class="switch" for="displaySec">
-                                        <input name="displaySec" id="displaySec" type="checkbox"/>
-                                        <span class="slider"></span>
-                                    </label> Display seconds
+                                    <div>
+                                        <label class="switch" for="displayDate">
+                                            <input class="switch-input" name="displayDate" id="displayDate" type="checkbox"/>
+                                            <span class="slider"></span>
+                                        </label> Display date
+                                    </div>
+                                    <div>
+                                        <label class="switch" for="displayDay">
+                                            <input class="switch-input" name="displayDay" id="displayDay" type="checkbox"/>
+                                            <span class="slider"></span>
+                                        </label> Display day
+                                    </div>
+                                    <div>
+                                        <label class="switch" for="displayMonth">
+                                            <input class="switch-input" name="displayMonth" id="displayMonth" type="checkbox"/>
+                                            <span class="slider"></span>
+                                        </label> Display month
+                                    </div>
+                                    <div>
+                                        <label class="switch" for="displayYear">
+                                            <input class="switch-input" name="displayYear" id="displayYear" type="checkbox"/>
+                                            <span class="slider"></span>
+                                        </label> Display year
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="category-setting">
-                            <h3><i class="fa-solid fa-battery-three-quarters"></i>&nbsp;&nbsp;Battery</h3>
-                            <div>
+                            <div class="category-setting">
+                                <h3><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;Time</h3>
                                 <div>
-                                    <label class="switch" for="displayBattery">
-                                        <input class="switch-input" name="displayBattery" id="displayBattery" type="checkbox"/>
-                                        <span class="slider"></span>
-                                    </label> Display battery level
+                                    <div>
+                                        <label class="switch" for="displayTime">
+                                            <input class="switch-input" name="displayTime" id="displayTime" type="checkbox"/>
+                                            <span class="slider"></span>
+                                        </label> Display current time
+                                    </div>
+                                    <div>
+                                        <label class="switch" for="displayHour">
+                                            <input name="displayHour" id="displayHour" type="checkbox" checked="checked"/>
+                                            <span class="slider"></span>
+                                        </label> Hide hours
+                                    </div>
+                                    <div>
+                                        <label class="switch" for="displayMin">
+                                            <input name="displayMin" id="displayMin" type="checkbox"/>
+                                            <span class="slider"></span>
+                                        </label> Hide minutes
+                                    </div>
+                                    <div>
+                                        <label class="switch" for="displaySec">
+                                            <input name="displaySec" id="displaySec" type="checkbox"/>
+                                            <span class="slider"></span>
+                                        </label> Hide seconds
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="category-setting">
-                            <h3><i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Locking screen</h3>
-                            <div>
+                            <div class="category-setting">
+                                <h3><i class="fa-solid fa-battery-three-quarters"></i>&nbsp;&nbsp;Battery</h3>
                                 <div>
-                                    <label class="switch" for="setPassword">
-                                        <input class="switch-input" name="setPassword" id="setPassword" type="checkbox"/>
-                                        <span class="slider"></span>
-                                    </label> Lock screen with password
+                                    <div>
+                                        <label class="switch" for="displayBattery">
+                                            <input class="switch-input" name="displayBattery" id="displayBattery" type="checkbox"/>
+                                            <span class="slider"></span>
+                                        </label> Display battery
+                                    </div>
                                 </div>
-                                <div id="input-group-pwd">
-                                    <input type="password" id="password" placeholder="Password"/>
-                                    <input type="password" id="password-confirm" placeholder="Confirm password"/>
-                                    <p id="error"></p>
-                                    <button id="set-pwd">Set password</button>
+                            </div>
+                            <div class="category-setting">
+                                <h3><i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Locking screen</h3>
+                                <div>
+                                    <div>
+                                        <label class="switch" for="setPassword">
+                                            <input class="switch-input" name="setPassword" id="setPassword" type="checkbox"/>
+                                            <span class="slider"></span>
+                                        </label> Lock screen with password
+                                    </div>
+                                    <div id="input-group-pwd">
+                                        <input type="password" id="password" placeholder="Password"/>
+                                        <input type="password" id="password-confirm" placeholder="Confirm password"/>
+                                        <p id="error"></p>
+                                        <button id="set-pwd">Set password</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div id ="app-calculator" class="overlay">
+                    <div class="popup">
+                        <div class="popup-header">
+                            <h2>Calculator</h2>
+                            <a id="close" href="#">&times;</a>
+                        </div>
+                        <div class="content">
+                            <div id="calculator-modal" class="calculator">
+                                <div class="calculator-content">
+                                    <div id="calculator">
+                                        <div class="output">
+                                            <span id="previous-operand"></span>
+                                            <span id="current-operand"></span>
+                                        </div>
+                                        <div class="buttons">
+                                            <div class="row-btn">
+                                                <button id="clear">AC</button>
+                                                <button id="delete">DEL</button>
+                                                <button id="clint">CL INT</button>
+                                            </div>
+                                            <div class="row-btn">
+                                                <button id="seven" data-number>7</button>
+                                                <button id="eight" data-number>8</button>
+                                                <button id="nine" data-number>9</button>
+                                                <button id="divide" data-operation>÷</button>
+                                            </div>
+                                            <div class="row-btn">
+                                                <button id="four" data-number>4</button>
+                                                <button id="five" data-number>5</button>
+                                                <button id="six" data-number>6</button>
+                                                <button id="multiply" data-operation>*</button>
+                                            </div>
+                                            <div class="row-btn">
+                                                <button id="one" data-number>1</button>
+                                                <button id="two" data-number>2</button>
+                                                <button id="three" data-number>3</button>
+                                                <button id="subtract" data-operation>-</button>
+                                            </div>
+                                            <div class="row-btn">
+                                                <button id="zero" data-number>0</button>
+                                                <button id="decimal" data-number>.</button>
+                                                <button id="equal" data-operation>=</button>
+                                                <button id="add" data-operation>+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- // OVERLAYS  -->
 
         </main>
 
