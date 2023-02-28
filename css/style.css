@@ -130,6 +130,35 @@ header #clock2 div {
         .popup .content .category-setting #clock2 div {
           margin-right: 0.25rem; }
 
+#calculator .output {
+  padding: 0.75rem 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: "Digit", sans-serif;
+  text-align: right;
+  min-height: 2rem;
+  border-radius: 4px;
+  font-size: 1.75rem;
+  overflow-wrap: break-word; }
+
+#calculator .buttons > div:first-child button {
+  width: 32.6%;
+  transition: all .4s ease-in-out; }
+
+#calculator .buttons > div:not(:first-child) button {
+  width: 24.2%;
+  transition: all .4s ease-in-out; }
+
+#calculator .row-btn {
+  margin-bottom: 1rem; }
+  #calculator .row-btn button {
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 0;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 600;
+    cursor: pointer; }
+
 #set-pwd {
   margin-top: 1rem;
   width: fit-content;
@@ -388,6 +417,31 @@ header {
     box-shadow-left: 0;
     box-shadow-right: 0; }
 
+.dt #calculator .output {
+  background-color: #681998a1;
+  color: #10EBFFFF;
+  box-shadow: #681998 0px 2px 16px 0px, #10EBFFFF 0px 2px 4px 0px; }
+
+.dt #calculator .buttons > div:first-child button {
+  background-color: #681998a1;
+  color: #10EBFFFF; }
+  .dt #calculator .buttons > div:first-child button:hover {
+    background-color: #ADFFFCE0;
+    color: #681998; }
+
+.dt #calculator .buttons > div:not(:first-child) button {
+  background-color: #ADFFFCE0;
+  color: #681998; }
+  .dt #calculator .buttons > div:not(:first-child) button:hover {
+    background-color: #681998a1;
+    color: #10EBFFFF; }
+  .dt #calculator .buttons > div:not(:first-child) button:last-child {
+    background-color: #681998a1;
+    color: #10EBFFFF; }
+    .dt #calculator .buttons > div:not(:first-child) button:last-child:hover {
+      background-color: #ADFFFCE0;
+      color: #681998; }
+
 .dt .slider {
   box-shadow: 0 0 3px 3px #681998; }
   .dt .slider:before {
@@ -455,6 +509,28 @@ header {
     box-shadow-bottom: 0;
     box-shadow-left: 0;
     box-shadow-right: 0; }
+  .lt .popup #calculator .output {
+    background-color: #CEF1F3F4;
+    box-shadow: #681998 -1px 1px 4px 0px, #10EBFFFF 0px 0px 10px 0px;
+    color: #681998; }
+  .lt .popup #calculator .buttons > div:first-child button {
+    background-color: #cd57d4;
+    color: #ADFFFCE0; }
+    .lt .popup #calculator .buttons > div:first-child button:hover {
+      background-color: #B23BFF;
+      color: #10EBFFFF; }
+  .lt .popup #calculator .buttons > div:not(:first-child) button {
+    background-color: #ADFFFCE0;
+    color: #B23BFF; }
+    .lt .popup #calculator .buttons > div:not(:first-child) button:hover {
+      background-color: #10EBFFFF;
+      color: #681998; }
+    .lt .popup #calculator .buttons > div:not(:first-child) button:last-child {
+      background-color: #cd57d4;
+      color: #ADFFFCE0; }
+      .lt .popup #calculator .buttons > div:not(:first-child) button:last-child:hover {
+        background-color: #B23BFF;
+        color: #10EBFFFF; }
 
 .lt .slider {
   box-shadow: 0 0 3px 3px #2E1456B5; }
@@ -466,6 +542,10 @@ header {
 
 .lt .switch-input:checked + .slider {
   box-shadow: 0 0 4px 3px #c120ff, 0 0 4px #b23bff; }
+
+@font-face {
+  font-family: "Digit";
+  src: url("../assets/fonts/Digit.TTF") format("truetype"); }
 
 * {
   margin: 0;

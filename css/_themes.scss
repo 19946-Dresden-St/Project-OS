@@ -94,6 +94,57 @@
 
   }
 
+  #calculator {
+
+    .output {
+      background-color: $purple-transparent;
+      color: $cyan;
+      box-shadow: $dark-box-shadow-reverse;
+    }
+
+    .buttons {
+
+      > div:first-child {
+
+        button {
+          background-color: $purple-transparent;
+          color: $cyan;
+
+          &:hover {
+            background-color: $light-cyan;
+            color: $purple;
+          }
+
+        }
+
+      }
+
+      > div:not(:first-child) {
+        button {
+          background-color: $light-cyan;
+          color: $purple;
+
+          &:hover {
+            background-color: $purple-transparent;
+            color: $cyan;
+          }
+
+          &:last-child {
+            background-color: $purple-transparent;
+            color: $cyan;
+
+            &:hover {
+              background-color: $light-cyan;
+              color: $purple;
+            }
+
+          }
+        }
+      }
+    }
+
+  }
+
   .slider {
     box-shadow: 0 0 3px 3px $purple;
 
@@ -204,6 +255,57 @@
       box-shadow-bottom: 0;
       box-shadow-left: 0;
       box-shadow-right: 0;
+    }
+
+    #calculator {
+
+      .output {
+        background-color: $lighter-cyan-transparent;
+        box-shadow: $light-box-shadow;
+        color: $purple;
+      }
+
+      .buttons {
+
+        > div:first-child {
+
+          button {
+            background-color: $pinkish;
+            color: $light-cyan;
+
+            &:hover {
+              background-color: $light-purple;
+              color: $cyan;
+            }
+
+          }
+
+        }
+
+        > div:not(:first-child) {
+          button {
+            background-color: $light-cyan;
+            color: $light-purple;
+
+            &:hover {
+              background-color: $cyan;
+              color: $purple;
+            }
+
+            &:last-child {
+              background-color: $pinkish;
+              color: $light-cyan;
+
+              &:hover {
+                background-color: $light-purple;
+                color: $cyan;
+              }
+
+            }
+          }
+        }
+      }
+
     }
 
   }
