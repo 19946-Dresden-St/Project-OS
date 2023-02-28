@@ -68,9 +68,14 @@ class Clock extends Settings {
             second: "numeric",
         });
     }
+
+     updateClock(timeContainer, timeHContainer, timeMContainer, timeSContainer, timeContainerapp) {
+        this.initTime(timeContainer, timeHContainer, timeMContainer, timeSContainer);
+        this.initTimeapp(timeContainerapp);
+    }
     constructor() {
         super();
-        this.startTime = new Date().getTime();
+        this.startTime = null;
         this.currentTime = 0;
         this.timer = null;
         this.timerapp = null;
@@ -81,7 +86,7 @@ class Clock extends Settings {
 
     }
 
-    startChrono(VibrationTimer) {
+    startChrono(Vibration) {
         if (!this.timerRunning) {
 
             if (!this.startTime) {
@@ -101,7 +106,7 @@ class Clock extends Settings {
             }, 10);
 
 
-            if (VibrationTimer.checked) {
+            if (Vibration.checked) {
                 window.navigator.vibrate(100);
                 console.log("vibration");
             }
@@ -110,29 +115,24 @@ class Clock extends Settings {
         }
     }
 
-    stopChrono(VibrationTimer) {
+    stopChrono(Vibration) {
         if (this.timerRunning) {
             clearInterval(this.timer);
             this.timerRunning = false;
             this.startTime = null;
 
-            if (VibrationTimer.checked) {
+            if (Vibration.checked) {
                 window.navigator.vibrate(100);
                 console.log("vibration");
             }
         }
     }
 
-    resetChrono(VibrationTimer) {
-        this.stopChrono();
+    resetChrono(Vibration) {
+        this.stopChrono(Vibration);
         this.currentTime = 0;
         document.getElementById("chrono").innerHTML = "00:00:00";
 
-
-        if (VibrationTimer.checked) {
-            window.navigator.vibrate(100);
-            console.log("vibration");
-        }
     }
 
 
@@ -167,20 +167,20 @@ class Clock extends Settings {
             }
         }
     }
-    startTimer(VibrationTimer) {
+    startTimer(Vibration) {
         if (!this.timerappRunning && this.timerDuration > 0) {
             this.timerapp = setInterval(() => {
                 this.timerDuration--;
                 this.updateTimerDisplay();
 
                 if (this.timerDuration <= 0) {
-                    this.stopTimer();
+                    this.stopTimer(Vibration);
                     this.timersong.play();
 
                 }
             }, 1000);
 
-            if (VibrationTimer.checked) {
+            if (Vibration.checked) {
                 window.navigator.vibrate(100);
                 console.log("vibration");
             }
@@ -188,30 +188,30 @@ class Clock extends Settings {
             this.timerappRunning = true;
         }
     }
-    stopTimer(VibrationTimer) {
+    stopTimer(Vibration) {
         if (this.timerappRunning) {
             clearInterval(this.timerapp);
             this.timerappRunning = false;
             this.timeRemaining = this.timerDuration;
 
 
-            if (VibrationTimer.checked) {
+            if (Vibration.checked) {
                 window.navigator.vibrate(100);
                 console.log("vibration");
             }
         }
     }
-    resumeTimer(VibrationTimer) {
+    resumeTimer(Vibration) {
         if (!this.timerappRunning) {
             if (!this.timerappRunning && this.timeRemaining > 0) {
                 this.timerDuration = this.timeRemaining;
                 this.updateTimerDisplay();
-                this.startTimer(VibrationTimer);
+                this.startTimer(Vibration);
             }
         }
     }
-    resetTimer(VibrationTimer) {
-        this.stopTimer(VibrationTimer);
+    resetTimer(Vibration) {
+        this.stopTimer(Vibration);
         this.timeRemaining = 0;
         this.timerDuration = 0;
         this.isResume = true;

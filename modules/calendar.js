@@ -53,6 +53,10 @@ class Calendar extends Settings{
             year: "numeric",
         });
     }
+
+    updateCalendar(containerDate, containerDay, containerMonth, containerYear) {
+        this.initDate(containerDate, containerDay, containerMonth, containerYear);
+    }
 }
 
 export default Calendar;
