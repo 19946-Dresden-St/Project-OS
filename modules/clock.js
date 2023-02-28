@@ -159,6 +159,13 @@ class Clock extends Settings {
             (hours < 10 ? "0" + hours : hours) + ":" +
             (minutes < 10 ? "0" + minutes : minutes) + ":" +
             (seconds < 10 ? "0" + seconds : seconds);
+
+        if (!this.isResume) {
+            ///this proke notif if timer is over
+            if (this.timerDuration <= 0) {
+                new Notification("Timer is over");
+            }
+        }
     }
     startTimer(VibrationTimer) {
         if (!this.timerappRunning && this.timerDuration > 0) {
@@ -207,6 +214,7 @@ class Clock extends Settings {
         this.stopTimer(VibrationTimer);
         this.timeRemaining = 0;
         this.timerDuration = 0;
+        this.isResume = true;
         this.updateTimerDisplay();
     }
 }

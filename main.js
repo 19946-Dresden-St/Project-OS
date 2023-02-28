@@ -8,6 +8,10 @@ import Settings from "./modules/settings.js";
 const settings = new Settings();
 settings.load();
 
+if (Notification.permission !== "granted") {
+    Notification.requestPermission();
+}
+
 // ========== LOCKING SCREEN INITIALIZATION ==========
 
 let screen = document.getElementById('lock-screen');
