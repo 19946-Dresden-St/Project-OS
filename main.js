@@ -57,7 +57,7 @@ let chronoContainer = document.getElementById("chrono-container");
 let clockContainer = document.getElementById("clock-container");
 let timeContainerapp = document.getElementById('clock2');
 let timerContainer = document.getElementById("timer-container");
-clock.initTimeapp(timeContainerapp,clockContainer, timerContainer);
+clock.initTimeapp(timeContainerapp);
 
 
 //Update clocks every second
