@@ -77,38 +77,62 @@ class Clock extends Settings {
         this.timerappRunning = false;
         this.timerDuration = 0;
         this.timerRunning = false;
+        this.timersong = new Audio("timer_song.mp3");
+
     }
 
-    startChrono() {
-        if (!this.startTime) {
-            this.startTime = new Date().getTime() - this.currentTime;
+    startChrono(VibrationTimer) {
+        if (!this.timerRunning) {
+
+            if (!this.startTime) {
+                this.startTime = new Date().getTime() - this.currentTime;
+            }
+            this.timer = setInterval(() => {
+                this.currentTime = new Date().getTime() - this.startTime;
+                let minutes = Math.floor((this.currentTime % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((this.currentTime % (1000 * 60)) / 1000);
+                let milliseconds = Math.floor((this.currentTime % 1000) / 10);
+
+                document.getElementById("chrono").innerHTML =
+                    (minutes < 10 ? "0" + minutes : minutes) + ":" +
+                    (seconds < 10 ? "0" + seconds : seconds) + ":" +
+                    (milliseconds < 10 ? "0" + milliseconds : milliseconds);
+
+            }, 10);
+
+
+            if (VibrationTimer.checked) {
+                window.navigator.vibrate(100);
+                console.log("vibration");
+            }
+
+            this.timerRunning = true;
         }
-        this.timer = setInterval(() => {
-            this.currentTime = new Date().getTime() - this.startTime;
-            let minutes = Math.floor((this.currentTime % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((this.currentTime % (1000 * 60)) / 1000);
-            let milliseconds = Math.floor((this.currentTime % 1000) / 10);
-
-            document.getElementById("chrono").innerHTML =
-                (minutes < 10 ? "0" + minutes : minutes) + ":" +
-                (seconds < 10 ? "0" + seconds : seconds) + ":" +
-                (milliseconds < 10 ? "0" + milliseconds : milliseconds);
-        }, 10);
-        this.timerRunning = true;
     }
 
-    stopChrono() {
+    stopChrono(VibrationTimer) {
         if (this.timerRunning) {
             clearInterval(this.timer);
             this.timerRunning = false;
             this.startTime = null;
+
+            if (VibrationTimer.checked) {
+                window.navigator.vibrate(100);
+                console.log("vibration");
+            }
         }
     }
 
-    resetChrono() {
+    resetChrono(VibrationTimer) {
         this.stopChrono();
         this.currentTime = 0;
         document.getElementById("chrono").innerHTML = "00:00:00";
+
+
+        if (VibrationTimer.checked) {
+            window.navigator.vibrate(100);
+            console.log("vibration");
+        }
     }
 
 
@@ -122,8 +146,7 @@ class Clock extends Settings {
 
         this.updateTimerDisplay();
     }
-    //timer specificity
-    timersong = new Audio("timer_song.mp3");
+    //Son de la minuterie
 
     // Mise à jour de l'affichage de la minuterie
     updateTimerDisplay() {
@@ -137,8 +160,8 @@ class Clock extends Settings {
             (minutes < 10 ? "0" + minutes : minutes) + ":" +
             (seconds < 10 ? "0" + seconds : seconds);
     }
-    startTimer() {
-        if (!this.timerappRunning) {
+    startTimer(VibrationTimer) {
+        if (!this.timerappRunning && this.timerDuration > 0) {
             this.timerapp = setInterval(() => {
                 this.timerDuration--;
                 this.updateTimerDisplay();
@@ -149,17 +172,40 @@ class Clock extends Settings {
 
                 }
             }, 1000);
+
+            if (VibrationTimer.checked) {
+                window.navigator.vibrate(100);
+                console.log("vibration");
+            }
+
             this.timerappRunning = true;
         }
     }
-    stopTimer() {
+    stopTimer(VibrationTimer) {
         if (this.timerappRunning) {
-            clearInterval(this.timer);
+            clearInterval(this.timerapp);
             this.timerappRunning = false;
+            this.timeRemaining = this.timerDuration;
+
+
+            if (VibrationTimer.checked) {
+                window.navigator.vibrate(100);
+                console.log("vibration");
+            }
         }
     }
-    resetTimer() {
-        this.stopTimer();
+    resumeTimer(VibrationTimer) {
+        if (!this.timerappRunning) {
+            if (!this.timerappRunning && this.timeRemaining > 0) {
+                this.timerDuration = this.timeRemaining;
+                this.updateTimerDisplay();
+                this.startTimer(VibrationTimer);
+            }
+        }
+    }
+    resetTimer(VibrationTimer) {
+        this.stopTimer(VibrationTimer);
+        this.timeRemaining = 0;
         this.timerDuration = 0;
         this.updateTimerDisplay();
     }

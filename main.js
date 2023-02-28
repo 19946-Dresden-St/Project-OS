@@ -57,7 +57,7 @@ let chronoContainer = document.getElementById("chrono-container");
 let clockContainer = document.getElementById("clock-container");
 let timeContainerapp = document.getElementById('clock2');
 let timerContainer = document.getElementById("timer-container");
-clock.initTimeapp(timeContainerapp,clockContainer, chronoContainer, timerContainer);
+clock.initTimeapp(timeContainerapp,clockContainer, timerContainer);
 
 
 //Update clocks every second
@@ -76,12 +76,13 @@ let startButton = document.getElementById("start");
 let stopButton = document.getElementById("stop");
 let resetButton = document.getElementById("reset");
 
+//Specifique timer
 let timerButton = document.getElementById("timer-btn");
 let startTimerButton = document.getElementById("start-timer");
+let resumeTimerButton = document.getElementById("resume-timer");
 let stopTimerButton = document.getElementById("stop-timer");
-
-//Specifique timer
 let resetTimerButton = document.getElementById("reset-timer");
+let VibrationTimer = document.getElementById("vibration-timer");
 
 //Click event listeners to the clock, chrono and timer buttons
 clockButton.addEventListener("click", function() {
@@ -104,23 +105,26 @@ timerButton.addEventListener("click", function() {
 
 
 //Click event listeners to the clock and chrono buttons
-startButton.addEventListener("click", clock.startChrono);
-console.log(clock.startChrono);
-stopButton.addEventListener("click", clock.stopChrono);
-resetButton.addEventListener("click", clock.resetChrono);
+startButton.addEventListener("click", () => clock.startChrono(VibrationTimer));
+stopButton.addEventListener("click", () => clock.stopChrono(VibrationTimer));
+resetButton.addEventListener("click", () => clock.resetChrono(VibrationTimer));
 
 //Click event listeners to the timer buttons
 startTimerButton.addEventListener("click", () => {
     clock.initTimer();
-    clock.startTimer();
+    clock.startTimer(VibrationTimer);
 });
 
 stopTimerButton.addEventListener("click", () => {
-    clock.stopTimer();
+    clock.stopTimer(VibrationTimer);
+});
+
+resumeTimerButton.addEventListener("click", () => {
+    clock.resumeTimer(VibrationTimer);
 });
 
 resetTimerButton.addEventListener("click", () => {
-    clock.resetTimer();
+    clock.resetTimer(VibrationTimer);
 });
 
 // /========== CLOCK & CHRONO INITIALIZATION ==========
