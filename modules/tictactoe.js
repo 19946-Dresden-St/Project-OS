@@ -141,6 +141,7 @@ class TicTacToe{
             event.target.textContent = joueurEnCours === 1 ? "X" : "O";
             event.target.classList.add(`joueur${joueurEnCours}`);
             
+            localStorage.getItem("vibration") == true && console.log("vibrate");
 
             localStorage.getItem("vibration") == true && console.log("vibrate");
             if ("vibrate" in navigator && localStorage.getItem("vibration") == true) {
@@ -160,7 +161,6 @@ class TicTacToe{
     resetGame() {
         // Reset game state
         this.resetState();
-        console.log(this.state);
         // Remove all CSS classes from case elements
         this.cases.forEach((el) => {
           el.classList.remove("joueur1");
@@ -168,16 +168,11 @@ class TicTacToe{
           el.textContent = "";
 
         });
-        console.log(this.cases);
       
         // Update the UI to reflect the reset state
         this.score1.innerHTML = this.state.scoreJ1;
         this.score2.innerHTML = this.state.scoreJ2;
         this.scoreNul.innerHTML = this.state.matchNul;
-
-        console.log(this.score1);
-        console.log(this.score2);
-        console.log(this.scoreNul);
     }
 }
 
