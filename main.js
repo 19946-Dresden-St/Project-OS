@@ -5,10 +5,18 @@ import Locking from "./modules/locking.js";
 import Settings from "./modules/settings.js";
 import Calculator from "./modules/calculator.js";
 import TicTacToe from "./modules/tictactoe.js";
+import Latency from "./modules/latency.js";
+
+
+
 
 // Load the current settings
 const settings = new Settings();
 settings.load();
+
+if (Notification.permission !== "granted") {
+    Notification.requestPermission();
+}
 
 // ========== LOCKING SCREEN INITIALIZATION ==========
 
@@ -37,20 +45,20 @@ setInterval(() => calendar.updateCalendar, 1000);
 
 // Initialize clocks with current time
 let timeContainer = document.getElementById('clock');
-let timeContainerapp = document.getElementById('clock2');
 let timeHContainer = document.getElementById('clock-hour');
 let timeMContainer = document.getElementById('clock-minute');
 let timeSContainer = document.getElementById('clock-second');
 let clock = new Clock();
 
 clock.initTime(timeContainer,  timeHContainer, timeMContainer, timeSContainer);
-clock.initTimeapp(timeContainerapp);
 
 //Initialize the clock app
 let chronoContainer = document.getElementById("chrono-container");
 let clockContainer = document.getElementById("clock-container");
+let timeContainerapp = document.getElementById('clock2');
 let timerContainer = document.getElementById("timer-container");
 clock.initTimeapp(timeContainerapp);
+
 
 
 //Update clocks every second
@@ -64,6 +72,8 @@ let chronoButton = document.getElementById("chrono-btn");
 let startButton = document.getElementById("start");
 let stopButton = document.getElementById("stop");
 let resetButton = document.getElementById("reset");
+let flagButton = document.getElementById("flag");
+
 
 //Specifique timer
 let timerButton = document.getElementById("timer-btn");
@@ -97,6 +107,7 @@ timerButton.addEventListener("click", function() {
 startButton.addEventListener("click", () => clock.startChrono(Vibration));
 stopButton.addEventListener("click", () => clock.stopChrono(Vibration));
 resetButton.addEventListener("click", () => clock.resetChrono(Vibration));
+flagButton.addEventListener("click", () => {clock.flagTime(); clock.displayTimes(Vibration);});
 
 //Click event listeners to the timer buttons
 startTimerButton.addEventListener("click", () => {
@@ -117,25 +128,6 @@ resetTimerButton.addEventListener("click", () => {
 });
 
 
-//Click event listeners to the clock and chrono buttons
-startButton.addEventListener("click", clock.startChrono);
-console.log(clock.startChrono);
-stopButton.addEventListener("click", clock.stopChrono);
-resetButton.addEventListener("click", clock.resetChrono);
-
-//Click event listeners to the timer buttons
-startTimerButton.addEventListener("click", () => {
-    clock.initTimer();
-    clock.startTimer();
-});
-
-stopTimerButton.addEventListener("click", () => {
-    clock.stopTimer();
-});
-
-resetTimerButton.addEventListener("click", () => {
-    clock.resetTimer();
-});
 
 // /========== CLOCK & CHRONO INITIALIZATION ==========
 
@@ -156,6 +148,17 @@ var tictactoe = new TicTacToe()
 // /=========  TIC TAC TOE ==========
 
 
+// ========== LATENCY INITIALIZATION ==========
+
+// Initialize latency
+const networkLatencyElement = document.getElementById("latencyContainer");
+const showLatencyCheckbox = document.getElementById("displayLatency");
+const serverAddressInput = document.getElementById("serverAddress");
+const refreshRateInput = document.getElementById("refreshRate");
+const latency = new Latency();
+latency.setupLatency(showLatencyCheckbox, serverAddressInput, refreshRateInput, networkLatencyElement);
+
+// /========= LATENCY INITIALIZATION ==========
 
 
 // ========== LISTENERS ==========
@@ -189,7 +192,11 @@ let settingsButtons = [
     {id: 'displayMin', setting: 'minuteDisplay', container: timeMContainer},
     {id: 'displaySec', setting: 'secondDisplay', container: timeSContainer},
 
-    {id: 'displayBattery', setting: 'batteryDisplay', container: batteryContainer}
+    {id: 'displayBattery', setting: 'batteryDisplay', container: batteryContainer},
+
+    {id: 'displayLatency', setting: 'latencyDisplay', container: networkLatencyElement},
+
+
 ];
 
 settingsButtons.forEach(function (button) {

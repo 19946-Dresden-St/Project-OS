@@ -85,6 +85,11 @@
             </label>
         </div>
         <div></div>
+        <div id="latencyContainer">
+            <i class="fas fa-wifi"></i>
+            <span id="latency">-- ms</span>
+        </div>
+        &nbsp;&nbsp;&nbsp;
         <div id="battery-container">
             <div id="battery">
                 <div id="power"></div>
@@ -104,8 +109,11 @@
             </div>
         </div>
     </header>
-    <canvas id="fireworks"></canvas>
-
+    <div id="silent-container">
+        <div id="silent-logo">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+    </div>
     <div class="apps-row">
         <div>
             <div class="container" id="settings" draggable="true" ondragstart="drag(event)">
@@ -178,6 +186,9 @@
                         <button id="start">Start</button>
                         <button id="stop">Stop</button>
                         <button id="reset">Reset</button>
+                        <button id="flag">Mémoriser</button>
+                        <ul id="times"></ul>
+
                     </div>
                     <div id="timer-container" style="display:none;">
                         <div id="timer">00:00:00</div>
@@ -302,6 +313,23 @@
                             <input type="password" id="password-confirm" placeholder="Confirm password"/>
                             <p id="error"></p>
                             <button id="set-pwd">Set password</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-setting">
+                    <h3><i class="fa-solid fa-wifi"></i>&nbsp;&nbsp;Network Latency</h3>
+                    <div>
+                        <div>
+                            <label class="switch" for="displayLatency">
+                                <input class="switch-input" name= "displayLatency" id="displayLatency" type="checkbox" />
+                                <span class="slider"></span>
+                            </label> Show latency
+                        </div>
+                        <div class="div-latency">
+                             <label> Server address: <input type="text" id="serverAddress" value="https://www.youtube.com"> </label>
+                        </div>
+                        <div class="div-latency">
+                            <label> Refresh rate (in seconds): <input type="number" id="refreshRate" value="5" min="1" max="60"> </label>
                         </div>
                     </div>
                 </div>
