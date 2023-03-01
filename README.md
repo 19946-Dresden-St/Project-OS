@@ -12,7 +12,7 @@ Synth.OS is a JavaScript school project that aims to bring the experience of usi
 
 ```npx jest``` to run unit tests.
 
-```dockerfile compose up --build``` to run the project in a Docker container.
+```docker compose up --build``` to run the project in a Docker container.
 
 Go to ```localhost:3000``` to access the project.
 
