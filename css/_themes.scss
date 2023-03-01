@@ -145,6 +145,30 @@
 
   }
 
+  #app-tictactoe {
+
+    #score {
+      color: $light-cyan;
+      text-shadow: $cyan-text-shadow;
+    }
+
+    #resetTTT {
+      background-color: $cyan;
+      color: $dark-purple;
+
+      &:hover {
+        text-shadow: $purple-text-shadow;
+      }
+    }
+
+    .case {
+      border: 1px solid $cyan;
+      color: $cyan;
+      text-shadow: $cyan-text-shadow;
+    }
+
+  }
+
   .slider {
     box-shadow: 0 0 3px 3px $purple;
 
@@ -309,6 +333,35 @@
     }
 
   }
+
+  #app-tictactoe {
+
+    #score {
+      color: $dark-purple;
+      text-shadow: $purple-text-shadow;
+
+      p:first-child {
+        color: $pinkish;
+      }
+    }
+
+    #resetTTT {
+      background-color: $dark-purple;
+      color: $cyan;
+
+      &:hover {
+        text-shadow: $cyan-text-shadow
+      }
+    }
+
+    .case {
+      border: 1px solid $purple;
+      color: $pinkish;
+      text-shadow: $purple-text-shadow;
+    }
+
+  }
+
 
   .slider {
       box-shadow: 0 0 3px 3px $dark-purple-transparent;

@@ -98,3 +98,123 @@
 
     }
 }
+
+
+#app-tictactoe {
+
+    font-family: "Montserrat Alternates", sans-serif;
+
+    .popup {
+        margin-top: 6%;
+        height: 70%;
+
+        @media screen and (max-width: 550px) {
+            margin-top: 16%;
+            height: 80%;
+        }
+
+        .tictac-content {
+            align-items: center;
+            margin: 2rem;
+            height: 100%;
+
+            @media screen and (max-width: 550px) {
+               height: 100%;
+            }
+
+            #score {
+                width: 100%;
+                margin-top: 1rem;
+
+                p:first-child {
+                    text-align: center;
+                    padding-bottom: 0.5rem;
+                    font-weight: 600;
+                }
+
+                p:not(:first-child) {
+                    padding: 0.25rem 0;
+                }
+            }
+
+            #resetTTT {
+                transition: all .4s ease-in-out;
+                border: none;
+                border-radius: 4px;
+                padding: 0.5rem 0.75rem;
+                font-family: "Montserrat Alternates", sans-serif;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 1rem;
+            }
+
+            #grid {
+                display: grid;
+                grid-template-columns: 4rem 4rem 4rem;
+                grid-template-rows: 4rem 4rem 4rem;
+                margin: 1rem auto;
+            }
+
+            .tictac--board{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .case {
+                border-radius: 5px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 3rem;
+            }
+
+        }
+
+    }
+
+}
+
+
+
+/* DRAGNDROP CSS */
+/* .apps-row1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  position: absolute;
+  bottom: 40%;
+}
+.apps-row2 {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 60%;
+  flex-direction: row;
+}
+
+.apps-row1 .container {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.apps-row2s .container {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.apps-row1 .container img {
+  max-width: 72%;
+  max-height: 72%;
+  margin-left: 14%;
+}
+.apps-row2s .container img {
+  max-width: 72%;
+  max-height: 72%;
+  margin-left: 14%;
+} */
+
+
+/* DRAGNDROP CSS */
