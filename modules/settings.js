@@ -20,6 +20,8 @@ class Settings {
             {settingName: 'batteryDisplay', switchId: 'displayBattery'},
             {settingName: 'isPasswordSet', switchId: 'setPassword'},
 
+            {settingName: 'latencyDisplay', switchId: 'displayLatency'},
+
         ];
 
         for (let i = 0; i < settings.length - 1; i++) {

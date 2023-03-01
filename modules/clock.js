@@ -141,7 +141,7 @@ class Clock extends Settings {
             this.times.push(this.currentTime);
         }
     }
-    displayTimes() {
+    displayTimes(Vibration) {
         const timesElement = document.getElementById("times");
         timesElement.innerHTML = "";
         for (let i = 0; i < this.times.length; i++) {
@@ -157,6 +157,11 @@ class Clock extends Settings {
             const li = document.createElement("li");
             li.textContent = timeString;
             timesElement.appendChild(li);
+        }
+
+        if (Vibration.checked) {
+            window.navigator.vibrate(100);
+            console.log("vibration");
         }
     }
 

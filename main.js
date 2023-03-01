@@ -143,12 +143,12 @@ battery.initBattery(batteryContainer);
 // ========== LATENCY INITIALIZATION ==========
 
 // Initialize latency
-const networkLatencyElement = document.getElementById("network-latency");
-const showLatencyCheckbox = document.getElementById("show-latency");
-const serverAddressInput = document.getElementById("server-address");
-const refreshRateInput = document.getElementById("refresh-rate");
+const networkLatencyElement = document.getElementById("latencyContainer");
+const showLatencyCheckbox = document.getElementById("displayLatency");
+const serverAddressInput = document.getElementById("serverAddress");
+const refreshRateInput = document.getElementById("refreshRate");
 const latency = new Latency();
-//latency.setupLatency(showLatencyCheckbox, serverAddressInput, refreshRateInput, networkLatencyElement);
+latency.setupLatency(showLatencyCheckbox, serverAddressInput, refreshRateInput, networkLatencyElement);
 
 // /========= LATENCY INITIALIZATION ==========
 
@@ -169,7 +169,7 @@ let settingsButtons = [
 
     {id: 'displayBattery', setting: 'batteryDisplay', container: batteryContainer},
 
-    //{id: 'displayLatency', setting: 'latencyDisplay', container: networkLatencyElement},
+    {id: 'displayLatency', setting: 'latencyDisplay', container: networkLatencyElement},
 
 
 ];
