@@ -4,7 +4,7 @@ class TicTacToe{
         this.score2 = document.getElementById("score2");
         this.scoreNul = document.getElementById("scoreNul");
         this.actualPlayer = document.getElementById("actualPlayer");
-        this.cases = [...document.getElementsByClassName("case")]; // nodelist -> array
+        this.cases = [...document.getElementsByClassName("case")]; 
         
         
     
@@ -50,6 +50,7 @@ class TicTacToe{
         this.score1.innerHTML = winP1 || 0;
         this.score2.innerHTML = winP2 || 0;
         this.scoreNul.innerHTML = tie || 0;
+
     }
     
     resetState() {
@@ -93,7 +94,6 @@ class TicTacToe{
             this.state.c7 > 0)
         )    
         {
-            // If any winning condition is met, update the scores and reset the state
             if (this.state.joueurEnCours === 1) {
                 this.state.scoreJ1++;
                 localStorage.setItem("winP1", this.state.scoreJ1);
@@ -110,7 +110,6 @@ class TicTacToe{
             this.resetState();
             return true;
         } else if (
-            // Check if all cases are played but no winning condition is met
             this.state.c1 !== 0 &&
             this.state.c2 !== 0 &&
             this.state.c3 !== 0 &&
@@ -121,7 +120,6 @@ class TicTacToe{
             this.state.c8 !== 0 &&
             this.state.c9 !== 0
         ) {
-            // If all cases are played and no winning condition is met, update the scores and reset the state
             this.state.matchNul++;
             localStorage.setItem("tie", this.state.matchNul);
             this.scoreNul.innerHTML = this.state.matchNul;
@@ -137,16 +135,13 @@ class TicTacToe{
     jouerCase(event) {
         const caseId = event.target.getAttribute("id");
     
-        // Play case only if it is not already played
         if (this.state[caseId] === 0) {
             const joueurEnCours = this.state.joueurEnCours;
             this.state[caseId] = joueurEnCours;
             event.target.textContent = joueurEnCours === 1 ? "X" : "O";
 
             this.actualPlayer.innerHTML = joueurEnCours === 1 ? 2 : 1;            
-            
-            event.target.classList.add(`joueur${joueurEnCours}`);
-            
+                        
             localStorage.getItem("vibration") == true && console.log("vibrate");
 
             localStorage.getItem("vibration") == true && console.log("vibrate");
@@ -158,7 +153,6 @@ class TicTacToe{
             const gameWon = this.verifierVictoire();
     
             if (!gameWon) {
-                // Switch player turn
                 this.state.joueurEnCours = joueurEnCours === 1 ? 2 : 1;
             } 
         }
@@ -169,13 +163,11 @@ class TicTacToe{
         this.resetState();
         // Remove all CSS classes from case elements
         this.cases.forEach((el) => {
-          el.classList.remove("joueur1");
-          el.classList.remove("joueur2");
+
           el.textContent = "";
 
         });
       
-        // Update the UI to reflect the reset state
         this.score1.innerHTML = this.state.scoreJ1;
         this.score2.innerHTML = this.state.scoreJ2;
         this.scoreNul.innerHTML = this.state.matchNul

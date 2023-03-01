@@ -1,11 +1,19 @@
 FROM node:latest
 
+RUN mkdir -p /app
+ENV PORT 3000
+
 WORKDIR /app
 
-COPY . .
+COPY . /app
 
-RUN npm install && npm run build
+RUN npm install
 
-EXPOSE 8081
 
-CMD ["http-server", "-p", "8081", "-a", "0.0.0.0", "dist"] && tail -f /dev/null
+EXPOSE 3000
+
+# RUN npm test and check if the tests are passing
+
+RUN npm run test
+
+ENTRYPOINT ["npx", "http-server","./" ,"-p", "3000"]
