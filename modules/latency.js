@@ -22,6 +22,8 @@ class Latency extends Settings {
                 document.getElementById("latencyContainer").textContent = "Error";
                 this.pingTimeoutId = setTimeout(() => this.pingServer(), this.refreshRate);
             });
+        console.log(this.server);
+
     }
 
     setupLatency(showLatencyCheckbox, serverAddressInput, refreshRateInput, networkLatencyElement) {
@@ -66,6 +68,7 @@ class Latency extends Settings {
         });
 
         this.pingServer(serverAddressInput.value, refreshRateInput.valueAsNumber);
+
     }
 }
 
