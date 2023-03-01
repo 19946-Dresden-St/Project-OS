@@ -10,7 +10,7 @@ class Clock extends Settings {
         this.timerappRunning = false;
         this.timerDuration = 0;
         this.timerRunning = false;
-        this.timersong = new Audio("timer_song.mp3");
+        //this.timersong = new Audio("timer_song.mp3"); A remettre
 
     }
     /*

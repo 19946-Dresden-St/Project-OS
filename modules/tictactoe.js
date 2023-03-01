@@ -3,7 +3,10 @@ class TicTacToe{
         this.score1 = document.getElementById("score1");
         this.score2 = document.getElementById("score2");
         this.scoreNul = document.getElementById("scoreNul");
+        this.actualPlayer = document.getElementById("actualPlayer");
         this.cases = [...document.getElementsByClassName("case")]; // nodelist -> array
+        
+        
     
         // initialize state
         this.state = {
@@ -35,12 +38,14 @@ class TicTacToe{
         this.cases.forEach((el) => {
             el.addEventListener("click", this.jouerCase);
         });
+        
     }
     
     load() {
         let winP1 = localStorage.getItem("winP1");
         let winP2 = localStorage.getItem("winP2");
         let tie = localStorage.getItem("tie");
+
     
         this.score1.innerHTML = winP1 || 0;
         this.score2.innerHTML = winP2 || 0;
@@ -137,8 +142,19 @@ class TicTacToe{
             const joueurEnCours = this.state.joueurEnCours;
             this.state[caseId] = joueurEnCours;
             event.target.textContent = joueurEnCours === 1 ? "X" : "O";
+
+            this.actualPlayer.innerHTML = joueurEnCours === 1 ? 2 : 1;            
+            
             event.target.classList.add(`joueur${joueurEnCours}`);
-    
+            
+            localStorage.getItem("vibration") == true && console.log("vibrate");
+
+            localStorage.getItem("vibration") == true && console.log("vibrate");
+            if ("vibrate" in navigator && localStorage.getItem("vibration") == true) {
+                navigator.vibrate(10);
+                console.log("vibrate");
+            }
+
             const gameWon = this.verifierVictoire();
     
             if (!gameWon) {
@@ -147,7 +163,25 @@ class TicTacToe{
             } 
         }
     }
-    
+
+    resetGame() {
+        // Reset game state
+        this.resetState();
+        // Remove all CSS classes from case elements
+        this.cases.forEach((el) => {
+          el.classList.remove("joueur1");
+          el.classList.remove("joueur2");
+          el.textContent = "";
+
+        });
+      
+        // Update the UI to reflect the reset state
+        this.score1.innerHTML = this.state.scoreJ1;
+        this.score2.innerHTML = this.state.scoreJ2;
+        this.scoreNul.innerHTML = this.state.matchNul
+        this.actualPlayer.innerHTML = this.state.joueurEnCours;
+        
+    }
 }
 
 export default TicTacToe;

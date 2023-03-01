@@ -151,7 +151,7 @@ battery.initBattery(batteryContainer);
 
 // ========= TIC TAC TOE ==========
 
-let tictactoe = new TicTacToe()
+var tictactoe = new TicTacToe()
 
 // /=========  TIC TAC TOE ==========
 
@@ -159,6 +159,23 @@ let tictactoe = new TicTacToe()
 
 
 // ========== LISTENERS ==========
+
+// onClick on button id resetTTT
+document.getElementById('resetTTT').addEventListener('click', function () {
+    console.log('reset');
+    tictactoe.resetGame();
+});
+
+// set the vibration on or off when page is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    localStorage.getItem('vibration') === 'true' ? document.getElementById('addVibration').checked = true : document.getElementById('addVibration').checked = false;
+});
+
+document.getElementById('addVibration').addEventListener('click', function () {
+    localStorage.getItem('vibration') === 'true' ? localStorage.setItem('vibration', 'false') : localStorage.setItem('vibration', 'true');
+});
+
+
 
 // Listen to the click event on the settings buttons to hide / display features
 let settingsButtons = [

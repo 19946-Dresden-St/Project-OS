@@ -104,6 +104,8 @@
             </div>
         </div>
     </header>
+    <canvas id="fireworks"></canvas>
+
     <div class="apps-row">
         <div>
             <div class="container" id="settings" draggable="true" ondragstart="drag(event)">
@@ -154,6 +156,7 @@
             </div>
         </div>
     </div>
+    
 
     <div id="app-clock" class="overlay">
         <div class="popup">
@@ -277,6 +280,12 @@
                                 <span class="slider"></span>
                             </label> Clock application
                         </div>
+                        <div>
+                            <label class="switch" for="addVibration">
+                                <input class="switch-input" name="addVibration" id="addVibration" type="checkbox"/>
+                                <span class="slider"></span> 
+                            </label> Tic Tac Toe application
+                        </div>
                     </div>
                 </div>
                 <div class="category-setting">
@@ -360,22 +369,27 @@
             </div>
             <div class="content tictac-content">
                 <div id="score" class="tictac">
-                    <p>C'est au tour de Joueur <span id="joueur">1</span></p>
+                    <p>C'est au tour de Joueur <span id="actualPlayer">1</span></p>
                     <p>Score Joueur 1 : <span id="score1"></span></p>
                     <p>Score Joueur 2 : <span id="score2"></span></p>
                     <p>Matchs nuls : <span id="scoreNul"></span></p>
+
+                    <br>
                 </div>
-                <div id="grid" class="tictac">
-                    <div id="c1" class="case"></div>
-                    <div id="c2" class="case"></div>
-                    <div id="c3" class="case"></div>
-                    <div id="c4" class="case"></div>
-                    <div id="c5" class="case"></div>
-                    <div id="c6" class="case"></div>
-                    <div id="c7" class="case"></div>
-                    <div id="c8" class="case"></div>
-                    <div id="c9" class="case"></div>
-                  </div>
+                <div class="tictac--board">
+                    <div><button id="resetTTT">Recommencer</button><br></div>
+                    <div id="grid" class="tictac">
+                        <div id="c1" class="case"></div>
+                        <div id="c2" class="case"></div>
+                        <div id="c3" class="case"></div>
+                        <div id="c4" class="case"></div>
+                        <div id="c5" class="case"></div>
+                        <div id="c6" class="case"></div>
+                        <div id="c7" class="case"></div>
+                        <div id="c8" class="case"></div>
+                        <div id="c9" class="case"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -384,6 +398,6 @@
 </main>
 
 </body>
-<script type="module" src="main.js"></script>
+<script src="dist/index.js"></script>
 
 </html>
