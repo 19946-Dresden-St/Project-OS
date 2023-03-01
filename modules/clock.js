@@ -1,18 +1,7 @@
 import Settings from "./settings.js";
 
 class Clock extends Settings {
-    constructor() {
-        super();
-        this.startTime = null;
-        this.currentTime = 0;
-        this.timer = null;
-        this.timerapp = null;
-        this.timerappRunning = false;
-        this.timerDuration = 0;
-        this.timerRunning = false;
-        this.timersong = new Audio("timer_song.mp3");
 
-    }
     /*
     * Initialize the clock and display it depending on the settings.
     * @param container - #id of the element in which to insert the clock in.
@@ -28,12 +17,12 @@ class Clock extends Settings {
             {
                 feature: timeMContainer,
                 key: "minuteDisplay",
-                content: (this.getMinutes()) < 10 ? "0" + this.getMinutes() : this.getMinutes() + " m"
+                content: (this.getMinutes()) < 10 ? "0" + this.getMinutes() + " m" : this.getMinutes() + " m"
             },
             {
                 feature: timeSContainer,
                 key: "secondDisplay",
-                content: (this.getSeconds()) < 10 ? "0" + this.getSeconds() : this.getSeconds() + " s"
+                content: (this.getSeconds()) < 10 ? "0" + this.getSeconds() + " s" : this.getSeconds() + " s"
             }
         ];
 
@@ -79,10 +68,25 @@ class Clock extends Settings {
             second: "numeric",
         });
     }
-     updateClock(timeContainer, timeHContainer, timeMContainer, timeSContainer, timeContainerapp) {
-         this.initTime(timeContainer, timeHContainer, timeMContainer, timeSContainer);
-         this.initTimeapp(timeContainerapp);
-     }
+
+    updateClock(timeContainer, timeHContainer, timeMContainer, timeSContainer, timeContainerapp) {
+        this.initTime(timeContainer, timeHContainer, timeMContainer, timeSContainer);
+        this.initTimeapp(timeContainerapp);
+    }
+    constructor() {
+        super();
+        this.startTime = null;
+        this.currentTime = 0;
+        this.timer = null;
+        this.timerapp = null;
+        this.timerappRunning = false;
+        this.timerDuration = 0;
+        this.timerRunning = false;
+        this.timersong = new Audio("../assets/song/timer_song.mp3");
+        this.times = [];
+
+
+    }
 
     startChrono(Vibration) {
         if (!this.timerRunning) {
@@ -132,6 +136,34 @@ class Clock extends Settings {
         document.getElementById("chrono").innerHTML = "00:00:00";
 
     }
+    flagTime() {
+        if (this.timerRunning) {
+            this.times.push(this.currentTime);
+        }
+    }
+    displayTimes(Vibration) {
+        const timesElement = document.getElementById("times");
+        timesElement.innerHTML = "";
+        for (let i = 0; i < this.times.length; i++) {
+            const time = this.times[i];
+            let minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((time % (1000 * 60)) / 1000);
+            let milliseconds = Math.floor((time % 1000) / 10);
+
+            const timeString = (minutes < 10 ? "0" + minutes : minutes) + ":" +
+                (seconds < 10 ? "0" + seconds : seconds) + ":" +
+                (milliseconds < 10 ? "0" + milliseconds : milliseconds);
+
+            const li = document.createElement("li");
+            li.textContent = timeString;
+            timesElement.appendChild(li);
+        }
+
+        if (Vibration.checked) {
+            window.navigator.vibrate(100);
+            console.log("vibration");
+        }
+    }
 
 
     // Initialise la minuterie
@@ -165,7 +197,7 @@ class Clock extends Settings {
             }
         }
     }
-    startTimer(Vibration){
+    startTimer(Vibration) {
         if (!this.timerappRunning && this.timerDuration > 0) {
             this.timerapp = setInterval(() => {
                 this.timerDuration--;
@@ -182,6 +214,8 @@ class Clock extends Settings {
                 window.navigator.vibrate(100);
                 console.log("vibration");
             }
+
+            this.timerappRunning = true;
         }
     }
     stopTimer(Vibration) {
@@ -212,6 +246,10 @@ class Clock extends Settings {
         this.timerDuration = 0;
         this.isResume = true;
         this.updateTimerDisplay();
+
+        document.getElementById("hours").value = "";
+        document.getElementById("minutes").value = "";
+        document.getElementById("seconds").value = "";
     }
 }
 
