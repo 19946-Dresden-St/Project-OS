@@ -10,6 +10,11 @@
     border-radius: 4px;
     font-size: 1.75rem;
     overflow-wrap: break-word;
+
+    @media screen and (max-width: 550px) {
+      font-size: 1.25rem;
+      min-height: 1.5rem;
+    }
   }
 
   .buttons {
@@ -17,6 +22,11 @@
       button {
         width: 32.6%;
         transition: all .4s ease-in-out;
+
+        @media screen and (max-width: 550px) {
+          width: 32.2%;
+        }
+
       }
     }
 
@@ -24,6 +34,11 @@
       button {
         width: 24.2%;
         transition: all .4s ease-in-out;
+
+
+        @media screen and (max-width: 550px) {
+          width: 23.8%;
+        }
       }
     }
   }

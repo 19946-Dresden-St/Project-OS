@@ -95,16 +95,17 @@
             </div>
             <div id="pole"></div>
         </div>
-        <div id="calendar">
-            <div id="calendar-month"></div>
-            <div id="calendar-day"></div>
-            <div id="calendar-year"></div>
-        </div>
-        <div></div>
-        <div id="clock">
-            <div id="clock-hour"></div>
-            <div id="clock-minute"></div>
-            <div id="clock-second"></div>
+        <div>
+            <div id="calendar">
+                <div id="calendar-month"></div>
+                <div id="calendar-day"></div>
+                <div id="calendar-year"></div>
+            </div>
+            <div id="clock">
+                <div id="clock-hour"></div>
+                <div id="clock-minute"></div>
+                <div id="clock-second"></div>
+            </div>
         </div>
     </header>
     <div class="apps-row">
@@ -136,10 +137,10 @@
             <div class="container">
                 <a href="">
                     <div>
-                        <img src="./assets/icons/tic-tac-toe.png" alt="toc tac toe">
+                        <img src="./assets/icons/tic-tac-orteil.png" alt="toc tac toe">
                     </div>
                     <div>
-                        <p>Settings</p>
+                        <p>TicTacToe</p>
                     </div>
                 </a>
             </div>
@@ -148,7 +149,7 @@
             <div class="container">
                 <a href="#app-clock">
                     <div>
-                        <img src="./assets/icons/horlogadiscord.png" alt="clock">
+                        <img src="./assets/icons/temps.png" alt="clock">
                     </div>
                     <div>
                         <p>Clock</p>
@@ -164,8 +165,8 @@
                 <button class="button" id="clock-btn">Clock</button>
                 <button class="button" id="chrono-btn">Chrono</button>
                 <button class="button" id="timer-btn">Timer</button>
-                <input type="checkbox" id="vibration">
-                <label for="vibration">Retour haptique</label>
+<!--                <input type="checkbox" id="vibration">
+                <label for="vibration">Retour haptique</label>-->
                 <a class="close" href="#">&times;</a>
             </div>
             <div class="content">
@@ -212,7 +213,7 @@
                             <label class="switch" for="displayDate">
                                 <input class="switch-input" name="displayDate" id="displayDate" type="checkbox"/>
                                 <span class="slider"></span>
-                            </label> Display date
+                            </label> Display current date
                         </div>
                         <div>
                             <label class="switch" for="displayDay">
@@ -245,21 +246,21 @@
                         </div>
                         <div>
                             <label class="switch" for="displayHour">
-                                <input name="displayHour" id="displayHour" type="checkbox" checked="checked"/>
+                                <input class="switch-input" name="displayHour" id="displayHour" type="checkbox"/>
                                 <span class="slider"></span>
-                            </label> Hide hours
+                            </label> Display hours
                         </div>
                         <div>
                             <label class="switch" for="displayMin">
-                                <input name="displayMin" id="displayMin" type="checkbox"/>
+                                <input class="switch-input" name="displayMin" id="displayMin" type="checkbox"/>
                                 <span class="slider"></span>
-                            </label> Hide minutes
+                            </label> Display minutes
                         </div>
                         <div>
                             <label class="switch" for="displaySec">
-                                <input name="displaySec" id="displaySec" type="checkbox"/>
+                                <input class="switch-input" name="displaySec" id="displaySec" type="checkbox"/>
                                 <span class="slider"></span>
-                            </label> Hide seconds
+                            </label> Display seconds
                         </div>
                     </div>
                 </div>
@@ -270,7 +271,18 @@
                             <label class="switch" for="displayBattery">
                                 <input class="switch-input" name="displayBattery" id="displayBattery" type="checkbox"/>
                                 <span class="slider"></span>
-                            </label> Display battery
+                            </label> Display battery level
+                        </div>
+                    </div>
+                </div>
+                <div class="category-setting">
+                    <h3><i class="fa-solid fa-bullseye"></i>&nbsp;&nbsp;Haptics</h3>
+                    <div>
+                        <div>
+                            <label class="switch" for="vibration">
+                                <input class="switch-input" name="vibration" id="vibration" type="checkbox"/>
+                                <span class="slider"></span>
+                            </label> Clock application
                         </div>
                     </div>
                 </div>

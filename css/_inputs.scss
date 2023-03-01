@@ -19,6 +19,10 @@
 
     &::placeholder {
       font-family: Montserrat Alternates, sans-serif;
+
+      @media screen and (max-width: 550px) {
+        font-size: 0.75rem;
+      }
     }
   }
 }
