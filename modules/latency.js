@@ -24,7 +24,7 @@ class Latency extends Settings {
             });
     }
 
-    setupLatency(showLatencyCheckbox, serverAddressInput, refreshRateInput) {
+    setupLatency(showLatencyCheckbox, serverAddressInput, refreshRateInput, networkLatencyElement) {
         showLatencyCheckbox.addEventListener("change", () => {
             if (showLatencyCheckbox.checked) {
                 networkLatencyElement.style.display = "flex";
