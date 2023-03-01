@@ -94,3 +94,30 @@ header {
     }
 
 }
+
+#silent-container {
+  margin-top: 6px;
+
+  #silent-logo {
+    margin-left: 0.75rem;
+    font-size: 12px;
+    width: 26px;
+    height: 26px;
+    line-height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: $dark-purple-transparent;
+    color: whitesmoke;
+    box-shadow: $light-box-shadow;
+    text-shadow: $cyan-text-shadow;
+    transition: .4s;
+
+    &:hover{
+      -ms-transform: rotate(10deg);
+      transform: rotate(10deg);
+      box-shadow: $dark-box-shadow-reverse;
+      cursor: pointer;
+    }
+
+  }
+}

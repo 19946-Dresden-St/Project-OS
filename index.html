@@ -109,6 +109,11 @@
             </div>
         </div>
     </header>
+    <div id="silent-container">
+        <div id="silent-logo">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+    </div>
     <div class="apps-row">
         <div>
             <div class="container" id="settings" draggable="true" ondragstart="drag(event)">
@@ -305,18 +310,18 @@
                     </div>
                 </div>
                 <div class="category-setting">
-                    <div class="content">
-                        <h2>Network Latency</h2>
+                    <h3><i class="fa-solid fa-wifi"></i>&nbsp;&nbsp;Network Latency</h3>
+                    <div>
                         <div>
                             <label class="switch" for="displayLatency">
-                                <input name= "displayLatency" id="displayLatency" type="checkbox" />
+                                <input class="switch-input" name= "displayLatency" id="displayLatency" type="checkbox" />
                                 <span class="slider"></span>
                             </label> Show latency
                         </div>
-                        <div>
+                        <div class="div-latency">
                              <label> Server address: <input type="text" id="serverAddress" value="https://www.youtube.com"> </label>
                         </div>
-                        <div>
+                        <div class="div-latency">
                             <label> Refresh rate (in seconds): <input type="number" id="refreshRate" value="5" min="1" max="60"> </label>
                         </div>
                     </div>
