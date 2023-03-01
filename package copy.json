@@ -1,0 +1,43 @@
+{
+  "name": "project-os",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js",
+    "test": "npx jest", 
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/19946-Dresden-St/Project-OS.git"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/19946-Dresden-St/Project-OS/issues"
+  },
+  "homepage": "https://github.com/19946-Dresden-St/Project-OS#readme",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "install": "^0.13.0",
+    "mocha": "^10.2.0",
+    "node-sass": "^8.0.0",
+    "npm": "^9.5.1",
+    "sass": "^1.57.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.2",
+    "jest": "^29.4.3",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}

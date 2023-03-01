@@ -6,6 +6,10 @@ class Settings {
     */
     load() {
 
+        if (localStorage.getItem('isPasswordSet') === null) {
+            localStorage.setItem('isPasswordSet', 'false');
+        }
+
         let settings = [
             {settingName: 'calendarDisplay', switchId: 'displayDate'},
             {settingName: 'dayDisplay', switchId: 'displayDay'},
