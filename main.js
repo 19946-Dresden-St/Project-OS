@@ -4,6 +4,10 @@ import Clock from "./modules/clock.js";
 import Locking from "./modules/locking.js";
 import Settings from "./modules/settings.js";
 import Calculator from "./modules/calculator.js";
+import Latency from "./modules/latency.js";
+
+
+
 
 // Load the current settings
 const settings = new Settings();
@@ -67,6 +71,8 @@ let chronoButton = document.getElementById("chrono-btn");
 let startButton = document.getElementById("start");
 let stopButton = document.getElementById("stop");
 let resetButton = document.getElementById("reset");
+let flagButton = document.getElementById("flag");
+
 
 //Specifique timer
 let timerButton = document.getElementById("timer-btn");
@@ -100,6 +106,7 @@ timerButton.addEventListener("click", function() {
 startButton.addEventListener("click", () => clock.startChrono(Vibration));
 stopButton.addEventListener("click", () => clock.stopChrono(Vibration));
 resetButton.addEventListener("click", () => clock.resetChrono(Vibration));
+flagButton.addEventListener("click", () => {clock.flagTime(); clock.displayTimes(Vibration);});
 
 //Click event listeners to the timer buttons
 startTimerButton.addEventListener("click", () => {
@@ -133,6 +140,18 @@ battery.initBattery(batteryContainer);
 
 // /========= BATTERY INITIALIZATION ==========
 
+// ========== LATENCY INITIALIZATION ==========
+
+// Initialize latency
+const networkLatencyElement = document.getElementById("network-latency");
+const showLatencyCheckbox = document.getElementById("show-latency");
+const serverAddressInput = document.getElementById("server-address");
+const refreshRateInput = document.getElementById("refresh-rate");
+const latency = new Latency();
+//latency.setupLatency(showLatencyCheckbox, serverAddressInput, refreshRateInput, networkLatencyElement);
+
+// /========= LATENCY INITIALIZATION ==========
+
 
 // ========== LISTENERS ==========
 
@@ -148,7 +167,11 @@ let settingsButtons = [
     {id: 'displayMin', setting: 'minuteDisplay', container: timeMContainer},
     {id: 'displaySec', setting: 'secondDisplay', container: timeSContainer},
 
-    {id: 'displayBattery', setting: 'batteryDisplay', container: batteryContainer}
+    {id: 'displayBattery', setting: 'batteryDisplay', container: batteryContainer},
+
+    //{id: 'displayLatency', setting: 'latencyDisplay', container: networkLatencyElement},
+
+
 ];
 
 settingsButtons.forEach(function (button) {

@@ -85,6 +85,10 @@
             </label>
         </div>
         <div></div>
+        <div id="network-latency">
+            <i class="fas fa-wifi"></i>
+            <span id="latency">-- ms</span>
+        </div>
         <div id="battery-container">
             <div id="battery">
                 <div id="power"></div>
@@ -174,6 +178,9 @@
                         <button id="start">Start</button>
                         <button id="stop">Stop</button>
                         <button id="reset">Reset</button>
+                        <button id="flag">Mémoriser</button>
+                        <ul id="times"></ul>
+
                     </div>
                     <div id="timer-container" style="display:none;">
                         <div id="timer">00:00:00</div>
@@ -281,6 +288,23 @@
                             <input type="password" id="password-confirm" placeholder="Confirm password"/>
                             <p id="error"></p>
                             <button id="set-pwd">Set password</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-setting">
+                    <div class="content">
+                        <h2>Network Latency</h2>
+                        <div>
+                            <label class="switch" for="show-latency">
+                                <input name= "show-latency" id="show-latency" type="checkbox" />
+                                <span class="slider"></span>
+                            </label> Show latency
+                        </div>
+                        <div>
+                             <label> Server address: <input type="text" id="server-address" value="https://www.google.com"> </label>
+                        </div>
+                        <div>
+                            <label> Refresh rate (in seconds): <input type="number" id="refresh-rate" value="5" min="1" max="60"> </label>
                         </div>
                     </div>
                 </div>

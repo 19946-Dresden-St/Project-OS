@@ -83,6 +83,8 @@ class Clock extends Settings {
         this.timerDuration = 0;
         this.timerRunning = false;
         this.timersong = new Audio("../assets/song/timer_song.mp3");
+        this.times = [];
+
 
     }
 
@@ -133,6 +135,29 @@ class Clock extends Settings {
         this.currentTime = 0;
         document.getElementById("chrono").innerHTML = "00:00:00";
 
+    }
+    flagTime() {
+        if (this.timerRunning) {
+            this.times.push(this.currentTime);
+        }
+    }
+    displayTimes() {
+        const timesElement = document.getElementById("times");
+        timesElement.innerHTML = "";
+        for (let i = 0; i < this.times.length; i++) {
+            const time = this.times[i];
+            let minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((time % (1000 * 60)) / 1000);
+            let milliseconds = Math.floor((time % 1000) / 10);
+
+            const timeString = (minutes < 10 ? "0" + minutes : minutes) + ":" +
+                (seconds < 10 ? "0" + seconds : seconds) + ":" +
+                (milliseconds < 10 ? "0" + milliseconds : milliseconds);
+
+            const li = document.createElement("li");
+            li.textContent = timeString;
+            timesElement.appendChild(li);
+        }
     }
 
 
