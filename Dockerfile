@@ -1,17 +1,11 @@
-# Utiliser une image Alpine
-FROM node:alpine
+FROM node:latest
 
-# Définir le répertoire de travail
 WORKDIR /app
 
-# Copier tous les fichiers de l'application dans le répertoire de travail
 COPY . .
 
-# Exécuter npm install
-RUN npm install
+RUN npm install && npm run build
 
-# Exposer le port 8090
-EXPOSE 8090
+EXPOSE 8081
 
-# Exécuter la commande npm run watch
-CMD ["npm", "run", "watch"]
+CMD ["http-server", "-p", "8081", "-a", "0.0.0.0", "dist"] && tail -f /dev/null
