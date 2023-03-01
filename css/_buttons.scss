@@ -9,4 +9,8 @@
   cursor: pointer;
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: 600;
+
+  @media screen and (max-width: 550px) {
+      font-size: 0.75rem;
+  }
 }
