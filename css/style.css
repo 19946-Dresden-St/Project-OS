@@ -397,8 +397,49 @@ header {
       font-weight: 600;
       cursor: pointer;
     }
+
+    /* DRAGNDROP CSS */
+    /* .apps-row1 {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      position: absolute;
+      bottom: 40%; 
+    }
+    .apps-row2 {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      bottom: 60%; 
+      flex-direction: row;
+    }
+
+    .apps-row1 .container {
+      width: 30%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .apps-row2s .container {
+      width: 30%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .apps-row1 .container img {
+      max-width: 72%;
+      max-height: 72%;
+      margin-left: 14%;
+    }
+    .apps-row2s .container img {
+      max-width: 72%;
+      max-height: 72%;
+      margin-left: 14%;
+    } */
+
+
+    /* DRAGNDROP CSS */
       
-    
+    /* TICTACTOE CSS */
     .tictac{
         color: #ADFFFCE0;
         text-shadow: 0 0 5px #10EBFFFF;         
